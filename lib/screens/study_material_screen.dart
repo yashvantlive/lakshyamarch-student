@@ -6,6 +6,8 @@ import '../providers/auth_provider.dart';
 import '../theme/app_theme.dart';
 import '../widgets/premium_widgets.dart';
 import 'study_hub/class_selection_screen.dart';
+import 'study_hub/subject_selection_screen.dart';
+import 'doubt_room_screen.dart';
 
 class StudyMaterialScreen extends StatefulWidget {
   const StudyMaterialScreen({super.key});
@@ -30,9 +32,9 @@ class _StudyMaterialScreenState extends State<StudyMaterialScreen> {
             _buildCenteredAppBar(auth.activeWingMode),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(horizontal: 20),
                 child: GridView.count(
-                  physics: const NeverScrollableScrollPhysics(),
+                  physics: NeverScrollableScrollPhysics(),
                   crossAxisCount: 2,
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
@@ -151,9 +153,37 @@ color: AppTheme.surface,
         child: InkWell(
           onTap: () {
             HapticFeedback.lightImpact();
+            final auth = context.read<AuthProvider>();
+            final student = auth.currentStudent;
+            
+            if (student == null) {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Student profile not found')));
+              return;
+            }
+
+            if (title == 'Doubt Room') {
+               Navigator.push(context, MaterialPageRoute(builder: (_) => const DoubtRoomScreen()));
+               return;
+            }
+
+            final isCoaching = auth.activeWingMode == 'coaching';
+            final cId = isCoaching ? student.coachingClassId : student.classId;
+            final cName = isCoaching ? student.coachingClass : student.className;
+            
+            if (cId == null || cId.isEmpty) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('No class assigned to you for this wing.')),
+              );
+              return;
+            }
+
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (c) => ClassSelectionScreen(type: type)),
+              MaterialPageRoute(builder: (c) => SubjectSelectionScreen(
+                classId: cId,
+                className: cName ?? 'Your Class',
+                materialType: type,
+              )),
             );
           },
           borderRadius: BorderRadius.circular(24),

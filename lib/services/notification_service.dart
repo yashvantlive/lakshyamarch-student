@@ -1,13 +1,19 @@
+import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:provider/provider.dart';
+import '../providers/auth_provider.dart';
 import '../screens/notice_feed_screen.dart';
 import '../screens/notifications_screen.dart';
+import '../screens/homework_history_screen.dart';
+import '../screens/tests_screen.dart';
 
 class NotificationService {
   static final FlutterLocalNotificationsPlugin _localNotifications = FlutterLocalNotificationsPlugin();
   static String? initialPayloadUrl;
+  static String? initialPayloadUserId;
   static bool hasInitialNotification = false;
 
   static Future<void> initialize(GlobalKey<NavigatorState> navigatorKey) async {
@@ -32,7 +38,14 @@ class NotificationService {
       await _localNotifications.initialize(
         settings: initSettings,
         onDidReceiveNotificationResponse: (NotificationResponse response) {
-          _navigateToNotifications(navigatorKey, url: response.payload);
+          if (response.payload != null) {
+            try {
+              final payloadData = jsonDecode(response.payload!);
+              processNotificationRoute(navigatorKey, url: payloadData['url'], targetUserId: payloadData['userId']);
+            } catch (_) {
+              processNotificationRoute(navigatorKey, url: response.payload);
+            }
+          }
         },
       );
 
@@ -50,17 +63,17 @@ class NotificationService {
 
       // Handle notification taps when app is in background but alive
       FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-        _navigateToNotifications(navigatorKey, url: message.data['url']?.toString());
+        processNotificationRoute(navigatorKey, url: message.data['url']?.toString(), targetUserId: message.data['userId']?.toString());
       });
 
       // Handle notification taps when app was completely closed/killed
-      FirebaseMessaging.instance.getInitialMessage().then((RemoteMessage? message) {
-        if (message != null) {
-          hasInitialNotification = true;
-          initialPayloadUrl = message.data['url']?.toString();
-          _tryNavigate(navigatorKey, url: initialPayloadUrl);
-        }
-      });
+      // Await it to prevent race conditions with main.dart's auth check
+      final initialMessage = await FirebaseMessaging.instance.getInitialMessage();
+      if (initialMessage != null) {
+        hasInitialNotification = true;
+        initialPayloadUrl = initialMessage.data['url']?.toString();
+        initialPayloadUserId = initialMessage.data['userId']?.toString();
+      }
 
       // 3. Foreground Notification Listener
       FirebaseMessaging.onMessage.listen((RemoteMessage message) {
@@ -82,7 +95,10 @@ class NotificationService {
                 priority: Priority.high,
               ),
             ),
-            payload: message.data['url']?.toString(),
+            payload: jsonEncode({
+              'url': message.data['url']?.toString(),
+              'userId': message.data['userId']?.toString()
+            }),
           );
         }
       });
@@ -93,12 +109,34 @@ class NotificationService {
     }
   }
 
-  static void _navigateToNotifications(GlobalKey<NavigatorState> navigatorKey, {String? url}) {
-    if (navigatorKey.currentState != null) {
+  static Future<void> processNotificationRoute(GlobalKey<NavigatorState> navigatorKey, {String? url, String? targetUserId}) async {
+    final context = navigatorKey.currentContext;
+    if (context == null) {
+      // If context is null, try again after a short delay
+      Future.delayed(const Duration(milliseconds: 100), () => processNotificationRoute(navigatorKey, url: url, targetUserId: targetUserId));
+      return;
+    }
+
+    if (targetUserId != null) {
+      final auth = Provider.of<AuthProvider>(context, listen: false);
+      if (auth.user != null && auth.user!['uid'] != targetUserId) {
+        debugPrint("FCM Auto-Switching to target user: $targetUserId");
+        await auth.switchAccount(targetUserId);
+        // Wait for UI to completely rebuild after account switch
+        await Future.delayed(const Duration(milliseconds: 400));
+      }
+    }
+
+    // Always pop back to the root navigator (Home) first to avoid stacking on top of random deep screens
+    navigatorKey.currentState?.popUntil((route) => route.isFirst);
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (navigatorKey.currentState == null) return;
+      
       navigatorKey.currentState!.push(
         MaterialPageRoute(builder: (_) => NotificationsScreen(highlightUrl: url)),
       );
-    }
+    });
   }
 
   static Future<void> setExternalUserId(String userId) async {
@@ -119,15 +157,5 @@ class NotificationService {
   static Future<String?> getFcmToken() async {
     if (kIsWeb) return null;
     return await FirebaseMessaging.instance.getToken();
-  }
-
-  static void _tryNavigate(GlobalKey<NavigatorState> key, {String? url}) {
-    if (key.currentState != null) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        key.currentState!.push(MaterialPageRoute(builder: (_) => NotificationsScreen(highlightUrl: url)));
-      });
-    } else {
-      Future.delayed(const Duration(milliseconds: 50), () => _tryNavigate(key, url: url));
-    }
   }
 }

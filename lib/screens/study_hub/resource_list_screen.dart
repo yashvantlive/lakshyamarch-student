@@ -97,19 +97,19 @@ class _ResourceListScreenState extends State<ResourceListScreen> {
 
   Widget _buildChapterCard(dynamic chapter) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 12),
+      margin: EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
 color: AppTheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: AppTheme.border.withOpacity(0.5)),
         boxShadow: [
-          BoxShadow(color: AppTheme.primary.withOpacity(0.04), blurRadius: 10, offset: const Offset(0, 4)),
+          BoxShadow(color: AppTheme.primary.withOpacity(0.04), blurRadius: 10, offset: Offset(0, 4)),
         ],
       ),
       child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+        contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
         leading: Container(
-          padding: const EdgeInsets.all(10),
+          padding: EdgeInsets.all(10),
           decoration: BoxDecoration(color: AppTheme.primary.withOpacity(0.08), shape: BoxShape.circle),
           child: Text(
             '${chapter['chapterNo']}',

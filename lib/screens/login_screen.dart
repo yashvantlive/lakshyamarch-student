@@ -5,7 +5,8 @@ import '../theme/app_theme.dart';
 import 'main_navigator.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  final bool isAddAccountMode;
+  const LoginScreen({super.key, this.isAddAccountMode = false});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -14,6 +15,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  bool _obscurePassword = true;
 
   void _handleLogin() async {
     final auth = context.read<AuthProvider>();
@@ -23,9 +25,13 @@ class _LoginScreenState extends State<LoginScreen> {
     );
 
     if (success && mounted) {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const MainNavigator()),
-      );
+      if (widget.isAddAccountMode) {
+        Navigator.of(context).pop();
+      } else {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (_) => const MainNavigator()),
+        );
+      }
     } else if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(auth.error ?? 'Login Failed'), backgroundColor: AppTheme.danger),
@@ -38,28 +44,39 @@ class _LoginScreenState extends State<LoginScreen> {
     final auth = context.watch<AuthProvider>();
 
     return Scaffold(
+      appBar: widget.isAddAccountMode
+          ? AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              iconTheme: IconThemeData(color: AppTheme.textBase),
+              title: const Text('Add Account', style: TextStyle(color: Colors.black)),
+            )
+          : null,
       body: Center(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(24.0),
+          padding: EdgeInsets.all(24.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // Logo placeholder
-              Container(
-                height: 100,
-                width: 100,
-                decoration: BoxDecoration(
-                  color: AppTheme.primary,
-                  borderRadius: BorderRadius.circular(20),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(
+                  'assets/images/lm-logo.webp',
+                  height: 100,
+                  width: 100,
+                  fit: BoxFit.cover,
                 ),
-                child: const Icon(Icons.school, size: 60, color: Colors.white),
               ),
-              const SizedBox(height: 24),
+              SizedBox(height: 24),
               Text(
-                'LakshyaMarch',
+                widget.isAddAccountMode ? 'Link another account' : 'LakshyaMarch',
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: AppTheme.primary),
               ),
-              Text('March ahead towards your dream', style: TextStyle(color: AppTheme.textMuted)),
+              Text(
+                widget.isAddAccountMode ? 'Switch seamlessly between profiles' : 'March ahead towards your dream', 
+                style: TextStyle(color: AppTheme.textMuted)
+              ),
               const SizedBox(height: 48),
               
               TextField(
@@ -73,33 +90,33 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 16),
               TextField(
                 controller: _passwordController,
-                obscureText: true,
+                obscureText: _obscurePassword,
                 decoration: InputDecoration(
                   labelText: 'Password',
                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                   prefixIcon: const Icon(Icons.lock_outline),
+                  suffixIcon: IconButton(
+                    icon: Icon(_obscurePassword ? Icons.visibility : Icons.visibility_off),
+                    onPressed: () {
+                      setState(() {
+                        _obscurePassword = !_obscurePassword;
+                      });
+                    },
+                  ),
                 ),
               ),
               const SizedBox(height: 32),
               
               auth.isLoading
                 ? const CircularProgressIndicator()
-                : ElevatedButton(
-                    onPressed: _handleLogin,
-                    child: const Text('Login'),
-                  ),
-              const SizedBox(height: 16),
-              TextButton(
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Contact your class teacher or admin to reset password.'),
-                      behavior: SnackBarBehavior.floating,
+                : SizedBox(
+                    width: double.infinity,
+                    height: 48,
+                    child: ElevatedButton(
+                      onPressed: _handleLogin,
+                      child: const Text('Login', style: TextStyle(fontSize: 16)),
                     ),
-                  );
-                },
-                child: Text('Forgot Password?', style: TextStyle(color: AppTheme.textMuted)),
-              ),
+                  ),
             ],
           ),
         ),

@@ -4,8 +4,8 @@ import 'package:http/http.dart' as http;
 import '../models/student.dart';
 
 class ApiService {
-  // 🌐 Local Development Server
-  static const String baseUrl = "http://192.168.29.25:3000";
+  // 🌐 Production Server
+  static const String baseUrl = "https://erp.lakshyamarch.com";
 
   static const int _maxRetries = 3;
   static const Duration _timeoutDuration = Duration(seconds: 15);

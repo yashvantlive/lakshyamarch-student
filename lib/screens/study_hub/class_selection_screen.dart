@@ -207,7 +207,7 @@ color: AppTheme.surface,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  padding: const EdgeInsets.all(12),
+                  padding: EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     color: AppTheme.primary.withOpacity(0.1),
                     shape: BoxShape.circle,

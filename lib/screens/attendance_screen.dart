@@ -193,12 +193,12 @@ color: AppTheme.surface,
 
   Widget _buildCalendarCard(List<dynamic> attendance, List<dynamic> holidays) {
     return Container(
-      padding: const EdgeInsets.all(24),
+      padding: EdgeInsets.all(24),
       decoration: BoxDecoration(
 color: AppTheme.surface,
         borderRadius: BorderRadius.circular(32),
         border: Border.all(color: AppTheme.border.withOpacity(0.4), width: 1.2),
-        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.02), blurRadius: 20, offset: const Offset(0, 10))],
+        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.02), blurRadius: 20, offset: Offset(0, 10))],
       ),
       child: Column(
         children: [
@@ -314,8 +314,8 @@ color: AppTheme.surface,
       context: context,
       backgroundColor: Colors.transparent,
       builder: (context) => Container(
-        padding: const EdgeInsets.all(32),
-        decoration: const BoxDecoration(
+        padding: EdgeInsets.all(32),
+        decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
         ),
@@ -330,12 +330,12 @@ color: AppTheme.surface,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(dateStr.toUpperCase(), style: TextStyle(fontSize: 10, fontWeight: FontWeight.w900, color: AppTheme.textMuted, letterSpacing: 1)),
-                    const SizedBox(height: 4),
+                    SizedBox(height: 4),
                     Text('Day Details', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900, color: AppTheme.textBase)),
                   ],
                 ),
                 Container(
-                  padding: const EdgeInsets.all(12),
+                  padding: EdgeInsets.all(12),
                   decoration: BoxDecoration(color: AppTheme.background, borderRadius: BorderRadius.circular(16)),
                   child: Icon(LucideIcons.calendarDays, color: AppTheme.primary.withOpacity(0.5), size: 24),
                 ),

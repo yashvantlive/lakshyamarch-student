@@ -39,11 +39,49 @@ class AcademicProvider extends ChangeNotifier {
   double? get totalFee => _totalFee;
   String? get feeRemarks => _feeRemarks;
 
+  void clear() {
+    _attendance = [];
+    _fees = [];
+    _tests = [];
+    _syllabus = [];
+    _homeworks = [];
+    _submissions = [];
+    _holidays = [];
+    _schedules = [];
+    _leaderboard = null;
+    _totalFee = null;
+    _feeRemarks = null;
+    _error = null;
+    notifyListeners();
+  }
+
   // Derived Stats
   double get attendanceRate {
     if (_attendance.isEmpty) return 0.0;
     int present = _attendance.where((a) => (a['status'] ?? '').toString().toLowerCase() == 'present').length;
     return (present / _attendance.length) * 100;
+  }
+
+  double get averageSchoolScore {
+    final scoredTests = _tests.where((t) => (t.wing == 'school') && t.status == 'published' && t.maxMarks > 0 && t.result != null).toList();
+    if (scoredTests.isEmpty) return 0.0;
+    
+    double totalPct = 0;
+    for (var test in scoredTests) {
+      totalPct += (test.result!.score / test.maxMarks) * 100;
+    }
+    return totalPct / scoredTests.length;
+  }
+
+  double get averageCoachingScore {
+    final scoredTests = _tests.where((t) => (t.wing == 'coaching') && t.status == 'published' && t.maxMarks > 0 && t.result != null).toList();
+    if (scoredTests.isEmpty) return 0.0;
+    
+    double totalPct = 0;
+    for (var test in scoredTests) {
+      totalPct += (test.result!.score / test.maxMarks) * 100;
+    }
+    return totalPct / scoredTests.length;
   }
 
   double get averageScore {
@@ -55,6 +93,14 @@ class AcademicProvider extends ChangeNotifier {
       totalPct += (test.result!.score / test.maxMarks) * 100;
     }
     return totalPct / scoredTests.length;
+  }
+
+  int get schoolTestsCount {
+    return _tests.where((t) => t.wing == 'school' && t.status == 'published' && t.result != null).length;
+  }
+
+  int get coachingTestsCount {
+    return _tests.where((t) => t.wing == 'coaching' && t.status == 'published' && t.result != null).length;
   }
 
   double get homeworkCompletion {

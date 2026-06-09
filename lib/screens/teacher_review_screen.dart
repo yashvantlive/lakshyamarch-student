@@ -23,18 +23,21 @@ class _TeacherReviewScreenState extends State<TeacherReviewScreen> {
   String? _error;
   List<dynamic> _teachers = [];
   List<dynamic> _history = [];
-  int _weekOffset = 0;
+  int _monthOffset = 0;
 
-  String _getWeekNumber(DateTime d) {
-    final firstDayOfYear = DateTime(d.year, 1, 1);
-    final dayOfYear = d.difference(firstDayOfYear).inDays;
-    final weekNum = ((dayOfYear - ((d.weekday - 1))) / 7).ceil() + 1;
-    return "${d.year}-W$weekNum";
+  String _getMonthString(DateTime d) {
+    return DateFormat('yyyy-MMM').format(d).toUpperCase();
   }
 
-  DateTime get _activeDate => DateTime.now().add(Duration(days: _weekOffset * 7));
-  String get _activeWeek => _getWeekNumber(_activeDate);
+  DateTime get _activeDate => DateTime(DateTime.now().year, DateTime.now().month + _monthOffset, 1);
+  String get _activeMonthDisplay => _getMonthString(_activeDate);
   String get _activeMonth => DateFormat('yyyy-MM').format(_activeDate);
+
+  bool get _canGoBack {
+    final prevDate = DateTime(DateTime.now().year, DateTime.now().month + _monthOffset - 1, 1);
+    final minDate = DateTime(2026, 3, 1); // March 2026
+    return !prevDate.isBefore(minDate);
+  }
 
   @override
   void initState() {
@@ -94,10 +97,10 @@ class _TeacherReviewScreenState extends State<TeacherReviewScreen> {
     return _history.any((h) {
       final hTid = h['teacherId']?.toString().trim();
       final tId = teacherId.trim();
-      final hWeek = h['reviewWeek']?.toString().trim();
-      final aWeek = _activeWeek.trim();
+      final hMonth = h['reviewMonth']?.toString().trim();
+      final aMonth = _activeMonthDisplay.trim();
 
-      return hTid == tId && hWeek == aWeek;
+      return hTid == tId && hMonth == aMonth;
     });
   }
 
@@ -122,7 +125,7 @@ class _TeacherReviewScreenState extends State<TeacherReviewScreen> {
         "rating": _rating,
         "feedback": _feedback,
         "reviewPeriod": _activeMonth,
-        "reviewWeek": _activeWeek,
+        "reviewMonth": _activeMonthDisplay,
       }, auth.token ?? "");
 
       if (response != null && !response.containsKey('error')) {
@@ -162,7 +165,7 @@ class _TeacherReviewScreenState extends State<TeacherReviewScreen> {
             AnimatedBrandHeader(wingMode: auth.activeWingMode),
             const SizedBox(height: 4),
             Text(
-              'Weekly Evaluation',
+              'Monthly Evaluation',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
@@ -224,24 +227,26 @@ color: AppTheme.surface,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          IconButton(
-            icon: const Icon(Icons.chevron_left, color: Colors.blue),
-            onPressed: () => setState(() {
-              _weekOffset--;
-              _selectedTeacherId = null;
-            }),
-          ),
+          _canGoBack
+              ? IconButton(
+                  icon: const Icon(Icons.chevron_left, color: Colors.blue),
+                  onPressed: () => setState(() {
+                    _monthOffset--;
+                    _selectedTeacherId = null;
+                  }),
+                )
+              : const SizedBox(width: 48),
           Column(
             children: [
-              Text("TARGET WEEK", style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: AppTheme.textMuted)),
-              Text(_activeWeek, style: const TextStyle(fontWeight: FontWeight.w900, color: Colors.blue, fontSize: 16)),
+              Text("TARGET MONTH", style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: AppTheme.textMuted)),
+              Text(_activeMonthDisplay, style: const TextStyle(fontWeight: FontWeight.w900, color: Colors.blue, fontSize: 16)),
             ],
           ),
-          _weekOffset < 0
+          _monthOffset < 0
             ? IconButton(
                 icon: const Icon(Icons.chevron_right, color: Colors.blue),
                 onPressed: () => setState(() {
-                  _weekOffset++;
+                  _monthOffset++;
                   _selectedTeacherId = null;
                 }),
               )
@@ -346,7 +351,7 @@ color: AppTheme.surface,
           const SizedBox(height: 24),
           TextField(
             decoration: InputDecoration(
-              hintText: "Detailed feedback for this week...",
+              hintText: "Detailed feedback for this month...",
               hintStyle: TextStyle(color: AppTheme.textMuted, fontSize: 14),
               filled: true,
               fillColor: AppTheme.background.withOpacity(0.5),
@@ -410,7 +415,7 @@ color: AppTheme.surface,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(item['reviewWeek'] ?? item['reviewPeriod'], style: TextStyle(color: AppTheme.textMuted, fontSize: 10, fontWeight: FontWeight.bold)),
+              Text(item['reviewMonth'] ?? item['reviewPeriod'], style: TextStyle(color: AppTheme.textMuted, fontSize: 10, fontWeight: FontWeight.bold)),
               Text(DateFormat('dd MMM yyyy').format(DateTime.fromMillisecondsSinceEpoch(item['createdAt'])), style: TextStyle(color: AppTheme.textMuted, fontSize: 10)),
             ],
           )

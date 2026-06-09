@@ -106,7 +106,7 @@ class _SupportScreenState extends State<SupportScreen> {
             AnimatedBrandHeader(wingMode: auth.activeWingMode),
             const SizedBox(height: 4),
             Text(
-              'Help & Complain',
+              'Suggestion & Complain',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,

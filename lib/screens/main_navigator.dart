@@ -6,7 +6,7 @@ import 'tests_screen.dart';
 import 'schedule_screen.dart';
 import 'profile_screen.dart';
 import 'notice_feed_screen.dart';
-import 'study_hub/class_selection_screen.dart';
+import 'study_hub/subject_selection_screen.dart';
 import '../providers/auth_provider.dart';
 import '../providers/academic_provider.dart';
 import '../providers/schedule_provider.dart';
@@ -66,12 +66,26 @@ class _MainNavigatorState extends State<MainNavigator> {
     }
   }
 
-  Widget _buildScreen(int index) {
+  Widget _buildScreen(int index, AuthProvider auth) {
+    if (index == 0) return const DashboardScreen(); // The new Isolated Hub
+    
+    final student = auth.currentStudent;
+    if (student == null) {
+      return const Scaffold(body: Center(child: Text('Student profile not found')));
+    }
+
+    final isCoaching = auth.activeWingMode == 'coaching';
+    final cId = isCoaching ? student.coachingClassId : student.classId;
+    final cName = isCoaching ? student.coachingClass : student.className;
+    
+    if (cId == null || cId.isEmpty) {
+      return const Scaffold(body: Center(child: Text('No class assigned to you for this wing.')));
+    }
+
     switch (index) {
-      case 0: return const DashboardScreen(); // The new Isolated Hub
-      case 1: return const ClassSelectionScreen(type: 'NCERT');
-      case 2: return const ClassSelectionScreen(type: 'DPP');
-      case 3: return const ClassSelectionScreen(type: 'Notes');
+      case 1: return SubjectSelectionScreen(classId: cId, className: cName ?? 'Your Class', materialType: 'NCERT');
+      case 2: return SubjectSelectionScreen(classId: cId, className: cName ?? 'Your Class', materialType: 'DPP');
+      case 3: return SubjectSelectionScreen(classId: cId, className: cName ?? 'Your Class', materialType: 'Notes');
       default: return const DashboardScreen();
     }
   }
@@ -94,7 +108,7 @@ class _MainNavigatorState extends State<MainNavigator> {
     return Scaffold(
       body: KeyedSubtree(
         key: ValueKey<int>(_currentIndex),
-        child: _buildScreen(_currentIndex),
+        child: _buildScreen(_currentIndex, auth),
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(

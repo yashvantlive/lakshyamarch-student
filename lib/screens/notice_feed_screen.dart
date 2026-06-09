@@ -9,7 +9,9 @@ import '../widgets/premium_widgets.dart';
 import 'notice_detail_screen.dart';
 
 class NoticeFeedScreen extends StatefulWidget {
-  const NoticeFeedScreen({super.key});
+  final bool forceRefresh;
+  final String? highlightNoticeId;
+  const NoticeFeedScreen({super.key, this.forceRefresh = false, this.highlightNoticeId});
 
   @override
   State<NoticeFeedScreen> createState() => _NoticeFeedScreenState();
@@ -40,6 +42,7 @@ class _NoticeFeedScreenState extends State<NoticeFeedScreen> with SingleTickerPr
           auth.currentStudent!.coachingClassId,
           auth.currentStudent!.wing,
           auth.token ?? '',
+          forceRefresh: widget.forceRefresh,
         );
       }
       _staggerController.forward();
@@ -89,6 +92,7 @@ class _NoticeFeedScreenState extends State<NoticeFeedScreen> with SingleTickerPr
                         auth.currentStudent!.coachingClassId,
                         auth.currentStudent!.wing,
                         auth.token ?? '',
+                        forceRefresh: true,
                       );
                       _staggerController.reset();
                       _staggerController.forward();
@@ -139,7 +143,7 @@ class _NoticeFeedScreenState extends State<NoticeFeedScreen> with SingleTickerPr
       child: Row(
         children: [
           _FAANGFilterChip(label: 'All Updates', isSelected: _selectedFilter == 'all', onTap: () => _updateFilter('all')),
-          _FAANGFilterChip(label: 'Homework', isSelected: _selectedFilter == 'homework', onTap: () => _updateFilter('homework')),
+          _FAANGFilterChip(label: 'Notices', isSelected: _selectedFilter == 'notice', onTap: () => _updateFilter('notice')),
           _FAANGFilterChip(label: 'Circulars', isSelected: _selectedFilter == 'circular', onTap: () => _updateFilter('circular')),
           _FAANGFilterChip(label: 'Events', isSelected: _selectedFilter == 'event', onTap: () => _updateFilter('event')),
         ],
@@ -165,7 +169,11 @@ class _NoticeFeedScreenState extends State<NoticeFeedScreen> with SingleTickerPr
         offset: Offset(0, 30 * (1 - animation.value)),
         child: Opacity(
           opacity: animation.value,
-          child: _NoticeCard(notice: notice, wingColor: wingColor),
+          child: _NoticeCard(
+            notice: notice, 
+            wingColor: wingColor,
+            isHighlighted: widget.highlightNoticeId != null && widget.highlightNoticeId == notice.id,
+          ),
         ),
       ),
     );
@@ -179,7 +187,7 @@ class _NoticeFeedScreenState extends State<NoticeFeedScreen> with SingleTickerPr
             constraints: BoxConstraints(minHeight: constraints.maxHeight > 0 ? constraints.maxHeight : 400),
             child: const EmptyStateWidget(
               title: 'No updates yet',
-              message: 'Any homework or circulars will appear here.',
+              message: 'Any circulars or events will appear here.',
               icon: LucideIcons.bookOpen,
             ),
           ),
@@ -234,20 +242,27 @@ class _FAANGFilterChip extends StatelessWidget {
 class _NoticeCard extends StatelessWidget {
   final Notice notice;
   final Color wingColor;
-  const _NoticeCard({required this.notice, required this.wingColor});
+  final bool isHighlighted;
+  const _NoticeCard({required this.notice, required this.wingColor, this.isHighlighted = false});
 
   @override
   Widget build(BuildContext context) {
-    final Color typeColor = notice.type == 'homework' ? const Color(0xFF3B82F6) : (notice.type == 'circular' ? const Color(0xFF10B981) : const Color(0xFFF59E0B));
-    final IconData typeIcon = notice.type == 'homework' ? LucideIcons.pencil : (notice.type == 'circular' ? LucideIcons.megaphone : LucideIcons.calendarDays);
+    final Color typeColor = notice.type == 'notice' ? const Color(0xFF3B82F6) : (notice.type == 'circular' ? const Color(0xFF10B981) : const Color(0xFFF59E0B));
+    final IconData typeIcon = notice.type == 'notice' ? LucideIcons.bell : (notice.type == 'circular' ? LucideIcons.megaphone : LucideIcons.calendarDays);
 
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
-color: AppTheme.surface,
+        color: isHighlighted ? typeColor.withOpacity(0.05) : AppTheme.surface,
         borderRadius: BorderRadius.circular(28),
-        border: Border.all(color: AppTheme.border.withOpacity(0.4), width: 1.2),
-        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.02), blurRadius: 20, offset: const Offset(0, 10))],
+        border: Border.all(color: isHighlighted ? typeColor : AppTheme.border.withOpacity(0.4), width: isHighlighted ? 2.0 : 1.2),
+        boxShadow: isHighlighted ? [BoxShadow(color: typeColor.withOpacity(0.2), blurRadius: 15, offset: const Offset(0, 8))] : [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.02),
+            blurRadius: 15,
+            offset: const Offset(0, 8),
+          ),
+        ],
       ),
       child: Material(
         color: Colors.transparent,

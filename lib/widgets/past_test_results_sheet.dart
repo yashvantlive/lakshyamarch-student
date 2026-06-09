@@ -65,7 +65,7 @@ class _PastTestResultsSheetState extends State<PastTestResultsSheet> {
       ),
       child: Column(
         children: [
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           // Handle bar
           Center(
             child: Container(
@@ -77,10 +77,10 @@ class _PastTestResultsSheetState extends State<PastTestResultsSheet> {
               ),
             ),
           ),
-          const SizedBox(height: 24),
+          SizedBox(height: 24),
           
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
+            padding: EdgeInsets.symmetric(horizontal: 24),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -96,7 +96,7 @@ class _PastTestResultsSheetState extends State<PastTestResultsSheet> {
                         letterSpacing: -0.5,
                       ),
                     ),
-                    const SizedBox(height: 4),
+                    SizedBox(height: 4),
                     Text(
                       'Full Class Leaderboard',
                       style: TextStyle(
@@ -108,7 +108,7 @@ class _PastTestResultsSheetState extends State<PastTestResultsSheet> {
                   ],
                 ),
                 Container(
-                  padding: const EdgeInsets.all(12),
+                  padding: EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     color: AppTheme.primary.withOpacity(0.1),
                     shape: BoxShape.circle,
@@ -144,8 +144,8 @@ class _PastTestResultsSheetState extends State<PastTestResultsSheet> {
                               final bool isMe = res['studentId'] == currentStudentId;
                               
                               return Container(
-                                margin: const EdgeInsets.only(bottom: 12),
-                                padding: const EdgeInsets.all(16),
+                                margin: EdgeInsets.only(bottom: 12),
+                                padding: EdgeInsets.all(16),
                                 decoration: BoxDecoration(
                                   color: isMe ? AppTheme.primary.withOpacity(0.05) : AppTheme.surface,
                                   borderRadius: BorderRadius.circular(20),
@@ -173,13 +173,13 @@ class _PastTestResultsSheetState extends State<PastTestResultsSheet> {
                                         ),
                                       ),
                                     ),
-                                    const SizedBox(width: 16),
+                                    SizedBox(width: 16),
                                     Expanded(
                                       child: Column(
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            res['studentName'] ?? 'Unknown',
+                                            isMe ? (res['studentName'] ?? 'Unknown') : 'Student',
                                             style: TextStyle(
                                               fontWeight: isMe ? FontWeight.w900 : FontWeight.bold,
                                               fontSize: 15,
@@ -187,7 +187,7 @@ class _PastTestResultsSheetState extends State<PastTestResultsSheet> {
                                             ),
                                           ),
                                           if (isMe) ...[
-                                            const SizedBox(height: 2),
+                                            SizedBox(height: 2),
                                             Text(
                                               'This is you',
                                               style: TextStyle(
@@ -231,7 +231,7 @@ class _PastTestResultsSheetState extends State<PastTestResultsSheet> {
           ),
           
           Padding(
-            padding: const EdgeInsets.all(24),
+            padding: EdgeInsets.all(24),
             child: ElevatedButton(
               onPressed: () => Navigator.pop(context),
               style: ElevatedButton.styleFrom(

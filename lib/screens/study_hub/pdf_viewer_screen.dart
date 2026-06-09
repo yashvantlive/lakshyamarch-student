@@ -59,7 +59,7 @@ class _PDFViewerScreenState extends State<PDFViewerScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CircularProgressIndicator(color: AppTheme.primary, strokeWidth: 3),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Text(
               'Opening ${widget.title}...',
               style: TextStyle(

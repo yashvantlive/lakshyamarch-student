@@ -4,12 +4,15 @@ import 'package:google_fonts/google_fonts.dart';
 class AppTheme {
   static bool isDarkMode = false;
 
-  // Premium Indigo / Violet Palette
-  static const Color primary = Color(0xFF6366F1); // indigo-500
-  static const Color primaryLight = Color(0xFF818CF8);
-  static const Color primaryDark = Color(0xFF4338CA);
+  // Premium Maroon Palette (Official Brand Colors)
+  static const Color _primaryConst = Color(0xFF650D0B); // Maroon
+  static const Color _primaryLightConst = Color(0xFFEF5350); // Lighter Maroon for Dark Mode
+
+  static Color get primary => isDarkMode ? _primaryLightConst : _primaryConst;
+  static Color get primaryLight => isDarkMode ? const Color(0xFFEF9A9A) : const Color(0xFF8B1815);
+  static const Color primaryDark = Color(0xFF430504);
   
-  static const Color accent = Color(0xFF8B5CF6); // violet-500
+  static Color get accent => isDarkMode ? _primaryLightConst : const Color(0xFF8B1815);
   
   static const Color _lightBackground = Color(0xFFF8FAFC); // slate-50
   static const Color _lightSurface = Colors.white;
@@ -35,7 +38,7 @@ class AppTheme {
   static const Color danger = Color(0xFFEF4444); // red-500
 
   // Gradients
-  static const LinearGradient primaryGradient = LinearGradient(
+  static LinearGradient get primaryGradient => LinearGradient(
     colors: [primary, accent],
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
@@ -117,7 +120,7 @@ class AppTheme {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
-          borderSide: const BorderSide(color: primary, width: 2),
+          borderSide: BorderSide(color: primary, width: 2),
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       ),
@@ -184,7 +187,7 @@ class AppTheme {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
-          borderSide: const BorderSide(color: primary, width: 2),
+          borderSide: BorderSide(color: primary, width: 2),
         ),
         labelStyle: const TextStyle(color: darkTextMuted),
         hintStyle: const TextStyle(color: darkTextMuted),

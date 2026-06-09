@@ -49,15 +49,15 @@ class _HomeworkHistoryScreenState extends State<HomeworkHistoryScreen> {
               _buildCenteredAppBar(auth.activeWingMode),
               Expanded(
                 child: SingleChildScrollView(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
-                  physics: const AlwaysScrollableScrollPhysics(),
+                  padding: EdgeInsets.symmetric(horizontal: 24),
+                  physics: AlwaysScrollableScrollPhysics(),
                   child: Column(
                     children: [
                       // Day Navigation
                       FadeInAnimation(
                         delay: 100,
                         child: Container(
-                          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                          padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                           decoration: BoxDecoration(
 color: AppTheme.surface,
                             borderRadius: BorderRadius.circular(20),
@@ -67,7 +67,7 @@ color: AppTheme.surface,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               IconButton(
-                                onPressed: () => setState(() => _selectedDate = _selectedDate.subtract(const Duration(days: 1))),
+                                onPressed: () => setState(() => _selectedDate = _selectedDate.subtract(Duration(days: 1))),
                                 icon: Icon(LucideIcons.chevronLeft, size: 20, color: AppTheme.primary),
                               ),
                               Column(
@@ -77,7 +77,7 @@ color: AppTheme.surface,
                                 ],
                               ),
                               IconButton(
-                                onPressed: () => setState(() => _selectedDate = _selectedDate.add(const Duration(days: 1))),
+                                onPressed: () => setState(() => _selectedDate = _selectedDate.add(Duration(days: 1))),
                                 icon: Icon(LucideIcons.chevronRight, size: 20, color: AppTheme.primary),
                               ),
                             ],

@@ -38,7 +38,8 @@ class _PerformanceScreenState extends State<PerformanceScreen> with SingleTicker
     final academic = context.watch<AcademicProvider>();
     
     // Using real data from provider
-    final double testScore = academic.averageScore / 100;
+    final double schoolScore = academic.averageSchoolScore / 100;
+    final double coachingScore = academic.averageCoachingScore / 100;
     final double hwScore = academic.homeworkCompletion / 100;
     final double attScore = academic.attendanceRate / 100;
 
@@ -52,20 +53,28 @@ class _PerformanceScreenState extends State<PerformanceScreen> with SingleTicker
             _buildCenteredAppBar(auth.activeWingMode),
             Expanded(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                physics: const BouncingScrollPhysics(),
+                padding: EdgeInsets.symmetric(horizontal: 24),
+                physics: BouncingScrollPhysics(),
                 child: Column(
                   children: [
-                    _buildStaggered(0, _buildOverallCard(testScore, hwScore, attScore)),
-                    const SizedBox(height: 32),
+                    _buildStaggered(0, _buildOverallCard(schoolScore, coachingScore, hwScore, attScore)),
+                    SizedBox(height: 32),
                     _buildStaggered(1, _SectionHeader(title: 'Detailed Analytics', icon: LucideIcons.barChart3)),
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16),
                     _buildStaggered(2, _buildHorizontalBar(
-                      label: 'Test Performance',
-                      value: testScore,
+                      label: 'School Test Performance',
+                      value: schoolScore,
                       color: AppTheme.primary,
                       icon: LucideIcons.award,
-                      subtitle: academic.tests.isEmpty ? 'No tests recorded yet' : 'Average score across ${academic.tests.length} tests',
+                      subtitle: academic.schoolTestsCount == 0 ? 'No school tests recorded yet' : 'Average score across ${academic.schoolTestsCount} tests',
+                    )),
+                    const SizedBox(height: 16),
+                    _buildStaggered(2, _buildHorizontalBar(
+                      label: 'Coaching Test Performance',
+                      value: coachingScore,
+                      color: Colors.teal,
+                      icon: LucideIcons.award,
+                      subtitle: academic.coachingTestsCount == 0 ? 'No coaching tests recorded yet' : 'Average score across ${academic.coachingTestsCount} tests',
                     )),
                     const SizedBox(height: 16),
                     _buildStaggered(3, _buildHorizontalBar(
@@ -84,7 +93,7 @@ class _PerformanceScreenState extends State<PerformanceScreen> with SingleTicker
                       subtitle: academic.attendance.isEmpty ? 'No attendance records yet' : 'Records for ${academic.attendance.length} days',
                     )),
                     const SizedBox(height: 32),
-                    _buildStaggered(5, _buildInsightsCard(testScore, hwScore, attScore)),
+                    _buildStaggered(5, _buildInsightsCard(schoolScore, coachingScore, hwScore, attScore)),
                     const SizedBox(height: 40),
                   ],
                 ),
@@ -131,10 +140,10 @@ class _PerformanceScreenState extends State<PerformanceScreen> with SingleTicker
     );
   }
 
-  Widget _buildOverallCard(double t, double h, double a) {
-    final double overall = (t + h + a) / 3;
+  Widget _buildOverallCard(double st, double ct, double h, double a) {
+    final double overall = (st + ct + h + a) / 4;
     return Container(
-      padding: const EdgeInsets.all(32),
+      padding: EdgeInsets.all(32),
       decoration: BoxDecoration(
         gradient: AppTheme.primaryGradient,
         borderRadius: BorderRadius.circular(36),
@@ -326,17 +335,17 @@ color: AppTheme.surface,
     );
   }
 
-  Widget _buildInsightsCard(double t, double h, double a) {
+  Widget _buildInsightsCard(double st, double ct, double h, double a) {
     String insightText = "Welcome to your performance hub. Start attending classes and completing tests to see your insights!";
     
-    if (t > 0 || h > 0 || a > 0) {
+    if (st > 0 || ct > 0 || h > 0 || a > 0) {
       if (a < 0.75) {
         insightText = "Your attendance is below 75%. Try to be more consistent to ensure you don't miss important concepts.";
       } else if (h < 0.5) {
         insightText = "Focus on submitting your homework on time. It accounts for a major part of your learning journey.";
-      } else if (t < 0.6) {
+      } else if (st < 0.6 || ct < 0.6) {
         insightText = "Your test scores need improvement. Review the syllabus and focus on weaker subjects to boost your score.";
-      } else if (t > 0.8 && a > 0.9) {
+      } else if (st > 0.8 && ct > 0.8 && a > 0.9) {
         insightText = "Exceptional work! You are among the top performers. Keep maintaining this consistency.";
       } else {
         insightText = "You're doing well! Maintain your attendance and aim for higher scores in upcoming tests.";
@@ -344,7 +353,7 @@ color: AppTheme.surface,
     }
 
     return Container(
-      padding: const EdgeInsets.all(24),
+      padding: EdgeInsets.all(24),
       decoration: BoxDecoration(
         color: AppTheme.primary.withOpacity(0.03),
         borderRadius: BorderRadius.circular(32),

@@ -9,6 +9,8 @@ import '../theme/app_theme.dart';
 import '../widgets/premium_widgets.dart';
 import 'login_screen.dart';
 import 'fees_screen.dart';
+import 'change_password_screen.dart';
+import 'main_navigator.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -36,14 +38,15 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
     super.dispose();
   }
 
-  void _showProfileSwitcher(BuildContext context) {
+  void _showAccountSwitcher(BuildContext context) {
     final auth = context.read<AuthProvider>();
+    final academic = context.read<AcademicProvider>();
     final wingColor = AppTheme.getWingColor(auth.activeWingMode);
-    if (auth.allStudents.length <= 1) return;
 
     showModalBottomSheet(
       context: context,
       backgroundColor: AppTheme.surface,
+      isScrollControlled: true,
       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(32))),
       builder: (context) => Container(
         padding: const EdgeInsets.all(28),
@@ -51,23 +54,82 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Switch Account', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900, color: AppTheme.textBase, letterSpacing: -0.5)),
+            Text('Switch Profile', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900, color: AppTheme.textBase, letterSpacing: -0.5)),
             const SizedBox(height: 20),
-            ...auth.allStudents.map((s) => ListTile(
-              contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-              leading: CircleAvatar(
-                backgroundColor: auth.currentStudent?.id == s.id ? wingColor : AppTheme.background,
-                child: Icon(LucideIcons.user, color: auth.currentStudent?.id == s.id ? Colors.white : AppTheme.textMuted, size: 20),
-              ),
-              title: Text(s.name, style: TextStyle(fontWeight: FontWeight.w900, color: AppTheme.textBase, fontSize: 15)),
-              subtitle: Text('Class ${s.className} • Roll ${s.rollNo}', style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
-              trailing: auth.currentStudent?.id == s.id ? Icon(LucideIcons.checkCircle2, color: wingColor) : null,
+            
+            // Siblings
+            if (auth.allStudents.length > 1) ...[
+              Text('Linked Students', style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: AppTheme.textMuted)),
+              const SizedBox(height: 8),
+              ...auth.allStudents.map((s) => ListTile(
+                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                leading: CircleAvatar(
+                  backgroundColor: auth.currentStudent?.id == s.id ? wingColor : AppTheme.background,
+                  child: Icon(LucideIcons.user, color: auth.currentStudent?.id == s.id ? Colors.white : AppTheme.textMuted, size: 20),
+                ),
+                title: Text(s.name, style: TextStyle(fontWeight: FontWeight.w900, color: AppTheme.textBase, fontSize: 15)),
+                subtitle: Text('Class ${s.className} • Roll ${s.rollNo}', style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                trailing: auth.currentStudent?.id == s.id ? Icon(LucideIcons.checkCircle2, color: wingColor) : null,
+                onTap: () {
+                  HapticFeedback.mediumImpact();
+                  auth.switchStudent(s);
+                  Navigator.pop(context);
+                },
+              )).toList(),
+              const Divider(height: 24),
+            ],
+
+            // Saved Accounts
+            Text('Saved Accounts', style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: AppTheme.textMuted)),
+            const SizedBox(height: 8),
+            ...auth.savedAccounts.map((acc) {
+              final isCurrent = auth.user != null && acc['user']['uid'] == auth.user!['uid'];
+              return ListTile(
+                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                leading: CircleAvatar(
+                  backgroundColor: isCurrent ? wingColor.withOpacity(0.1) : AppTheme.background,
+                  child: Icon(LucideIcons.smartphone, color: isCurrent ? wingColor : AppTheme.textMuted, size: 20),
+                ),
+                title: Text(acc['user']['name'] ?? 'Account', style: TextStyle(fontWeight: FontWeight.w900, color: AppTheme.textBase, fontSize: 15)),
+                subtitle: Text(acc['user']['phone'] ?? 'Parent Account', style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                trailing: isCurrent ? Icon(LucideIcons.checkCircle2, color: wingColor) : null,
+                onTap: () async {
+                  HapticFeedback.mediumImpact();
+                  Navigator.pop(context);
+                  if (!isCurrent) {
+                    academic.clear();
+                    await auth.switchAccount(acc['user']['uid']);
+                  }
+                },
+              );
+            }).toList(),
+            
+            const SizedBox(height: 16),
+            
+            // Add Account Button
+            InkWell(
               onTap: () {
-                HapticFeedback.mediumImpact();
-                auth.switchStudent(s);
+                HapticFeedback.lightImpact();
                 Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const LoginScreen(isAddAccountMode: true)));
               },
-            )).toList(),
+              borderRadius: BorderRadius.circular(16),
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppTheme.border.withOpacity(0.5)),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(LucideIcons.plus, size: 18, color: AppTheme.primary),
+                    const SizedBox(width: 8),
+                    Text('Add another account', style: TextStyle(fontWeight: FontWeight.w900, color: AppTheme.primary, fontSize: 14)),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -138,6 +200,33 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                             },
                           ),
                         ],
+                      ),
+                      const Divider(height: 32),
+                      InkWell(
+                        onTap: () {
+                          HapticFeedback.lightImpact();
+                          Navigator.push(context, MaterialPageRoute(builder: (_) => const ChangePasswordScreen()));
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Icon(LucideIcons.shieldCheck, size: 18, color: wingColor),
+                                const SizedBox(width: 12),
+                                Text(
+                                  'Change Password',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color: AppTheme.textBase,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Icon(LucideIcons.chevronRight, size: 18, color: AppTheme.textMuted),
+                          ],
+                        ),
                       ),
                     ])),
                     const SizedBox(height: 32),
@@ -216,14 +305,13 @@ color: AppTheme.surface,
           decoration: BoxDecoration(shape: BoxShape.circle, gradient: wingGradient),
           child: CircleAvatar(radius: 44, backgroundColor: AppTheme.surface, child: Icon(LucideIcons.user, size: 40, color: wingColor)),
         ),
-        if (auth.allStudents.length > 1)
-          Positioned(
-            bottom: 0, right: 0,
-            child: GestureDetector(
-              onTap: () => _showProfileSwitcher(context),
-              child: Container(padding: const EdgeInsets.all(8), decoration: BoxDecoration(color: wingColor, shape: BoxShape.circle, border: Border.all(color: Colors.white, width: 2)), child: const Icon(LucideIcons.refreshCw, size: 14, color: Colors.white)),
-            ),
+        Positioned(
+          bottom: 0, right: 0,
+          child: GestureDetector(
+            onTap: () => _showAccountSwitcher(context),
+            child: Container(padding: const EdgeInsets.all(8), decoration: BoxDecoration(color: wingColor, shape: BoxShape.circle, border: Border.all(color: Colors.white, width: 2)), child: const Icon(LucideIcons.refreshCw, size: 14, color: Colors.white)),
           ),
+        ),
       ],
     );
   }
@@ -260,10 +348,16 @@ color: AppTheme.surface,
 
   Widget _buildLogoutButton(AuthProvider auth) {
     return ElevatedButton.icon(
-      onPressed: () {
+      onPressed: () async {
         HapticFeedback.heavyImpact();
-        auth.logout();
-        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (_) => const LoginScreen()), (route) => false);
+        await auth.logout();
+        if (auth.isAuthenticated) {
+          // It just logged out of one account but switched to another
+          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (_) => MainNavigator()), (route) => false);
+        } else {
+          // Completely logged out
+          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (_) => const LoginScreen()), (route) => false);
+        }
       },
       icon: const Icon(LucideIcons.logOut, size: 18),
       label: const Text('Logout Session', style: TextStyle(fontWeight: FontWeight.w900)),

@@ -61,6 +61,7 @@ class _TestsScreenState extends State<TestsScreen> with SingleTickerProviderStat
         auth.currentStudent!.coachingClassId,
         auth.currentStudent!.wing,
         auth.token ?? '',
+        forceRefresh: true,
       );
       _staggerController.reset();
       _staggerController.forward();
@@ -378,7 +379,7 @@ color: AppTheme.surface, borderRadius: BorderRadius.circular(32),
                     final i = v.toInt(); if (i < 0 || i >= subjects.length) return const SizedBox();
                     return Padding(padding: const EdgeInsets.only(top: 8), child: Text(subjects[i].substring(0, subjects[i].length > 4 ? 4 : subjects[i].length), style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold, color: AppTheme.textMuted)));
                   })),
-                  rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)), topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                  rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)), topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
                 ),
                 barGroups: List.generate(subjects.length, (i) => BarChartGroupData(x: i, barRods: [BarChartRodData(toY: avgScores[i], color: AppTheme.primary, width: 22, borderRadius: BorderRadius.circular(6), backDrawRodData: BackgroundBarChartRodData(show: true, toY: 100, color: AppTheme.primary.withOpacity(0.05)))]))
               )
@@ -398,10 +399,10 @@ class _SectionHeader extends StatelessWidget {
     return Row(
       children: [
         Icon(icon, size: 20, color: AppTheme.primary),
-        const SizedBox(width: 12),
+        SizedBox(width: 12),
         Text(title, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w900, color: AppTheme.textBase, letterSpacing: -0.5)),
-        const Spacer(),
-        if (count > 0) Container(padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4), decoration: BoxDecoration(color: AppTheme.primary.withOpacity(0.1), borderRadius: BorderRadius.circular(20)), child: Text(count.toString(), style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: AppTheme.primary))),
+        Spacer(),
+        if (count > 0) Container(padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4), decoration: BoxDecoration(color: AppTheme.primary.withOpacity(0.1), borderRadius: BorderRadius.circular(20)), child: Text(count.toString(), style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: AppTheme.primary))),
       ],
     );
   }
@@ -421,7 +422,7 @@ class _UpcomingTestCard extends StatelessWidget {
           color: AppTheme.surface,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(32)),
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
+        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 28),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -437,14 +438,14 @@ class _UpcomingTestCard extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 24),
+            SizedBox(height: 24),
             
             // Header: Subject Badge & Marks Badge
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
                     color: AppTheme.primary.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(12),
@@ -460,14 +461,14 @@ class _UpcomingTestCard extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
                     color: Colors.green.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(
                     'MAX MARKS: ${test.maxMarks.toStringAsFixed(0)}',
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: Colors.green,
                       fontSize: 10,
                       fontWeight: FontWeight.w900,
@@ -477,7 +478,7 @@ class _UpcomingTestCard extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             
             // Test Title
             Text(
@@ -489,10 +490,10 @@ class _UpcomingTestCard extends StatelessWidget {
                 letterSpacing: -0.5,
               ),
             ),
-            const SizedBox(height: 24),
+            SizedBox(height: 24),
             
             Divider(color: AppTheme.border, height: 1),
-            const SizedBox(height: 24),
+            SizedBox(height: 24),
             
             // Metadata Grid (Date, Time, Duration, Teacher)
             Row(
@@ -515,7 +516,7 @@ class _UpcomingTestCard extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Row(
               children: [
                 Expanded(
@@ -630,12 +631,12 @@ class _UpcomingTestCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(24),
+      padding: EdgeInsets.all(24),
       decoration: BoxDecoration(
 color: AppTheme.surface, 
         borderRadius: BorderRadius.circular(28), 
         border: Border.all(color: AppTheme.border.withOpacity(0.4), width: 1.2), 
-        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.015), blurRadius: 20, offset: const Offset(0, 10))]
+        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.015), blurRadius: 20, offset: Offset(0, 10))]
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -644,18 +645,18 @@ color: AppTheme.surface,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6), 
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6), 
                 decoration: BoxDecoration(color: Colors.orange.withOpacity(0.1), borderRadius: BorderRadius.circular(10)), 
                 child: Row(
                   children: [
-                    const Icon(LucideIcons.calendar, size: 12, color: Colors.orange), 
-                    const SizedBox(width: 6), 
-                    Text(test.date, style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w900, color: Colors.orange))
+                    Icon(LucideIcons.calendar, size: 12, color: Colors.orange), 
+                    SizedBox(width: 6), 
+                    Text(test.date, style: TextStyle(fontSize: 10, fontWeight: FontWeight.w900, color: Colors.orange))
                   ]
                 )
               ),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 decoration: BoxDecoration(
                   color: AppTheme.primary.withOpacity(0.08),
                   borderRadius: BorderRadius.circular(10),
@@ -672,9 +673,9 @@ color: AppTheme.surface,
               ),
             ],
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           Text(test.title, style: TextStyle(fontWeight: FontWeight.w900, fontSize: 18, color: AppTheme.textBase, letterSpacing: -0.4)),
-          const SizedBox(height: 6),
+          SizedBox(height: 6),
           if (test.assignedTeacherName != null && test.assignedTeacherName!.isNotEmpty && test.assignedTeacherName != test.creatorName) ...[
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -682,18 +683,18 @@ color: AppTheme.surface,
                 Row(
                   children: [
                     Icon(LucideIcons.shieldCheck, size: 12, color: AppTheme.textMuted),
-                    const SizedBox(width: 6),
+                    SizedBox(width: 6),
                     Text(
                       'Scheduled by: ${test.creatorName ?? "LM Administration"}',
                       style: TextStyle(fontSize: 11, color: AppTheme.textMuted, fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
-                const SizedBox(height: 4),
+                SizedBox(height: 4),
                 Row(
                   children: [
                     Icon(LucideIcons.userCheck, size: 12, color: AppTheme.primary),
-                    const SizedBox(width: 6),
+                    SizedBox(width: 6),
                     Text(
                       'Evaluator: ${test.assignedTeacherName}',
                       style: TextStyle(fontSize: 12, color: AppTheme.primary, fontWeight: FontWeight.bold),
@@ -706,7 +707,7 @@ color: AppTheme.surface,
             Row(
               children: [
                 Icon(LucideIcons.user, size: 12, color: AppTheme.textMuted),
-                const SizedBox(width: 6),
+                SizedBox(width: 6),
                 Text(
                   'Created by: ${test.creatorName ?? "LM Administration"}',
                   style: TextStyle(fontSize: 12, color: AppTheme.textMuted, fontWeight: FontWeight.bold),
@@ -714,14 +715,14 @@ color: AppTheme.surface,
               ],
             ),
           ],
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           Text(
             test.syllabus != null && test.syllabus!.isNotEmpty ? test.syllabus! : 'Check syllabus in details.', 
             style: TextStyle(fontSize: 13, color: AppTheme.textMuted.withOpacity(0.8), height: 1.5), 
             maxLines: 2, 
             overflow: TextOverflow.ellipsis
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: 20),
           ElevatedButton(
             onPressed: () => _showTestDetailsSheet(context), 
             style: ElevatedButton.styleFrom(
@@ -773,17 +774,17 @@ class _PerformanceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
 color: AppTheme.surface, borderRadius: BorderRadius.circular(28), border: Border.all(color: isAbsent ? AppTheme.danger.withOpacity(0.2) : AppTheme.border.withOpacity(0.4), width: 1.2)),
       child: Column(children: [
         Row(children: [
-          Container(padding: const EdgeInsets.all(12), decoration: BoxDecoration(color: (isAbsent ? AppTheme.danger : AppTheme.primary).withOpacity(0.1), borderRadius: BorderRadius.circular(16)), child: Icon(isAbsent ? LucideIcons.userX : LucideIcons.fileText, color: isAbsent ? AppTheme.danger : AppTheme.primary, size: 20)),
-          const SizedBox(width: 16),
-          Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text(title, style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16, color: AppTheme.textBase, letterSpacing: -0.3)), const SizedBox(height: 4), Text(date, style: TextStyle(fontSize: 12, color: AppTheme.textMuted, fontWeight: FontWeight.bold))])),
-          Column(crossAxisAlignment: CrossAxisAlignment.end, children: [Text(score, style: TextStyle(fontWeight: FontWeight.w900, fontSize: 18, color: isAbsent ? AppTheme.danger : AppTheme.textBase)), const SizedBox(height: 4), Text(isAbsent ? 'ABSENT' : 'RANK $rank', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w900, color: isAbsent ? AppTheme.danger : AppTheme.primary))]),
+          Container(padding: EdgeInsets.all(12), decoration: BoxDecoration(color: (isAbsent ? AppTheme.danger : AppTheme.primary).withOpacity(0.1), borderRadius: BorderRadius.circular(16)), child: Icon(isAbsent ? LucideIcons.userX : LucideIcons.fileText, color: isAbsent ? AppTheme.danger : AppTheme.primary, size: 20)),
+          SizedBox(width: 16),
+          Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text(title, style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16, color: AppTheme.textBase, letterSpacing: -0.3)), SizedBox(height: 4), Text(date, style: TextStyle(fontSize: 12, color: AppTheme.textMuted, fontWeight: FontWeight.bold))])),
+          Column(crossAxisAlignment: CrossAxisAlignment.end, children: [Text(score, style: TextStyle(fontWeight: FontWeight.w900, fontSize: 18, color: isAbsent ? AppTheme.danger : AppTheme.textBase)), SizedBox(height: 4), Text(isAbsent ? 'ABSENT' : 'RANK $rank', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w900, color: isAbsent ? AppTheme.danger : AppTheme.primary))]),
         ]),
-        if (!isAbsent) ...[const SizedBox(height: 20), ClipRRect(borderRadius: BorderRadius.circular(10), child: LinearProgressIndicator(value: percent, backgroundColor: AppTheme.background, color: percent > 0.8 ? AppTheme.success : AppTheme.primary, minHeight: 8))],
+        if (!isAbsent) ...[SizedBox(height: 20), ClipRRect(borderRadius: BorderRadius.circular(10), child: LinearProgressIndicator(value: percent, backgroundColor: AppTheme.background, color: percent > 0.8 ? AppTheme.success : AppTheme.primary, minHeight: 8))],
         const SizedBox(height: 16),
         SizedBox(
           width: double.infinity,
@@ -796,8 +797,8 @@ color: AppTheme.surface, borderRadius: BorderRadius.circular(28), border: Border
                 builder: (context) => PastTestResultsSheet(test: test),
               );
             },
-            icon: const Icon(LucideIcons.barChart2, size: 16),
-            label: const Text('View Full Leaderboard', style: TextStyle(fontWeight: FontWeight.w900, fontSize: 12)),
+            icon: Icon(LucideIcons.barChart2, size: 16),
+            label: Text('View Full Leaderboard', style: TextStyle(fontWeight: FontWeight.w900, fontSize: 12)),
             style: OutlinedButton.styleFrom(
               foregroundColor: AppTheme.primary,
               side: BorderSide(color: AppTheme.primary.withOpacity(0.3)),

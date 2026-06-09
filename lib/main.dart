@@ -6,6 +6,7 @@ import 'providers/academic_provider.dart';
 import 'providers/schedule_provider.dart';
 import 'screens/login_screen.dart';
 import 'screens/main_navigator.dart';
+import 'screens/notifications_screen.dart';
 import 'theme/app_theme.dart';
 
 import 'providers/notice_provider.dart';
@@ -104,6 +105,19 @@ class _AuthGateState extends State<AuthGate> {
     if (mounted) {
       setState(() => _isChecking = false);
       FlutterNativeSplash.remove();
+
+      // If app was opened from a killed-state notification tap,
+      if (auth.isAuthenticated && NotificationService.hasInitialNotification) {
+        final url = NotificationService.initialPayloadUrl;
+        final targetUserId = NotificationService.initialPayloadUserId;
+        NotificationService.hasInitialNotification = false;
+        NotificationService.initialPayloadUrl = null;
+        NotificationService.initialPayloadUserId = null;
+
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          NotificationService.processNotificationRoute(navigatorKey, url: url, targetUserId: targetUserId);
+        });
+      }
     }
   }
 

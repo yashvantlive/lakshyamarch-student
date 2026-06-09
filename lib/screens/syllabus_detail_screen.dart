@@ -40,7 +40,7 @@ class _SyllabusDetailScreenState extends State<SyllabusDetailScreen> {
         flexibleSpace: FlexibleSpaceBar(
           title: Text(
             widget.subject,
-            style: const TextStyle(fontWeight: FontWeight.w900, color: Colors.white, fontSize: 22),
+            style: TextStyle(fontWeight: FontWeight.w900, color: Colors.white, fontSize: 22),
           ),
           background: Stack(
             fit: StackFit.expand,
