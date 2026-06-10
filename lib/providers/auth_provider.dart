@@ -167,6 +167,28 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
+  /// Refreshes the current student profiles from the API and updates cache.
+  /// Safe to call from any screen (no-op if not authenticated).
+  Future<void> fetchProfile({bool forceRefresh = false}) async {
+    if (_token == null || _user == null) return;
+    try {
+      final profiles = await _apiService.getStudentProfiles(_user!['uid'], _token!);
+      if (profiles.isNotEmpty) {
+        _allStudents = profiles;
+        if (_currentStudent == null || !profiles.any((p) => p.id == _currentStudent!.id)) {
+          _currentStudent = profiles[0];
+        } else {
+          _currentStudent = profiles.firstWhere((p) => p.id == _currentStudent!.id);
+        }
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setString('cached_students_${_user!['uid']}', jsonEncode(profiles.map((s) => s.toJson()).toList()));
+        notifyListeners();
+      }
+    } catch (e) {
+      debugPrint('[AuthProvider] fetchProfile error: $e');
+    }
+  }
+
   Future<void> logout() async {
     // If we want logout to just remove the current account:
     if (_user != null) {

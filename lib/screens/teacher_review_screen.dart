@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 import '../theme/app_theme.dart';
 import '../services/api_service.dart';
+import '../services/app_cache.dart';
 import 'package:intl/intl.dart';
 import '../widgets/premium_widgets.dart';
 
@@ -45,22 +46,38 @@ class _TeacherReviewScreenState extends State<TeacherReviewScreen> {
     _fetchData();
   }
 
-  Future<void> _fetchData() async {
+  Future<void> _fetchData({bool forceRefresh = false}) async {
     final auth = context.read<AuthProvider>();
     final classId = auth.currentStudent?.classId;
     final coachingClassId = auth.currentStudent?.coachingClassId;
     final studentId = auth.currentStudent?.userId;
+    final token = auth.token ?? '';
 
     if (classId == null && coachingClassId == null) {
       setState(() => _isFetching = false);
       return;
     }
 
+    final cacheKey = 'teacher_review_${studentId}';
+    final histCacheKey = 'teacher_hist_${studentId}';
+
+    // SWR: Serve cache instantly
+    if (!forceRefresh) {
+      final cachedTeachers = AppCache.instance.get(cacheKey);
+      final cachedHistory = AppCache.instance.get(histCacheKey);
+      if (cachedTeachers is List && cachedTeachers.isNotEmpty) {
+        setState(() {
+          _teachers = cachedTeachers.cast<dynamic>();
+          _history = (cachedHistory is List ? cachedHistory : []).cast<dynamic>();
+          _isFetching = false;
+        });
+        if (!AppCache.instance.isStale(cacheKey)) return; // fresh — skip network
+      }
+    }
+
     try {
       final api = ApiService();
-      final token = auth.token ?? "";
       
-      // Fetch Teachers for both wings
       List<dynamic> allTeachers = [];
       if (classId != null) {
         final res = await api.getRequest('/api/student/teachers?classId=$classId', token);
@@ -71,23 +88,29 @@ class _TeacherReviewScreenState extends State<TeacherReviewScreen> {
         if (res is List) allTeachers.addAll(res);
       }
 
-      // Fetch History
       final historyRes = await api.getRequest('/api/student/reviews?studentId=$studentId', token);
       
-      // De-duplicate teachers
       final uniqueTeachersMap = <String, dynamic>{};
       for (var t in allTeachers) {
         uniqueTeachersMap[t['id']] = t;
       }
+      final teachers = uniqueTeachersMap.values.toList();
+      final history = historyRes is List ? historyRes : [];
 
-      setState(() {
-        _teachers = uniqueTeachersMap.values.toList();
-        _history = historyRes is List ? historyRes : [];
-      });
+      // Write cache — 30 min TTL for teachers, 5 min for history
+      AppCache.instance.set(cacheKey, teachers, ttl: const Duration(minutes: 30));
+      AppCache.instance.set(histCacheKey, history, ttl: const Duration(minutes: 5));
+
+      if (mounted) {
+        setState(() {
+          _teachers = teachers;
+          _history = history;
+        });
+      }
     } catch (e) {
       debugPrint("Error fetching review data: $e");
     } finally {
-      setState(() => _isFetching = false);
+      if (mounted) setState(() => _isFetching = false);
     }
   }
 
@@ -182,37 +205,37 @@ class _TeacherReviewScreenState extends State<TeacherReviewScreen> {
         backgroundColor: AppTheme.surface,
         foregroundColor: AppTheme.textBase,
       ),
-      body: _isFetching 
+      body: _isFetching
         ? const Center(child: CircularProgressIndicator())
-        : SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildWeekNavigator(),
-            const SizedBox(height: 24),
-            _buildSectionHeader("FACULTY LIST", LucideIcons.user),
-            const SizedBox(height: 16),
-            
-            if (_teachers.isEmpty)
-              _buildEmptyState("No assigned teachers found.")
-            else
-              ..._teachers.map((t) => _buildTeacherCard(t)).toList(),
-            
-            const SizedBox(height: 32),
-            
-            if (_selectedTeacherId != null) _buildEvaluationForm(),
-
-            const SizedBox(height: 32),
-            _buildSectionHeader("PAST HISTORY", LucideIcons.history),
-            const SizedBox(height: 16),
-            if (_history.isEmpty)
-              _buildEmptyState("No past evaluations yet.")
-            else
-              ..._history.map((h) => _buildHistoryItem(h)).toList(),
-          ],
-        ),
-      ),
+        : RefreshIndicator(
+            onRefresh: () => _fetchData(forceRefresh: true),
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(20),
+              physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildWeekNavigator(),
+                  const SizedBox(height: 24),
+                  _buildSectionHeader("FACULTY LIST", LucideIcons.user),
+                  const SizedBox(height: 16),
+                  if (_teachers.isEmpty)
+                    _buildEmptyState("No assigned teachers found.")
+                  else
+                    ..._teachers.map((t) => _buildTeacherCard(t)).toList(),
+                  const SizedBox(height: 32),
+                  if (_selectedTeacherId != null) _buildEvaluationForm(),
+                  const SizedBox(height: 32),
+                  _buildSectionHeader("PAST HISTORY", LucideIcons.history),
+                  const SizedBox(height: 16),
+                  if (_history.isEmpty)
+                    _buildEmptyState("No past evaluations yet.")
+                  else
+                    ..._history.map((h) => _buildHistoryItem(h)).toList(),
+                ],
+              ),
+            ),
+          ),
     );
   }
 
@@ -278,7 +301,8 @@ color: AppTheme.surface,
     );
   }
 
-  Widget _buildTeacherCard(Map<String, dynamic> teacher) {
+  Widget _buildTeacherCard(dynamic teacherData) {
+    final Map<String, dynamic> teacher = Map<String, dynamic>.from(teacherData);
     final reviewed = _isReviewed(teacher['id']);
     final isSelected = _selectedTeacherId == teacher['id'];
     
@@ -387,7 +411,8 @@ color: AppTheme.surface,
     );
   }
 
-  Widget _buildHistoryItem(Map<String, dynamic> item) {
+  Widget _buildHistoryItem(dynamic itemData) {
+    final Map<String, dynamic> item = Map<String, dynamic>.from(itemData);
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),

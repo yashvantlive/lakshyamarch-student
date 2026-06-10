@@ -33,24 +33,14 @@ class _HomeworkHistoryScreenState extends State<HomeworkHistoryScreen> {
       backgroundColor: AppTheme.background,
       body: SafeArea(
         child: RefreshIndicator(
-          onRefresh: () => academic.fetchData(
-            auth.currentStudent!.id,
-            auth.user!['uid'],
-            auth.currentStudent!.className,
-            auth.currentStudent!.classId,
-            auth.currentStudent!.coachingClass,
-            auth.currentStudent!.coachingClassId,
-            auth.currentStudent!.wing,
-            auth.token!,
-            forceRefresh: true
-          ),
+          onRefresh: () => academic.refreshWithLastParams(),
           child: Column(
             children: [
               _buildCenteredAppBar(auth.activeWingMode),
               Expanded(
                 child: SingleChildScrollView(
                   padding: EdgeInsets.symmetric(horizontal: 24),
-                  physics: AlwaysScrollableScrollPhysics(),
+                  physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
                   child: Column(
                     children: [
                       // Day Navigation
@@ -265,17 +255,7 @@ color: AppTheme.surface,
               homework: hw, 
               submission: sub, 
               startTime: slot['startTime'],
-              onRefresh: () => academic.fetchData(
-                auth.currentStudent!.id,
-                auth.user!['uid'],
-                auth.currentStudent!.className,
-                auth.currentStudent!.classId,
-                auth.currentStudent!.coachingClass,
-                auth.currentStudent!.coachingClassId,
-                auth.currentStudent!.wing,
-                auth.token!,
-                forceRefresh: true,
-              ),
+              onRefresh: () => academic.refreshWithLastParams(),
             ),
           });
         } else {

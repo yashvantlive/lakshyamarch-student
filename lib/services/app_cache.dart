@@ -32,8 +32,10 @@ class AppCache {
     if (_initialized) return;
     await Hive.initFlutter();
     _box = await Hive.openBox(_boxName);
+    // Compact box on startup to reclaim space from deleted entries
+    await _box.compact();
     _initialized = true;
-    debugPrint('📦 AppCache (Hive/Student) initialized.');
+    debugPrint('📦 AppCache (Hive/Student) initialized. Entries: ${_box.length}');
   }
 
   dynamic get(String key) {

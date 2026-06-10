@@ -151,71 +151,47 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
           children: [
             _buildCenteredAppBar(auth.activeWingMode),
             Expanded(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                physics: const BouncingScrollPhysics(),
-                child: Column(
-                  children: [
-                    _buildStaggered(0, _buildProfileHeaderCard(auth, wingColor, wingGradient)),
-                    const SizedBox(height: 32),
-                    _buildStaggered(1, _SectionHeader(title: 'Academic Details', icon: LucideIcons.graduationCap, wingColor: wingColor)),
-                    const SizedBox(height: 16),
-                    _buildStaggered(2, _buildAcademicInfoGrid(student, wingColor)),
-                    const SizedBox(height: 32),
-                    _buildStaggered(3, _SectionHeader(title: 'Admission Info', icon: LucideIcons.info, wingColor: wingColor)),
-                    const SizedBox(height: 16),
-                    _buildStaggered(4, _DetailCard(children: [
-                      _DetailRow(label: 'Father\'s Name', value: student?.fatherName ?? 'N/A'),
-                      _DetailRow(label: 'Parent Contact', value: student?.fatherPhone ?? 'N/A', isLink: true, wingColor: wingColor),
-                      _DetailRow(label: 'Date of Birth', value: student?.dob ?? 'N/A'),
-                      _DetailRow(label: 'Admission Date', value: student?.admissionDate ?? 'N/A', isLast: true),
-                    ])),
-                    const SizedBox(height: 32),
-                    _buildStaggered(5, _SectionHeader(title: 'Preferences', icon: LucideIcons.settings, wingColor: wingColor)),
-                    const SizedBox(height: 16),
-                    _buildStaggered(6, _DetailCard(children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Icon(LucideIcons.moon, size: 18, color: AppTheme.textMuted),
-                              const SizedBox(width: 12),
-                              Text(
-                                'Dark Mode',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: AppTheme.textBase,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Switch(
-                            value: auth.isDarkMode,
-                            activeColor: wingColor,
-                            onChanged: (val) {
-                              HapticFeedback.selectionClick();
-                              auth.toggleTheme();
-                            },
-                          ),
-                        ],
-                      ),
-                      const Divider(height: 32),
-                      InkWell(
-                        onTap: () {
-                          HapticFeedback.lightImpact();
-                          Navigator.push(context, MaterialPageRoute(builder: (_) => const ChangePasswordScreen()));
-                        },
-                        child: Row(
+              child: RefreshIndicator(
+                onRefresh: () async {
+                  final auth = context.read<AuthProvider>();
+                  final academic = context.read<AcademicProvider>();
+                  await Future.wait([
+                    auth.fetchProfile(forceRefresh: true),
+                    academic.refreshWithLastParams(),
+                  ]);
+                },
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+                  child: Column(
+                    children: [
+                      _buildStaggered(0, _buildProfileHeaderCard(auth, wingColor, wingGradient)),
+                      const SizedBox(height: 32),
+                      _buildStaggered(1, _SectionHeader(title: 'Academic Details', icon: LucideIcons.graduationCap, wingColor: wingColor)),
+                      const SizedBox(height: 16),
+                      _buildStaggered(2, _buildAcademicInfoGrid(student, wingColor)),
+                      const SizedBox(height: 32),
+                      _buildStaggered(3, _SectionHeader(title: 'Admission Info', icon: LucideIcons.info, wingColor: wingColor)),
+                      const SizedBox(height: 16),
+                      _buildStaggered(4, _DetailCard(children: [
+                        _DetailRow(label: 'Father\'s Name', value: student?.fatherName ?? 'N/A'),
+                        _DetailRow(label: 'Parent Contact', value: student?.fatherPhone ?? 'N/A', isLink: true, wingColor: wingColor),
+                        _DetailRow(label: 'Date of Birth', value: student?.dob ?? 'N/A'),
+                        _DetailRow(label: 'Admission Date', value: student?.admissionDate ?? 'N/A', isLast: true),
+                      ])),
+                      const SizedBox(height: 32),
+                      _buildStaggered(5, _SectionHeader(title: 'Preferences', icon: LucideIcons.settings, wingColor: wingColor)),
+                      const SizedBox(height: 16),
+                      _buildStaggered(6, _DetailCard(children: [
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
                               children: [
-                                Icon(LucideIcons.shieldCheck, size: 18, color: wingColor),
+                                Icon(LucideIcons.moon, size: 18, color: AppTheme.textMuted),
                                 const SizedBox(width: 12),
                                 Text(
-                                  'Change Password',
+                                  'Dark Mode',
                                   style: TextStyle(
                                     fontSize: 14,
                                     color: AppTheme.textBase,
@@ -224,21 +200,55 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                                 ),
                               ],
                             ),
-                            Icon(LucideIcons.chevronRight, size: 18, color: AppTheme.textMuted),
+                            Switch(
+                              value: auth.isDarkMode,
+                              activeColor: wingColor,
+                              onChanged: (val) {
+                                HapticFeedback.selectionClick();
+                                auth.toggleTheme();
+                              },
+                            ),
                           ],
                         ),
-                      ),
-                    ])),
-                    const SizedBox(height: 32),
-                    _buildStaggered(7, _SectionHeader(title: 'Finance Hub', icon: LucideIcons.wallet, wingColor: wingColor)),
-                    const SizedBox(height: 16),
-                    _buildStaggered(8, _FeeDueCard(academic: academic, wingColor: wingColor)),
-                    const SizedBox(height: 40),
-                    _buildStaggered(9, _buildLogoutButton(auth)),
-                    const SizedBox(height: 24),
-                    Text('LakshyaMarch Student • v1.5.0', style: TextStyle(color: AppTheme.textMuted, fontSize: 11, fontWeight: FontWeight.bold)),
-                    const SizedBox(height: 40),
-                  ],
+                        const Divider(height: 32),
+                        InkWell(
+                          onTap: () {
+                            HapticFeedback.lightImpact();
+                            Navigator.push(context, MaterialPageRoute(builder: (_) => const ChangePasswordScreen()));
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Icon(LucideIcons.shieldCheck, size: 18, color: wingColor),
+                                  const SizedBox(width: 12),
+                                  Text(
+                                    'Change Password',
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: AppTheme.textBase,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Icon(LucideIcons.chevronRight, size: 18, color: AppTheme.textMuted),
+                            ],
+                          ),
+                        ),
+                      ])),
+                      const SizedBox(height: 32),
+                      _buildStaggered(7, _SectionHeader(title: 'Finance Hub', icon: LucideIcons.wallet, wingColor: wingColor)),
+                      const SizedBox(height: 16),
+                      _buildStaggered(8, _FeeDueCard(academic: academic, wingColor: wingColor)),
+                      const SizedBox(height: 40),
+                      _buildStaggered(9, _buildLogoutButton(auth)),
+                      const SizedBox(height: 24),
+                      Text('LakshyaMarch Student • v1.5.0', style: TextStyle(color: AppTheme.textMuted, fontSize: 11, fontWeight: FontWeight.bold)),
+                      const SizedBox(height: 40),
+                    ],
+                  ),
                 ),
               ),
             ),

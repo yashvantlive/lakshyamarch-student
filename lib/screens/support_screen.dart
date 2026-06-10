@@ -5,6 +5,8 @@ import '../providers/auth_provider.dart';
 import '../theme/app_theme.dart';
 import '../services/api_service.dart';
 import '../widgets/premium_widgets.dart';
+import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SupportScreen extends StatefulWidget {
   const SupportScreen({super.key});
@@ -33,16 +35,30 @@ class _SupportScreenState extends State<SupportScreen> {
     _fetchTickets();
   }
 
-  Future<void> _fetchTickets() async {
+  Future<void> _fetchTickets({bool isRefresh = false}) async {
     final auth = context.read<AuthProvider>();
     if (auth.currentStudent?.userId == null) return;
     
     try {
+      final prefs = await SharedPreferences.getInstance();
+      if (!isRefresh) {
+        final cached = prefs.getString('cached_tickets');
+        if (cached != null) {
+          try {
+            final decoded = jsonDecode(cached);
+            if (mounted) setState(() => _tickets = decoded);
+          } catch (e) {
+            debugPrint("Error decoding cached tickets: $e");
+          }
+        }
+      }
+
       final api = ApiService();
       final token = auth.token ?? "";
       final res = await api.getRequest('/api/student/complaints?studentId=${auth.currentStudent!.userId}', token);
       if (res is List) {
-        setState(() => _tickets = res);
+        prefs.setString('cached_tickets', jsonEncode(res));
+        if (mounted) setState(() => _tickets = res);
       }
     } catch (e) {
       debugPrint("Error fetching tickets: $e");
@@ -123,9 +139,13 @@ class _SupportScreenState extends State<SupportScreen> {
         backgroundColor: AppTheme.surface,
         foregroundColor: AppTheme.textBase,
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
-        child: Column(
+      body: RefreshIndicator(
+        color: AppTheme.primary,
+        onRefresh: () => _fetchTickets(isRefresh: true),
+        child: SingleChildScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          padding: const EdgeInsets.all(20),
+          child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Submission Form
@@ -206,6 +226,7 @@ color: AppTheme.surface,
               ..._tickets.map((t) => _buildTicketCard(t)).toList(),
           ],
         ),
+      ),
       ),
     );
   }

@@ -49,21 +49,32 @@ class _SyllabusScreenState extends State<SyllabusScreen> with SingleTickerProvid
             Expanded(
               child: academic.isLoading
                   ? _buildShimmerList()
-                  : syllabus.isEmpty
-                      ? const EmptyStateWidget(title: 'No Syllabus', message: 'No syllabus data found', icon: LucideIcons.bookOpen)
-                      : ListView.builder(
-                          padding: const EdgeInsets.fromLTRB(24, 0, 24, 40),
-                          physics: const BouncingScrollPhysics(),
-                          itemCount: syllabus.length,
-                          itemBuilder: (context, index) {
-                            final item = syllabus[index];
-                            final topics = item['topics'] as List;
-                            final completed = topics.where((t) => t['status'] == 'completed').length;
-                            final progress = topics.isEmpty ? 0.0 : completed / topics.length;
-
-                            return _buildStaggeredItem(index, item, topics, progress);
-                          },
-                        ),
+                  : RefreshIndicator(
+                      onRefresh: () async {
+                        await context.read<AcademicProvider>().refreshWithLastParams();
+                      },
+                      child: syllabus.isEmpty
+                          ? SingleChildScrollView(
+                              physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+                              child: Container(
+                                height: 400,
+                                alignment: Alignment.center,
+                                child: const EmptyStateWidget(title: 'No Syllabus', message: 'No syllabus data found', icon: LucideIcons.bookOpen),
+                              ),
+                            )
+                          : ListView.builder(
+                              padding: const EdgeInsets.fromLTRB(24, 0, 24, 40),
+                              physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+                              itemCount: syllabus.length,
+                              itemBuilder: (context, index) {
+                                final item = syllabus[index];
+                                final topics = item['topics'] as List;
+                                final completed = topics.where((t) => t['status'] == 'completed').length;
+                                final progress = topics.isEmpty ? 0.0 : completed / topics.length;
+                                return _buildStaggeredItem(index, item, topics, progress);
+                              },
+                            ),
+                    ),
             ),
           ],
         ),

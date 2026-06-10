@@ -121,16 +121,21 @@ color: AppTheme.surface,
                       ],
                     ),
                   )
-                : SingleChildScrollView(
-                    padding: const EdgeInsets.symmetric(horizontal: 24),
-                    physics: const BouncingScrollPhysics(),
-                    child: Column(
-                      children: [
-                        _buildStaggered(0, _buildStatsRow(attendance)),
-                        const SizedBox(height: 32),
-                        _buildStaggered(1, _buildCalendarCard(attendance, academic.holidays)),
-                        const SizedBox(height: 40),
-                      ],
+                : RefreshIndicator(
+                    onRefresh: () async {
+                      await context.read<AcademicProvider>().refreshWithLastParams();
+                    },
+                    child: SingleChildScrollView(
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
+                      physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+                      child: Column(
+                        children: [
+                          _buildStaggered(0, _buildStatsRow(attendance)),
+                          const SizedBox(height: 32),
+                          _buildStaggered(1, _buildCalendarCard(attendance, academic.holidays)),
+                          const SizedBox(height: 40),
+                        ],
+                      ),
                     ),
                   ),
             ),

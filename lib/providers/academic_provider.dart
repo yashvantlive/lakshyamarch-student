@@ -233,6 +233,33 @@ class AcademicProvider extends ChangeNotifier {
     AppCache.instance.set(keySch, futures[8], ttl: const Duration(hours: 4));
   }
 
+  // Stores last fetch params to allow refreshWithLastParams() from any screen
+  String? _lastStudentId;
+  String? _lastUserId;
+  String? _lastClassName;
+  String? _lastClassId;
+  String? _lastCoachingClass;
+  String? _lastCoachingClassId;
+  String? _lastWing;
+  String? _lastToken;
+
+  /// Convenience refresh — any screen can call this without re-passing all params.
+  /// No-op if fetchData was never called before.
+  Future<void> refreshWithLastParams() async {
+    if (_lastStudentId == null || _lastToken == null) return;
+    await fetchData(
+      _lastStudentId!,
+      _lastUserId!,
+      _lastClassName!,
+      _lastClassId,
+      _lastCoachingClass,
+      _lastCoachingClassId,
+      _lastWing,
+      _lastToken!,
+      forceRefresh: true,
+    );
+  }
+
   Future<void> fetchData(
     String studentId, 
     String userId, 
@@ -254,11 +281,21 @@ class AcademicProvider extends ChangeNotifier {
     final keyFee = 'fee_$studentId';
     final keyTst = 'tst_$studentId';
     final keySyl = 'syl_$className';
-    final keyHw  = 'hw_univ';
+    final keyHw  = 'hw_$studentId';
     final keySub = 'sub_$studentId';
     final keyHol = 'holidays_univ';
     final keyLdb = 'ldb_${classId ?? className}';
     final keySch = 'sch_$studentId';
+
+    // Store params for refreshWithLastParams() convenience method
+    _lastStudentId = studentId;
+    _lastUserId = userId;
+    _lastClassName = className;
+    _lastClassId = classId;
+    _lastCoachingClass = coachingClass;
+    _lastCoachingClassId = coachingClassId;
+    _lastWing = wing;
+    _lastToken = token;
 
     // 1. Instant Zero-Loading Cache Render
     final cAtt = AppCache.instance.get(keyAtt);

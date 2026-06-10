@@ -124,32 +124,38 @@ color: AppTheme.surface.withOpacity(0.1), borderRadius: BorderRadius.circular(12
                   itemCount: 5,
                   itemBuilder: (context, index) => const _FeeShimmer(),
                 )
-              : ListView.builder(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  itemCount: slots.length,
-                  itemBuilder: (context, index) {
-                    final slot = slots[index];
-                    final feeData = fees.cast<dynamic>().firstWhere(
-                      (f) => f.month == slot['code'],
-                      orElse: () => null,
-                    );
-
-                    return FadeInAnimation(
-                      delay: index * 50,
-                      child: _FeeSlotItem(
-                        label: slot['label']!,
-                        code: slot['code']!,
-                        fee: feeData,
-                      ),
-                    );
+              : RefreshIndicator(
+                  onRefresh: () async {
+                    await context.read<AcademicProvider>().refreshWithLastParams();
                   },
+                  child: ListView.builder(
+                    physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    itemCount: slots.length,
+                    itemBuilder: (context, index) {
+                      final slot = slots[index];
+                      final feeData = fees.cast<dynamic>().firstWhere(
+                        (f) => f.month == slot['code'],
+                        orElse: () => null,
+                      );
+
+                      return FadeInAnimation(
+                        delay: index * 50,
+                        child: _FeeSlotItem(
+                          label: slot['label']!,
+                          code: slot['code']!,
+                          fee: feeData,
+                        ),
+                      );
+                    },
+                  ),
                 ),
-          ),
-        ],
-      ),
-    );
+            ),
+          ],
+        ),
+      );
+    }
   }
-}
 
 class _FeeSlotItem extends StatelessWidget {
   final String label;

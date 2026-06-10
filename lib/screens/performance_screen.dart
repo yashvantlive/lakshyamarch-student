@@ -52,50 +52,55 @@ class _PerformanceScreenState extends State<PerformanceScreen> with SingleTicker
           children: [
             _buildCenteredAppBar(auth.activeWingMode),
             Expanded(
-              child: SingleChildScrollView(
-                padding: EdgeInsets.symmetric(horizontal: 24),
-                physics: BouncingScrollPhysics(),
-                child: Column(
-                  children: [
-                    _buildStaggered(0, _buildOverallCard(schoolScore, coachingScore, hwScore, attScore)),
-                    SizedBox(height: 32),
-                    _buildStaggered(1, _SectionHeader(title: 'Detailed Analytics', icon: LucideIcons.barChart3)),
-                    SizedBox(height: 16),
-                    _buildStaggered(2, _buildHorizontalBar(
-                      label: 'School Test Performance',
-                      value: schoolScore,
-                      color: AppTheme.primary,
-                      icon: LucideIcons.award,
-                      subtitle: academic.schoolTestsCount == 0 ? 'No school tests recorded yet' : 'Average score across ${academic.schoolTestsCount} tests',
-                    )),
-                    const SizedBox(height: 16),
-                    _buildStaggered(2, _buildHorizontalBar(
-                      label: 'Coaching Test Performance',
-                      value: coachingScore,
-                      color: Colors.teal,
-                      icon: LucideIcons.award,
-                      subtitle: academic.coachingTestsCount == 0 ? 'No coaching tests recorded yet' : 'Average score across ${academic.coachingTestsCount} tests',
-                    )),
-                    const SizedBox(height: 16),
-                    _buildStaggered(3, _buildHorizontalBar(
-                      label: 'Homework Completion',
-                      value: hwScore,
-                      color: Colors.orange,
-                      icon: LucideIcons.bookOpen,
-                      subtitle: academic.homeworks.isEmpty ? 'No homework assigned yet' : '${academic.submissions.length} out of ${academic.homeworks.length} submitted',
-                    )),
-                    const SizedBox(height: 16),
-                    _buildStaggered(4, _buildHorizontalBar(
-                      label: 'Attendance Rate',
-                      value: attScore,
-                      color: AppTheme.success,
-                      icon: LucideIcons.userCheck,
-                      subtitle: academic.attendance.isEmpty ? 'No attendance records yet' : 'Records for ${academic.attendance.length} days',
-                    )),
-                    const SizedBox(height: 32),
-                    _buildStaggered(5, _buildInsightsCard(schoolScore, coachingScore, hwScore, attScore)),
-                    const SizedBox(height: 40),
-                  ],
+              child: RefreshIndicator(
+                onRefresh: () async {
+                  await context.read<AcademicProvider>().refreshWithLastParams();
+                },
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+                  child: Column(
+                    children: [
+                      _buildStaggered(0, _buildOverallCard(schoolScore, coachingScore, hwScore, attScore)),
+                      const SizedBox(height: 32),
+                      _buildStaggered(1, _SectionHeader(title: 'Detailed Analytics', icon: LucideIcons.barChart3)),
+                      const SizedBox(height: 16),
+                      _buildStaggered(2, _buildHorizontalBar(
+                        label: 'School Test Performance',
+                        value: schoolScore,
+                        color: AppTheme.primary,
+                        icon: LucideIcons.award,
+                        subtitle: academic.schoolTestsCount == 0 ? 'No school tests recorded yet' : 'Average score across ${academic.schoolTestsCount} tests',
+                      )),
+                      const SizedBox(height: 16),
+                      _buildStaggered(2, _buildHorizontalBar(
+                        label: 'Coaching Test Performance',
+                        value: coachingScore,
+                        color: Colors.teal,
+                        icon: LucideIcons.award,
+                        subtitle: academic.coachingTestsCount == 0 ? 'No coaching tests recorded yet' : 'Average score across ${academic.coachingTestsCount} tests',
+                      )),
+                      const SizedBox(height: 16),
+                      _buildStaggered(3, _buildHorizontalBar(
+                        label: 'Homework Completion',
+                        value: hwScore,
+                        color: Colors.orange,
+                        icon: LucideIcons.bookOpen,
+                        subtitle: academic.homeworks.isEmpty ? 'No homework assigned yet' : '${academic.submissions.length} out of ${academic.homeworks.length} submitted',
+                      )),
+                      const SizedBox(height: 16),
+                      _buildStaggered(4, _buildHorizontalBar(
+                        label: 'Attendance Rate',
+                        value: attScore,
+                        color: AppTheme.success,
+                        icon: LucideIcons.userCheck,
+                        subtitle: academic.attendance.isEmpty ? 'No attendance records yet' : 'Records for ${academic.attendance.length} days',
+                      )),
+                      const SizedBox(height: 32),
+                      _buildStaggered(5, _buildInsightsCard(schoolScore, coachingScore, hwScore, attScore)),
+                      const SizedBox(height: 40),
+                    ],
+                  ),
                 ),
               ),
             ),

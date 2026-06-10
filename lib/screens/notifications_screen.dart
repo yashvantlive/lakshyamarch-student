@@ -7,6 +7,7 @@ import '../providers/auth_provider.dart';
 import '../services/api_service.dart';
 import '../theme/app_theme.dart';
 import '../widgets/premium_widgets.dart';
+import 'dart:convert';
 import 'homework_history_screen.dart';
 import 'tests_screen.dart';
 import 'notice_feed_screen.dart';
@@ -61,7 +62,28 @@ class _NotificationsScreenState extends State<NotificationsScreen> with SingleTi
     try {
       final auth = context.read<AuthProvider>();
       if (auth.token == null) return;
+      
+      final prefs = await SharedPreferences.getInstance();
+      final cached = prefs.getString('cached_notifications');
+      if (cached != null) {
+        try {
+          final decoded = jsonDecode(cached);
+          if (mounted) {
+            setState(() {
+              _alerts = decoded['alerts'] ?? [];
+              _isLoading = false;
+            });
+            _staggerController.forward();
+          }
+        } catch (e) {
+          debugPrint("Error parsing cached notifications: $e");
+        }
+      }
+
       final data = await _apiService.getStudentNotifications(auth.token!);
+      
+      prefs.setString('cached_notifications', jsonEncode(data));
+
       if (mounted) {
         setState(() {
           _alerts = data['alerts'] ?? [];

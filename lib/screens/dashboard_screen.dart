@@ -27,6 +27,28 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
+
+  Future<void> _refreshAll(BuildContext context) async {
+    final auth = context.read<AuthProvider>();
+    final academic = context.read<AcademicProvider>();
+    final student = auth.currentStudent;
+    if (student == null || auth.token == null) return;
+    await Future.wait([
+      academic.fetchData(
+        student.id,
+        auth.user?['uid'] ?? auth.user?['_id'] ?? '',
+        student.className,
+        student.classId,
+        student.coachingClass,
+        student.coachingClassId,
+        student.wing,
+        auth.token!,
+        forceRefresh: true,
+      ),
+      auth.fetchProfile(forceRefresh: true),
+    ]);
+  }
+
   @override
   Widget build(BuildContext context) {
     final auth = context.watch<AuthProvider>();
@@ -67,28 +89,31 @@ class _DashboardScreenState extends State<DashboardScreen> {
       children: [
         _buildCenteredAppBar(studentName, auth.activeWingMode),
         Expanded(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: GridView.count(
-              physics: BouncingScrollPhysics(),
-              crossAxisCount: 2,
-              crossAxisSpacing: 12,
-              mainAxisSpacing: 12,
-              childAspectRatio: 1.02,
-              children: [
-                _buildHubTile(context, title: 'Schedule', icon: LucideIcons.calendar, color: Colors.blue, targetScreen: ScheduleScreen()),
-                _buildHubTile(context, title: 'Homework', icon: LucideIcons.clipboardList, color: Colors.orange, targetScreen: HomeworkHistoryScreen(), badgeText: hwBadge, subtitle: hwSubtitle),
-                _buildHubTile(context, title: 'Syllabus', icon: LucideIcons.bookOpen, color: Colors.teal, targetScreen: SyllabusScreen()),
-                _buildHubTile(context, title: 'Doubt Room', icon: LucideIcons.messageSquare, color: Colors.cyan, targetScreen: DoubtRoomScreen()),
-                _buildHubTile(context, title: 'Tests Hub', icon: LucideIcons.award, color: Colors.indigo, targetScreen: const TestsScreen(), badgeText: testsBadge, subtitle: testsSubtitle),
-                _buildHubTile(context, title: 'Notice Board', icon: LucideIcons.megaphone, color: Colors.purple, targetScreen: const NoticeFeedScreen()),
-                _buildHubTile(context, title: 'Notifications', icon: LucideIcons.bellRing, color: Colors.deepOrange, targetScreen: const NotificationsScreen()),
-                _buildHubTile(context, title: 'Attendance', icon: LucideIcons.trendingUp, color: Colors.green, targetScreen: const AttendanceScreen(), badgeText: attBadge, subtitle: attSubtitle),
-                _buildHubTile(context, title: 'Performance', icon: LucideIcons.barChart, color: Colors.pink, targetScreen: const PerformanceScreen(), subtitle: perfSubtitle),
-                _buildHubTile(context, title: 'Review Teachers', icon: LucideIcons.star, color: Colors.amber, targetScreen: const TeacherReviewScreen()),
-                _buildHubTile(context, title: 'Suggestion & Complain', icon: LucideIcons.helpCircle, color: Colors.indigo, targetScreen: const SupportScreen()),
-                _buildHubTile(context, title: 'My Profile', icon: LucideIcons.user, color: AppTheme.primary, targetScreen: const ProfileScreen()),
-              ],
+          child: RefreshIndicator(
+            onRefresh: () => _refreshAll(context),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: GridView.count(
+                physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+                crossAxisCount: 2,
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12,
+                childAspectRatio: 1.02,
+                children: [
+                  _buildHubTile(context, title: 'Schedule', icon: LucideIcons.calendar, color: Colors.blue, targetScreen: ScheduleScreen()),
+                  _buildHubTile(context, title: 'Homework', icon: LucideIcons.clipboardList, color: Colors.orange, targetScreen: HomeworkHistoryScreen(), badgeText: hwBadge, subtitle: hwSubtitle),
+                  _buildHubTile(context, title: 'Syllabus', icon: LucideIcons.bookOpen, color: Colors.teal, targetScreen: SyllabusScreen()),
+                  _buildHubTile(context, title: 'Doubt Room', icon: LucideIcons.messageSquare, color: Colors.cyan, targetScreen: DoubtRoomScreen()),
+                  _buildHubTile(context, title: 'Tests Hub', icon: LucideIcons.award, color: Colors.indigo, targetScreen: const TestsScreen(), badgeText: testsBadge, subtitle: testsSubtitle),
+                  _buildHubTile(context, title: 'Notice Board', icon: LucideIcons.megaphone, color: Colors.purple, targetScreen: const NoticeFeedScreen()),
+                  _buildHubTile(context, title: 'Notifications', icon: LucideIcons.bellRing, color: Colors.deepOrange, targetScreen: const NotificationsScreen()),
+                  _buildHubTile(context, title: 'Attendance', icon: LucideIcons.trendingUp, color: Colors.green, targetScreen: const AttendanceScreen(), badgeText: attBadge, subtitle: attSubtitle),
+                  _buildHubTile(context, title: 'Performance', icon: LucideIcons.barChart, color: Colors.pink, targetScreen: const PerformanceScreen(), subtitle: perfSubtitle),
+                  _buildHubTile(context, title: 'Review Teachers', icon: LucideIcons.star, color: Colors.amber, targetScreen: const TeacherReviewScreen()),
+                  _buildHubTile(context, title: 'Suggestion & Complain', icon: LucideIcons.helpCircle, color: Colors.indigo, targetScreen: const SupportScreen()),
+                  _buildHubTile(context, title: 'My Profile', icon: LucideIcons.user, color: AppTheme.primary, targetScreen: const ProfileScreen()),
+                ],
+              ),
             ),
           ),
         ),

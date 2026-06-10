@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
+import '../providers/academic_provider.dart';
 import '../theme/app_theme.dart';
 import '../widgets/premium_widgets.dart';
-import 'study_hub/class_selection_screen.dart';
 import 'study_hub/subject_selection_screen.dart';
 import 'doubt_room_screen.dart';
 
@@ -31,72 +31,77 @@ class _StudyMaterialScreenState extends State<StudyMaterialScreen> {
           children: [
             _buildCenteredAppBar(auth.activeWingMode),
             Expanded(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: GridView.count(
-                  physics: NeverScrollableScrollPhysics(),
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 12,
-                  mainAxisSpacing: 12,
-                  childAspectRatio: (MediaQuery.of(context).size.width / 2) / (gridHeight / 4.2),
-                  children: [
-                    _buildHubTile(
-                      context,
-                      title: 'NCERT Books',
-                      icon: LucideIcons.bookOpen,
-                      color: AppTheme.primary,
-                      type: 'NCERT',
-                    ),
-                    _buildHubTile(
-                      context,
-                      title: 'Daily Practice',
-                      icon: LucideIcons.edit,
-                      color: AppTheme.success,
-                      type: 'DPP',
-                    ),
-                    _buildHubTile(
-                      context,
-                      title: 'Expert Notes',
-                      icon: LucideIcons.fileText,
-                      color: AppTheme.warning,
-                      type: 'Notes',
-                    ),
-                    _buildHubTile(
-                      context,
-                      title: 'Formula Bank',
-                      icon: LucideIcons.calculator,
-                      color: Colors.purple,
-                      type: 'Notes',
-                    ),
-                    _buildHubTile(
-                      context,
-                      title: 'Prev. Year',
-                      icon: LucideIcons.history,
-                      color: Colors.deepOrange,
-                      type: 'NCERT',
-                    ),
-                    _buildHubTile(
-                      context,
-                      title: 'Video Library',
-                      icon: LucideIcons.playCircle,
-                      color: Colors.red,
-                      type: 'NCERT',
-                    ),
-                    _buildHubTile(
-                      context,
-                      title: 'Doubt Room',
-                      icon: LucideIcons.helpCircle,
-                      color: Colors.indigo,
-                      type: 'NCERT',
-                    ),
-                    _buildHubTile(
-                      context,
-                      title: 'Syllabus',
-                      icon: LucideIcons.clipboardList,
-                      color: Colors.teal,
-                      type: 'NCERT',
-                    ),
-                  ],
+              child: RefreshIndicator(
+                onRefresh: () async {
+                  await context.read<AcademicProvider>().refreshWithLastParams();
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: GridView.count(
+                    physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 12,
+                    mainAxisSpacing: 12,
+                    childAspectRatio: (MediaQuery.of(context).size.width / 2) / (gridHeight / 4.2),
+                    children: [
+                      _buildHubTile(
+                        context,
+                        title: 'NCERT Books',
+                        icon: LucideIcons.bookOpen,
+                        color: AppTheme.primary,
+                        type: 'NCERT',
+                      ),
+                      _buildHubTile(
+                        context,
+                        title: 'Daily Practice',
+                        icon: LucideIcons.edit,
+                        color: AppTheme.success,
+                        type: 'DPP',
+                      ),
+                      _buildHubTile(
+                        context,
+                        title: 'Expert Notes',
+                        icon: LucideIcons.fileText,
+                        color: AppTheme.warning,
+                        type: 'Notes',
+                      ),
+                      _buildHubTile(
+                        context,
+                        title: 'Formula Bank',
+                        icon: LucideIcons.calculator,
+                        color: Colors.purple,
+                        type: 'Notes',
+                      ),
+                      _buildHubTile(
+                        context,
+                        title: 'Prev. Year',
+                        icon: LucideIcons.history,
+                        color: Colors.deepOrange,
+                        type: 'NCERT',
+                      ),
+                      _buildHubTile(
+                        context,
+                        title: 'Video Library',
+                        icon: LucideIcons.playCircle,
+                        color: Colors.red,
+                        type: 'NCERT',
+                      ),
+                      _buildHubTile(
+                        context,
+                        title: 'Doubt Room',
+                        icon: LucideIcons.helpCircle,
+                        color: Colors.indigo,
+                        type: 'NCERT',
+                      ),
+                      _buildHubTile(
+                        context,
+                        title: 'Syllabus',
+                        icon: LucideIcons.clipboardList,
+                        color: Colors.teal,
+                        type: 'NCERT',
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
