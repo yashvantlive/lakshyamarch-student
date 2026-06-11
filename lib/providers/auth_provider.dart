@@ -64,6 +64,11 @@ class AuthProvider extends ChangeNotifier {
 
     try {
       final res = await _apiService.login(email, password);
+      
+      if (res['user'] != null && res['user']['role'] != 'student') {
+        throw Exception('Access denied: Student account required.');
+      }
+      
       _token = res['token'];
       _user = res['user'];
       
