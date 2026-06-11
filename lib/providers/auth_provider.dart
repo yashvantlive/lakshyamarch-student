@@ -97,7 +97,7 @@ class AuthProvider extends ChangeNotifier {
       notifyListeners();
 
       // Register Push Token for all saved accounts
-      await _updateNotificationRegistration();
+      _updateNotificationRegistration();
 
       return true;
     } catch (e) {
