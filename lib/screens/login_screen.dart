@@ -117,6 +117,22 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: const Text('Login', style: TextStyle(fontSize: 16)),
                     ),
                   ),
+              const SizedBox(height: 24),
+              if (!widget.isAddAccountMode)
+                TextButton(
+                  onPressed: () {
+                    // Enrollment information text, no specific action required for now
+                  },
+                  child: const Text(
+                    "Don't have an account? Visit our office for enrollment.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 14, 
+                      fontWeight: FontWeight.w500,
+                      color: Colors.blueGrey,
+                    ),
+                  ),
+                ),
             ],
           ),
         ),

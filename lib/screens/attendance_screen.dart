@@ -18,6 +18,7 @@ class AttendanceScreen extends StatefulWidget {
 
 class _AttendanceScreenState extends State<AttendanceScreen> with SingleTickerProviderStateMixin {
   late AnimationController _staggerController;
+  DateTime _selectedMonth = DateTime(DateTime.now().year, DateTime.now().month, 1);
 
   @override
   void initState() {
@@ -181,9 +182,14 @@ color: AppTheme.surface,
   }
 
   Widget _buildStatsRow(List<dynamic> attendance) {
-    final pCount = attendance.where((a) => a['status'] == 'present').length;
-    final aCount = attendance.where((a) => a['status'] == 'absent').length;
-    final lCount = attendance.where((a) => a['status'] == 'leave').length;
+    final currentMonthAttendance = attendance.where((a) {
+      final date = DateTime.parse(a['date']);
+      return date.year == _selectedMonth.year && date.month == _selectedMonth.month;
+    }).toList();
+
+    final pCount = currentMonthAttendance.where((a) => a['status'] == 'present').length;
+    final aCount = currentMonthAttendance.where((a) => a['status'] == 'absent').length;
+    final lCount = currentMonthAttendance.where((a) => a['status'] == 'leave').length;
 
     return Row(
       children: [
@@ -210,8 +216,50 @@ color: AppTheme.surface,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(DateFormat('MMMM yyyy').format(DateTime.now()), style: TextStyle(fontWeight: FontWeight.w900, fontSize: 17, color: AppTheme.textBase)),
-              Icon(LucideIcons.calendar, color: AppTheme.primary, size: 20),
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        _selectedMonth = DateTime(_selectedMonth.year, _selectedMonth.month - 1, 1);
+                      });
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Icon(Icons.chevron_left, color: AppTheme.primary, size: 28),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Text(DateFormat('MMMM yyyy').format(_selectedMonth), style: TextStyle(fontWeight: FontWeight.w900, fontSize: 17, color: AppTheme.textBase)),
+                  const SizedBox(width: 8),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        _selectedMonth = DateTime(_selectedMonth.year, _selectedMonth.month + 1, 1);
+                      });
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Icon(Icons.chevron_right, color: AppTheme.primary, size: 28),
+                    ),
+                  ),
+                ],
+              ),
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    _selectedMonth = DateTime(DateTime.now().year, DateTime.now().month, 1);
+                  });
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: AppTheme.primary.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Icon(LucideIcons.calendar, color: AppTheme.primary, size: 20),
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 24),
@@ -247,9 +295,8 @@ color: AppTheme.surface,
   }
 
   Widget _buildCalendarGrid(List<dynamic> attendance, List<dynamic> holidays) {
-    final now = DateTime.now();
-    final firstDayOfMonth = DateTime(now.year, now.month, 1);
-    final daysInMonth = DateTime(now.year, now.month + 1, 0).day;
+    final firstDayOfMonth = DateTime(_selectedMonth.year, _selectedMonth.month, 1);
+    final daysInMonth = DateTime(_selectedMonth.year, _selectedMonth.month + 1, 0).day;
     
     // weekday: 1 (Mon) to 7 (Sun)
     // We want Monday to be 0
@@ -300,8 +347,7 @@ color: AppTheme.surface,
 
   void _showDayDetails(int day, String? status, List<dynamic> attendance, List<dynamic> holidays) {
     HapticFeedback.lightImpact();
-    final now = DateTime.now();
-    final date = DateTime(now.year, now.month, day);
+    final date = DateTime(_selectedMonth.year, _selectedMonth.month, day);
     final dateStr = DateFormat('EEEE, d MMMM').format(date);
     
     String? holidayTitle;
@@ -419,21 +465,20 @@ color: AppTheme.surface,
     // 1. Check Attendance Records
     for (var a in attendance) {
       final date = DateTime.parse(a['date']);
-      if (date.day == day) return a['status'];
+      if (date.year == _selectedMonth.year && date.month == _selectedMonth.month && date.day == day) {
+        return a['status'];
+      }
     }
     
     // 2. Check Holidays (Matching YYYY-MM-DD)
-    final now = DateTime.now();
-    final dateStr = "${now.year}-${String.fromCharCodes([now.month < 10 ? 48 : 0]).replaceAll('\x00', '')}${now.month}-${day < 10 ? '0' : ''}$day";
-    // Safer check:
-    final targetDate = DateFormat('yyyy-MM-dd').format(DateTime(now.year, now.month, day));
+    final targetDate = DateFormat('yyyy-MM-dd').format(DateTime(_selectedMonth.year, _selectedMonth.month, day));
     
     for (var h in holidays) {
       if (h['date'] == targetDate) return 'holiday';
     }
 
     // 3. Check if it's Monday (Weekly Off)
-    if (DateTime(now.year, now.month, day).weekday == DateTime.monday) return 'weekly_off';
+    if (DateTime(_selectedMonth.year, _selectedMonth.month, day).weekday == DateTime.monday) return 'weekly_off';
     
     return null;
   }

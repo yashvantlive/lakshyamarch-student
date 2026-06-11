@@ -5,6 +5,7 @@ import 'providers/auth_provider.dart';
 import 'providers/academic_provider.dart';
 import 'providers/schedule_provider.dart';
 import 'screens/login_screen.dart';
+import 'screens/public_screen.dart';
 import 'screens/main_navigator.dart';
 import 'screens/notifications_screen.dart';
 import 'theme/app_theme.dart';
@@ -130,6 +131,6 @@ class _AuthGateState extends State<AuthGate> {
     }
 
     final isAuthenticated = context.watch<AuthProvider>().isAuthenticated;
-    return isAuthenticated ? const MainNavigator() : const LoginScreen();
+    return isAuthenticated ? const MainNavigator() : const PublicScreen();
   }
 }
