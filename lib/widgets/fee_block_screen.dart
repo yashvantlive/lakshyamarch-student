@@ -25,16 +25,16 @@ class FeeBlockScreen extends StatelessWidget {
                 child: const Icon(LucideIcons.lock, size: 48, color: Colors.red),
               ),
               const SizedBox(height: 24),
-              const Text(
+              Text(
                 'Premium Section Locked',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w900,
-                  color: AppTheme.textDark,
+                  color: AppTheme.textBase,
                 ),
               ),
               const SizedBox(height: 12),
-              const Text(
+              Text(
                 'Access to NCERT, DPP, and Notes is currently restricted due to pending fee payments. Please clear your dues to unlock these features.',
                 textAlign: TextAlign.center,
                 style: TextStyle(

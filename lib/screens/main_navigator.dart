@@ -109,14 +109,14 @@ class _MainNavigatorState extends State<MainNavigator> {
             Text('Fee Reminder', style: TextStyle(fontWeight: FontWeight.w900, fontSize: 18)),
           ],
         ),
-        content: const Text(
+        content: Text(
           'Your fee payment is due. Please inform your parents to complete the payment as soon as possible.',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: AppTheme.textDark),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: AppTheme.textBase),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Close', style: TextStyle(fontWeight: FontWeight.w900, color: AppTheme.textMuted)),
+            child: Text('Close', style: TextStyle(fontWeight: FontWeight.w900, color: AppTheme.textMuted)),
           ),
           ElevatedButton(
             onPressed: () {
