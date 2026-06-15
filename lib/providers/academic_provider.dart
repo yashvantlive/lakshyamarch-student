@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import '../services/api_service.dart';
 import '../services/app_cache.dart';
@@ -19,6 +21,8 @@ class AcademicProvider extends ChangeNotifier {
   List<HomeworkSubmission> _submissions = [];
   List<dynamic> _holidays = [];
   List<dynamic> _schedules = [];
+  List<dynamic> _otherFees = [];
+  List<dynamic> _videos = [];
   Map<String, dynamic>? _leaderboard;
   String? _error;
   double? _totalFee;
@@ -34,6 +38,8 @@ class AcademicProvider extends ChangeNotifier {
   List<HomeworkSubmission> get submissions => _submissions;
   List<dynamic> get holidays => _holidays;
   List<dynamic> get schedules => _schedules;
+  List<dynamic> get otherFees => _otherFees;
+  List<dynamic> get videos => _videos;
   Map<String, dynamic>? get leaderboard => _leaderboard;
   String? get error => _error;
   double? get totalFee => _totalFee;
@@ -48,6 +54,8 @@ class AcademicProvider extends ChangeNotifier {
     _submissions = [];
     _holidays = [];
     _schedules = [];
+    _otherFees = [];
+    _videos = [];
     _leaderboard = null;
     _totalFee = null;
     _feeRemarks = null;
@@ -93,6 +101,17 @@ class AcademicProvider extends ChangeNotifier {
       totalPct += (test.result!.score / test.maxMarks) * 100;
     }
     return totalPct / scoredTests.length;
+  }
+
+  Future<List<dynamic>> fetchLocalNcertBooks(String wing) async {
+    try {
+      final fileName = wing == 'school' ? 'ncertschool.json' : 'ncertcoaching.json';
+      final String data = await rootBundle.loadString('lib/$fileName');
+      return json.decode(data) as List<dynamic>;
+    } catch (e) {
+      debugPrint("Failed to load local NCERT books: $e");
+      return [];
+    }
   }
 
   int get schoolTestsCount {
@@ -168,6 +187,8 @@ class AcademicProvider extends ChangeNotifier {
         DateTime.now().add(const Duration(days: 7)).toIso8601String().split('T')[0],
         token
       ),
+      _apiService.getOtherFees(studentId, token),
+      _apiService.getVideos((wing == 'coaching' ? coachingClassId : classId) ?? (wing == 'coaching' ? coachingClass : className) ?? className, wing, token),
     ]);
 
     final keyAtt = 'att_$studentId';
@@ -179,6 +200,8 @@ class AcademicProvider extends ChangeNotifier {
     final keyHol = 'holidays_univ';
     final keyLdb = 'ldb_${classId ?? className}';
     final keySch = 'sch_$studentId';
+    final keyOth = 'oth_$studentId';
+    final keyVid = 'vid_$className';
 
     _attendance = futures[0] is List ? (futures[0] as List<dynamic>) : [];
     
@@ -220,6 +243,8 @@ class AcademicProvider extends ChangeNotifier {
     }
     
     _schedules = futures[8] is List ? (futures[8] as List<dynamic>) : [];
+    _otherFees = futures.length > 9 && futures[9] is List ? (futures[9] as List<dynamic>) : [];
+    _videos = futures.length > 10 && futures[10] is List ? (futures[10] as List<dynamic>) : [];
 
     // Cache all results
     AppCache.instance.set(keyAtt, futures[0], ttl: const Duration(hours: 2));
@@ -231,6 +256,8 @@ class AcademicProvider extends ChangeNotifier {
     AppCache.instance.set(keyHol, futures[6], ttl: const Duration(days: 7));
     AppCache.instance.set(keyLdb, futures[7], ttl: const Duration(hours: 2));
     AppCache.instance.set(keySch, futures[8], ttl: const Duration(hours: 4));
+    if (futures.length > 9) AppCache.instance.set(keyOth, futures[9], ttl: const Duration(hours: 4));
+    if (futures.length > 10) AppCache.instance.set(keyVid, futures[10], ttl: const Duration(hours: 24));
   }
 
   // Stores last fetch params to allow refreshWithLastParams() from any screen
@@ -286,6 +313,8 @@ class AcademicProvider extends ChangeNotifier {
     final keyHol = 'holidays_univ';
     final keyLdb = 'ldb_${classId ?? className}';
     final keySch = 'sch_$studentId';
+    final keyOth = 'oth_$studentId';
+    final keyVid = 'vid_$className';
 
     // Store params for refreshWithLastParams() convenience method
     _lastStudentId = studentId;
@@ -307,6 +336,8 @@ class AcademicProvider extends ChangeNotifier {
     final cHol = AppCache.instance.get(keyHol);
     final cLdb = AppCache.instance.get(keyLdb);
     final cSch = AppCache.instance.get(keySch);
+    final cOth = AppCache.instance.get(keyOth);
+    final cVid = AppCache.instance.get(keyVid);
 
     bool hasAnyCache = false;
     if (cAtt is List) { _attendance = cAtt; hasAnyCache = true; }
@@ -329,6 +360,8 @@ class AcademicProvider extends ChangeNotifier {
     if (cHol is List) { _holidays = cHol; hasAnyCache = true; }
     if (cLdb is Map)  { _leaderboard = Map<String, dynamic>.from(cLdb); hasAnyCache = true; }
     if (cSch is List) { _schedules = cSch; hasAnyCache = true; }
+    if (cOth is List) { _otherFees = cOth; hasAnyCache = true; }
+    if (cVid is List) { _videos = cVid; hasAnyCache = true; }
 
     if (hasAnyCache) {
       _isLoading = false;

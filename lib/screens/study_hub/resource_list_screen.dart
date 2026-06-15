@@ -12,6 +12,8 @@ class ResourceListScreen extends StatefulWidget {
   final String subjectId;
   final String subjectName;
   final String materialType;
+  final List<dynamic>? localChapters;
+  final String? localBookName;
 
   const ResourceListScreen({
     super.key,
@@ -19,6 +21,8 @@ class ResourceListScreen extends StatefulWidget {
     required this.subjectId,
     required this.subjectName,
     required this.materialType,
+    this.localChapters,
+    this.localBookName,
   });
 
   @override
@@ -26,16 +30,22 @@ class ResourceListScreen extends StatefulWidget {
 }
 
 class _ResourceListScreenState extends State<ResourceListScreen> {
-  List<dynamic> _chapters = [];
+
+  List<dynamic> _books = [];
   bool _isLoading = true;
 
   @override
   void initState() {
     super.initState();
-    _loadChapters();
+    _loadBooks();
   }
 
-  Future<void> _loadChapters() async {
+  Future<void> _loadBooks() async {
+    if (widget.localChapters != null) {
+      setState(() => _isLoading = false);
+      return;
+    }
+
     setState(() => _isLoading = true);
     
     final academic = context.read<AcademicProvider>();
@@ -47,20 +57,15 @@ class _ResourceListScreenState extends State<ResourceListScreen> {
       auth.token ?? ''
     );
 
-    // Find the material for this subject ID
-    final material = materials.firstWhere(
-      (m) => m['subjectId']['_id'] == widget.subjectId,
-      orElse: () => null
-    );
+    // Find ALL materials for this subject ID
+    final subjectBooks = materials.where(
+      (m) => m['subjectId']['_id'] == widget.subjectId
+    ).toList();
 
-    if (material != null) {
-      setState(() {
-        _chapters = material['chapters'] ?? [];
-        _isLoading = false;
-      });
-    } else {
-      setState(() => _isLoading = false);
-    }
+    setState(() {
+      _books = subjectBooks;
+      _isLoading = false;
+    });
   }
 
   @override
@@ -68,75 +73,147 @@ class _ResourceListScreenState extends State<ResourceListScreen> {
     return Scaffold(
       backgroundColor: AppTheme.background,
       appBar: AppBar(
-        title: Text(widget.subjectName),
+        title: Text(widget.localBookName != null 
+            ? '${widget.localBookName} - ${widget.materialType}' 
+            : '${widget.subjectName} Books'),
         elevation: 0,
         backgroundColor: AppTheme.surface,
         foregroundColor: AppTheme.textBase,
       ),
       body: _isLoading
         ? const Center(child: CircularProgressIndicator())
-        : _chapters.isEmpty
-          ? _buildEmptyState()
-          : ListView.builder(
-              padding: const EdgeInsets.all(20),
-              physics: const BouncingScrollPhysics(),
-              itemCount: _chapters.length,
-              itemBuilder: (context, index) {
-                final chapter = _chapters[index];
-                return _buildChapterCard(chapter);
-              },
-            ),
+        : widget.localChapters != null
+          ? _buildFlatChaptersList()
+          : _books.isEmpty
+            ? _buildEmptyState()
+            : ListView.builder(
+                padding: const EdgeInsets.all(20),
+                physics: const BouncingScrollPhysics(),
+                itemCount: _books.length,
+                itemBuilder: (context, index) {
+                  final book = _books[index];
+                  return _buildBookCard(book);
+                },
+              ),
+    );
+  }
+
+  Widget _buildFlatChaptersList() {
+    if (widget.localChapters!.isEmpty) {
+      return Center(
+        child: Text('No chapters uploaded yet.', style: TextStyle(color: AppTheme.textMuted, fontWeight: FontWeight.bold)),
+      );
+    }
+    return ListView.builder(
+      padding: const EdgeInsets.all(20),
+      physics: const BouncingScrollPhysics(),
+      itemCount: widget.localChapters!.length,
+      itemBuilder: (context, index) {
+        final chapter = widget.localChapters![index];
+        return Container(
+          margin: const EdgeInsets.only(bottom: 12),
+          decoration: BoxDecoration(
+            color: AppTheme.surface,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: AppTheme.border.withValues(alpha: 0.5)),
+            boxShadow: [
+              BoxShadow(color: AppTheme.primary.withValues(alpha: 0.04), blurRadius: 10, offset: const Offset(0, 4)),
+            ],
+          ),
+          child: _buildChapterTile(chapter),
+        );
+      },
     );
   }
 
   Widget _buildEmptyState() {
     return Center(
-      child: Text('No chapters found', style: TextStyle(color: AppTheme.textMuted, fontWeight: FontWeight.bold)),
+      child: Text('No books found for ${widget.subjectName}', style: TextStyle(color: AppTheme.textMuted, fontWeight: FontWeight.bold)),
     );
   }
 
-  Widget _buildChapterCard(dynamic chapter) {
+  Widget _buildBookCard(dynamic book) {
+    final chapters = book['chapters'] as List<dynamic>? ?? [];
+    
     return Container(
-      margin: EdgeInsets.only(bottom: 12),
+      margin: EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
-color: AppTheme.surface,
+        color: AppTheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: AppTheme.border.withOpacity(0.5)),
         boxShadow: [
           BoxShadow(color: AppTheme.primary.withOpacity(0.04), blurRadius: 10, offset: Offset(0, 4)),
         ],
       ),
-      child: ListTile(
-        contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-        leading: Container(
-          padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(color: AppTheme.primary.withOpacity(0.08), shape: BoxShape.circle),
-          child: Text(
-            '${chapter['chapterNo']}',
-            style: TextStyle(color: AppTheme.primary, fontWeight: FontWeight.w900, fontSize: 12),
+      child: Theme(
+        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+        child: ExpansionTile(
+          tilePadding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+          leading: Container(
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(color: AppTheme.primary.withOpacity(0.08), shape: BoxShape.circle),
+            child: Icon(LucideIcons.bookOpen, color: AppTheme.primary, size: 20),
           ),
+          title: Text(
+            book['bookName'] ?? 'Unknown Book',
+            style: TextStyle(fontWeight: FontWeight.w900, color: AppTheme.textBase, fontSize: 15),
+          ),
+          subtitle: Text('${chapters.length} Chapters', style: TextStyle(fontSize: 12, color: AppTheme.textMuted)),
+          children: chapters.isEmpty 
+            ? [
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text("No chapters uploaded yet.", style: TextStyle(color: AppTheme.textMuted, fontStyle: FontStyle.italic)),
+                )
+              ]
+            : chapters.map((chapter) => _buildChapterTile(chapter)).toList(),
         ),
-        title: Text(
-          chapter['chapterName'],
-          style: TextStyle(fontWeight: FontWeight.w900, color: AppTheme.textBase, fontSize: 14),
-        ),
-        subtitle: Text('Tap to view ${widget.materialType} PDF', style: TextStyle(fontSize: 11, color: AppTheme.textMuted)),
-        trailing: Icon(LucideIcons.fileText, color: AppTheme.primary, size: 20),
-        onTap: () {
-          HapticFeedback.lightImpact();
-          if (chapter['pdfLink'] != null && chapter['pdfLink'].isNotEmpty) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (c) => PDFViewerScreen(
-                  url: chapter['pdfLink'],
-                  title: chapter['chapterName'],
-                ),
-              ),
-            );
-          }
-        },
       ),
+    );
+  }
+
+  Widget _buildChapterTile(dynamic chapter) {
+    return ListTile(
+      contentPadding: EdgeInsets.symmetric(horizontal: 30, vertical: 4),
+      leading: Container(
+        width: 32,
+        height: 32,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: AppTheme.background,
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(color: AppTheme.border),
+        ),
+        child: Text(
+          '${chapter['chapterNo']}',
+          style: TextStyle(color: AppTheme.textBase, fontWeight: FontWeight.bold, fontSize: 12),
+        ),
+      ),
+      title: Text(
+        chapter['chapterName'],
+        style: TextStyle(fontWeight: FontWeight.bold, color: AppTheme.textBase, fontSize: 13),
+      ),
+      trailing: chapter['pdfLink'] != null && chapter['pdfLink'].isNotEmpty
+          ? Icon(LucideIcons.externalLink, color: AppTheme.primary, size: 16)
+          : Container(
+              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              decoration: BoxDecoration(color: Colors.orange.withOpacity(0.1), borderRadius: BorderRadius.circular(4)),
+              child: Text("Coming Soon", style: TextStyle(color: Colors.orange, fontSize: 10, fontWeight: FontWeight.bold)),
+            ),
+      onTap: () {
+        if (chapter['pdfLink'] != null && chapter['pdfLink'].isNotEmpty) {
+          HapticFeedback.lightImpact();
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (c) => PDFViewerScreen(
+                url: chapter['pdfLink'],
+                title: chapter['chapterName'],
+              ),
+            ),
+          );
+        }
+      },
     );
   }
 }

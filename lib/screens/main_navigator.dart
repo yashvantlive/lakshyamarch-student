@@ -148,8 +148,8 @@ class _MainNavigatorState extends State<MainNavigator> {
     }
 
     final isCoaching = auth.activeWingMode == 'coaching';
-    final cId = isCoaching ? student.coachingClassId : student.classId;
-    final cName = isCoaching ? student.coachingClass : student.className;
+    final cId = isCoaching ? (student.coachingClassId?.isNotEmpty == true ? student.coachingClassId : student.classId) : student.classId;
+    final cName = isCoaching ? (student.coachingClass?.isNotEmpty == true ? student.coachingClass : student.className) : student.className;
     
     if (cId == null || cId.isEmpty) {
       return const Scaffold(body: Center(child: Text('No class assigned to you for this wing.')));

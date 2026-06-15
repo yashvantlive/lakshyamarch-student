@@ -8,6 +8,7 @@ import '../../providers/auth_provider.dart';
 import '../../services/api_service.dart';
 import '../../widgets/premium_widgets.dart';
 import 'subject_selection_screen.dart';
+import 'book_selection_screen.dart';
 
 class ClassSelectionScreen extends StatefulWidget {
   final String type; // NCERT, DPP, Notes
@@ -32,12 +33,41 @@ class _ClassSelectionScreenState extends State<ClassSelectionScreen> {
     setState(() => _isLoading = true);
     try {
       final auth = context.read<AuthProvider>();
-      final api = ApiService();
-      final data = await api.getClasses(auth.token ?? '');
-      setState(() {
-        _classes = data;
-        _isLoading = false;
-      });
+      
+      if (widget.type.toUpperCase() == 'NCERT') {
+        final academic = context.read<AcademicProvider>();
+        final wing = auth.activeWingMode ?? 'school';
+        final localData = await academic.fetchLocalNcertBooks(wing);
+        
+        final student = auth.currentStudent;
+        final targetClassId = wing == 'coaching' 
+            ? (student?.coachingClassId?.isNotEmpty == true ? student?.coachingClassId : student?.classId)
+            : student?.classId;
+        
+        List<dynamic> mappedClasses = [];
+        for (var c in localData) {
+          if (c['classId'] == targetClassId) {
+            mappedClasses.add({
+              '_id': c['classId'],
+              'name': c['className'],
+              'wing': c['wing'],
+              'isLocal': true,
+              'localBooks': c['books'],
+            });
+          }
+        }
+        setState(() {
+          _classes = mappedClasses;
+          _isLoading = false;
+        });
+      } else {
+        final api = ApiService();
+        final data = await api.getClasses(auth.token ?? '');
+        setState(() {
+          _classes = data;
+          _isLoading = false;
+        });
+      }
     } catch (e) {
       debugPrint('Error loading classes: $e');
       setState(() => _isLoading = false);
@@ -116,15 +146,28 @@ class _ClassSelectionScreenState extends State<ClassSelectionScreen> {
 
   Widget _buildClassTile(BuildContext context, dynamic classObj) {
     return _FAANGClassTile(
-      className: '${classObj['name']} (${classObj['wing']})',
-      onTap: () => _navigateTo(
-        context,
-        SubjectSelectionScreen(
-          classId: classObj['_id'],
-          className: classObj['name'],
-          materialType: widget.type,
-        ),
-      ),
+      className: '${classObj['name']}',
+      onTap: () {
+        if (widget.type.toUpperCase() == 'NCERT' && classObj['isLocal'] == true) {
+          _navigateTo(
+            context,
+            BookSelectionScreen(
+              subjectName: classObj['name'],
+              materialType: widget.type,
+              books: classObj['localBooks'] ?? [],
+            ),
+          );
+        } else {
+          _navigateTo(
+            context,
+            SubjectSelectionScreen(
+              classId: classObj['_id'],
+              className: classObj['name'],
+              materialType: widget.type,
+            ),
+          );
+        }
+      },
     );
   }
 

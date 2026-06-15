@@ -139,7 +139,20 @@ class _ScheduleScreenState extends State<ScheduleScreen> with SingleTickerProvid
           lastDate: DateTime.now().add(const Duration(days: 365)),
           builder: (context, child) => Theme(
             data: Theme.of(context).copyWith(
-              colorScheme: ColorScheme.light(primary: wingColor, onPrimary: Colors.white, onSurface: AppTheme.textBase),
+              colorScheme: AppTheme.isDarkMode 
+                  ? ColorScheme.dark(
+                      primary: wingColor, 
+                      onPrimary: Colors.white, 
+                      onSurface: AppTheme.textBase,
+                      surface: AppTheme.surface,
+                    )
+                  : ColorScheme.light(
+                      primary: wingColor, 
+                      onPrimary: Colors.white, 
+                      onSurface: AppTheme.textBase,
+                      surface: AppTheme.surface,
+                    ),
+              dialogBackgroundColor: AppTheme.surface,
             ),
             child: child!,
           ),

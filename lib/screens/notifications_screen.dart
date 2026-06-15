@@ -110,25 +110,39 @@ class _NotificationsScreenState extends State<NotificationsScreen> with SingleTi
 
   @override
   Widget build(BuildContext context) {
+    final auth = context.watch<AuthProvider>();
     return Scaffold(
       backgroundColor: AppTheme.background,
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60),
-        child: AppBar(
-          backgroundColor: AppTheme.surface,
-          elevation: 0,
-          leading: IconButton(
-            icon: Icon(LucideIcons.arrowLeft, color: AppTheme.textBase),
-            onPressed: () => Navigator.pop(context),
-          ),
-          title: Text(
-            'Notifications Center',
-            style: TextStyle(color: AppTheme.textBase, fontWeight: FontWeight.w900, fontSize: 18),
-          ),
-          centerTitle: true,
+      body: SafeArea(
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 16),
+              width: double.infinity,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Column(
+                    children: [
+                      AnimatedBrandHeader(wingMode: auth.activeWingMode),
+                      const SizedBox(height: 4),
+                      Text(
+                        'Notifications Center',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: AppTheme.textBase,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Expanded(child: _buildBody()),
+          ],
         ),
       ),
-      body: _buildBody(),
     );
   }
 
@@ -165,7 +179,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> with SingleTi
   Widget _buildFilterChips() {
     return Container(
       width: double.infinity,
-      color: AppTheme.surface,
+      color: Colors.transparent,
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.fromLTRB(24, 0, 24, 16),

@@ -124,37 +124,165 @@ color: AppTheme.surface.withOpacity(0.1), borderRadius: BorderRadius.circular(12
                   itemCount: 5,
                   itemBuilder: (context, index) => const _FeeShimmer(),
                 )
-              : RefreshIndicator(
-                  onRefresh: () async {
-                    await context.read<AcademicProvider>().refreshWithLastParams();
-                  },
-                  child: ListView.builder(
-                    physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                    itemCount: slots.length,
-                    itemBuilder: (context, index) {
-                      final slot = slots[index];
-                      final feeData = fees.cast<dynamic>().firstWhere(
-                        (f) => f.month == slot['code'],
-                        orElse: () => null,
-                      );
-
-                      return FadeInAnimation(
-                        delay: index * 50,
-                        child: _FeeSlotItem(
-                          label: slot['label']!,
-                          code: slot['code']!,
-                          fee: feeData,
+              : DefaultTabController(
+                  length: 2,
+                  child: Column(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 20),
+                        decoration: BoxDecoration(
+                          color: AppTheme.surface,
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: AppTheme.border),
                         ),
-                      );
-                    },
+                        child: TabBar(
+                          indicatorSize: TabBarIndicatorSize.tab,
+                          indicator: BoxDecoration(
+                            color: (isCoaching ? Colors.blue : Colors.green).withOpacity(0.1),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          labelColor: isCoaching ? Colors.blue : Colors.green,
+                          unselectedLabelColor: AppTheme.textMuted,
+                          labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                          tabs: const [
+                            Tab(text: 'ACADEMIC FEES'),
+                            Tab(text: 'OTHER FEES'),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Expanded(
+                        child: TabBarView(
+                          children: [
+                            // Academic Fees Tab
+                            RefreshIndicator(
+                              onRefresh: () async {
+                                await context.read<AcademicProvider>().refreshWithLastParams();
+                              },
+                              child: ListView.builder(
+                                physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+                                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                                itemCount: slots.length,
+                                itemBuilder: (context, index) {
+                                  final slot = slots[index];
+                                  final feeData = fees.cast<dynamic>().firstWhere(
+                                    (f) => f.month == slot['code'],
+                                    orElse: () => null,
+                                  );
+
+                                  return FadeInAnimation(
+                                    delay: index * 50,
+                                    child: _FeeSlotItem(
+                                      label: slot['label']!,
+                                      code: slot['code']!,
+                                      fee: feeData,
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                            // Other Fees Tab
+                            RefreshIndicator(
+                              onRefresh: () async {
+                                await context.read<AcademicProvider>().refreshWithLastParams();
+                              },
+                              child: _buildOtherFeesList(academic.otherFees, isCoaching),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-            ),
-          ],
-        ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildOtherFeesList(List<dynamic> otherFees, bool isCoaching) {
+    if (otherFees.isEmpty) {
+      return Center(
+        child: Text('No other fees recorded yet', style: TextStyle(color: AppTheme.textMuted, fontWeight: FontWeight.bold)),
       );
     }
+    return ListView.builder(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+      itemCount: otherFees.length,
+      itemBuilder: (context, index) {
+        final fee = otherFees[index];
+        final date = fee['date'] ?? 'Unknown Date';
+        final total = (fee['registrationFee'] ?? 0) + (fee['admissionFee'] ?? 0) + (fee['miscellaneousFee'] ?? 0) + (fee['examinationFee'] ?? 0) + (fee['hostelFee'] ?? 0) + (fee['moduleFee'] ?? 0) + (fee['testSeriesFee'] ?? 0) + (fee['otherFeeAmount'] ?? 0);
+        final mode = fee['paymentMode'] ?? 'Cash';
+        
+        return Container(
+          margin: const EdgeInsets.only(bottom: 12),
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: AppTheme.surface,
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: AppTheme.border),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Date: $date', style: TextStyle(fontWeight: FontWeight.bold, color: AppTheme.textMuted, fontSize: 12)),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    decoration: BoxDecoration(color: (isCoaching ? Colors.blue : Colors.green).withOpacity(0.1), borderRadius: BorderRadius.circular(6)),
+                    child: Text(mode, style: TextStyle(color: isCoaching ? Colors.blue : Colors.green, fontSize: 10, fontWeight: FontWeight.bold)),
+                  )
+                ],
+              ),
+              const SizedBox(height: 12),
+              _buildOtherFeeRow('Registration Fee', fee['registrationFee']),
+              _buildOtherFeeRow('Admission Fee', fee['admissionFee']),
+              _buildOtherFeeRow('Miscellaneous Fee', fee['miscellaneousFee']),
+              _buildOtherFeeRow('Examination Fee', fee['examinationFee']),
+              _buildOtherFeeRow('Hostel Fee', fee['hostelFee']),
+              _buildOtherFeeRow('Module Fee', fee['moduleFee']),
+              _buildOtherFeeRow('Test Series Fee', fee['testSeriesFee']),
+              _buildOtherFeeRow('Other Amount', fee['otherFeeAmount']),
+              if ((fee['remarks'] ?? '').isNotEmpty) ...[
+                const SizedBox(height: 8),
+                Text('Remark: ${fee['remarks']}', style: TextStyle(fontSize: 11, color: AppTheme.textMuted, fontStyle: FontStyle.italic)),
+              ],
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 8),
+                child: Divider(),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text('Total Amount', style: TextStyle(fontWeight: FontWeight.w900)),
+                  Text('₹${total.toStringAsFixed(0)}', style: const TextStyle(fontWeight: FontWeight.w900, color: Colors.green, fontSize: 16)),
+                ],
+              )
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildOtherFeeRow(String label, dynamic amount) {
+    final amt = amount is num ? amount.toDouble() : 0.0;
+    if (amt <= 0) return const SizedBox.shrink();
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 4),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(label, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600)),
+          Text('₹${amt.toStringAsFixed(0)}', style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
+        ],
+      ),
+    );
+  }
   }
 
 class _FeeSlotItem extends StatelessWidget {

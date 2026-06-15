@@ -4,9 +4,9 @@ import 'package:http/http.dart' as http;
 import '../models/student.dart';
 
 class ApiService {
-  // 🌐 Production Server
-  static const String baseUrl = "https://erp.lakshyamarch.com";
-
+  // 🌐 Local Testing (Use "http://10.0.2.2:3000" if testing on Android Emulator)
+  static const String baseUrl = "http://192.168.29.25:3000";
+  // static const String baseUrl = "https://erp.lakshyamarch.com";
   static const int _maxRetries = 3;
   static const Duration _timeoutDuration = Duration(seconds: 15);
 
@@ -94,6 +94,14 @@ class ApiService {
 
   Future<dynamic> getFees(String studentId, String token) async {
     return await getRequest('/api/fees?studentId=$studentId', token);
+  }
+
+  Future<List<dynamic>> getOtherFees(String studentId, String token) async {
+    final resp = await getRequest('/api/other-fees?studentId=$studentId', token);
+    if (resp != null && resp['records'] != null) {
+      return resp['records'] as List<dynamic>;
+    }
+    return [];
   }
 
   Future<List<dynamic>> getSchedulesRange(String startDate, String endDate, String token) async {
@@ -264,5 +272,15 @@ class ApiService {
       return await http.get(Uri.parse('$baseUrl/api/student/notifications'), headers: headers);
     }, 'get_student_notifications');
     return Map<String, dynamic>.from(res as Map);
+  }
+
+  Future<List<dynamic>> getVideos(String className, String? wing, String token) async {
+    final Map<String, dynamic> queryParams = {'class': className};
+    if (wing != null) queryParams['wing'] = wing;
+
+    final uri = Uri.parse('/api/videos').replace(queryParameters: queryParams);
+    final resp = await getRequest(uri.toString(), token);
+    if (resp is List) return resp;
+    throw Exception('Unexpected response format for videos');
   }
 }

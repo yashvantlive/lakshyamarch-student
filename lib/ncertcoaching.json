@@ -1,0 +1,5502 @@
+[
+  {
+    "classId": "6a2bb243e06829006d5c431a",
+    "className": "Class 06",
+    "wing": "coaching",
+    "books": [
+      {
+        "subjectName": "Hindi",
+        "bookName": "Malhar",
+        "type": "ncert",
+        "chapterCount": 13,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fhml101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fhml102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fhml103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fhml104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fhml105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fhml106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fhml107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fhml108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fhml109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fhml110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fhml111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fhml112.pdf"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Chapter 13",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fhml113.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "English",
+        "bookName": "Poorvi",
+        "type": "ncert",
+        "chapterCount": 5,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fepr101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fepr102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fepr103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fepr104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fepr105.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Mathematics",
+        "bookName": "Ganita Prakash",
+        "type": "ncert",
+        "chapterCount": 10,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fegp101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fegp102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fegp103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fegp104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fegp105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fegp106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fegp107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fegp108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fegp109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fegp110.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Social Science",
+        "bookName": "Exploring Society India and Beyond",
+        "type": "ncert",
+        "chapterCount": 14,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fees101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fees102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fees103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fees104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fees105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fees106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fees107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fees108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fees109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fees110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fees111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fees112.pdf"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Chapter 13",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fees113.pdf"
+          },
+          {
+            "chapterNo": 14,
+            "chapterName": "Chapter 14",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fees114.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Arts",
+        "bookName": "Kriti-I",
+        "type": "ncert",
+        "chapterCount": 22,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr112.pdf"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Chapter 13",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr113.pdf"
+          },
+          {
+            "chapterNo": 14,
+            "chapterName": "Chapter 14",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr114.pdf"
+          },
+          {
+            "chapterNo": 15,
+            "chapterName": "Chapter 15",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr115.pdf"
+          },
+          {
+            "chapterNo": 16,
+            "chapterName": "Chapter 16",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr116.pdf"
+          },
+          {
+            "chapterNo": 17,
+            "chapterName": "Chapter 17",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr117.pdf"
+          },
+          {
+            "chapterNo": 18,
+            "chapterName": "Chapter 18",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr118.pdf"
+          },
+          {
+            "chapterNo": 19,
+            "chapterName": "Chapter 19",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr119.pdf"
+          },
+          {
+            "chapterNo": 20,
+            "chapterName": "Chapter 20",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr120.pdf"
+          },
+          {
+            "chapterNo": 21,
+            "chapterName": "Chapter 21",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr121.pdf"
+          },
+          {
+            "chapterNo": 22,
+            "chapterName": "Chapter 22",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekr122.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Science",
+        "bookName": "Curiosity",
+        "type": "ncert",
+        "chapterCount": 12,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fecu101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fecu102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fecu103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fecu104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fecu105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fecu106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fecu107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fecu108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fecu109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fecu110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fecu111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fecu112.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Sanskrit",
+        "bookName": "Deepakam",
+        "type": "ncert",
+        "chapterCount": 16,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fsde101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fsde102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fsde103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fsde104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fsde105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fsde106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fsde107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fsde108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fsde109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fsde110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fsde111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fsde112.pdf"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Chapter 13",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fsde113.pdf"
+          },
+          {
+            "chapterNo": 14,
+            "chapterName": "Chapter 14",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fsde114.pdf"
+          },
+          {
+            "chapterNo": 15,
+            "chapterName": "Chapter 15",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fsde115.pdf"
+          },
+          {
+            "chapterNo": 16,
+            "chapterName": "Chapter 16",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fsde116.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Urdu",
+        "bookName": "Khayal",
+        "type": "ncert",
+        "chapterCount": 14,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fuky101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fuky102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fuky103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fuky104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fuky105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fuky106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fuky107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fuky108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fuky109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fuky110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fuky111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fuky112.pdf"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Chapter 13",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fuky113.pdf"
+          },
+          {
+            "chapterNo": 14,
+            "chapterName": "Chapter 14",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fuky114.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Vocational Education",
+        "bookName": "Kaushal Bodh",
+        "type": "ncert",
+        "chapterCount": 6,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekb101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekb102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekb103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekb104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekb105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/fekb106.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Physical Education and Well Being",
+        "bookName": "Khel Yatra",
+        "type": "ncert",
+        "chapterCount": 5,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/feky101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/feky102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/feky103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/feky104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/feky105.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classId": "6a2bb243e06829006d5c431b",
+    "className": "Class 07",
+    "wing": "coaching",
+    "books": [
+      {
+        "subjectName": "English",
+        "bookName": "Poorvi",
+        "type": "ncert",
+        "chapterCount": 5,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gepr101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gepr102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gepr103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gepr104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gepr105.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Mathematics",
+        "bookName": "Ganita Prakash",
+        "type": "ncert",
+        "chapterCount": 8,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gegp101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gegp102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gegp103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gegp104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gegp105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gegp106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gegp107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gegp108.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Mathematics",
+        "bookName": "Ganita Prakash-II",
+        "type": "ncert",
+        "chapterCount": 7,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gegp201.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gegp202.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gegp203.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gegp204.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gegp205.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gegp206.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gegp207.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Social Science",
+        "bookName": "Exploring Society India and Beyond Part-I",
+        "type": "ncert",
+        "chapterCount": 12,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gees101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gees102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gees103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gees104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gees105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gees106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gees107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gees108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gees109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gees110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gees111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gees112.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Social Science",
+        "bookName": "Exploring Society India and Beyond Part-II",
+        "type": "ncert",
+        "chapterCount": 8,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gees201.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gees202.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gees203.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gees204.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gees205.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gees206.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gees207.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gees208.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Physical Education and Well Being",
+        "bookName": "Khel Yatra",
+        "type": "ncert",
+        "chapterCount": 6,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/geky101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/geky102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/geky103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/geky104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/geky105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/geky106.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Vocational Education",
+        "bookName": "Kaushal Bodh",
+        "type": "ncert",
+        "chapterCount": 7,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekb101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekb102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekb103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekb104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekb105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekb106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekb107.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Urdu",
+        "bookName": "Khayal",
+        "type": "ncert",
+        "chapterCount": 14,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/guky101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/guky102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/guky103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/guky104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/guky105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/guky106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/guky107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/guky108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/guky109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/guky110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/guky111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/guky112.pdf"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Chapter 13",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/guky113.pdf"
+          },
+          {
+            "chapterNo": 14,
+            "chapterName": "Chapter 14",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/guky114.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Sanskrit",
+        "bookName": "Deepakam",
+        "type": "ncert",
+        "chapterCount": 15,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gsde101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gsde102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gsde103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gsde104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gsde105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gsde106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gsde107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gsde108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gsde109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gsde110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gsde111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gsde112.pdf"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Chapter 13",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gsde113.pdf"
+          },
+          {
+            "chapterNo": 14,
+            "chapterName": "Chapter 14",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gsde114.pdf"
+          },
+          {
+            "chapterNo": 15,
+            "chapterName": "Chapter 15",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gsde115.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Science",
+        "bookName": "Curiosity",
+        "type": "ncert",
+        "chapterCount": 12,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gecu101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gecu102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gecu103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gecu104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gecu105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gecu106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gecu107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gecu108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gecu109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gecu110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gecu111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gecu112.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Arts",
+        "bookName": "Kriti",
+        "type": "ncert",
+        "chapterCount": 20,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekr101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekr102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekr103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekr104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekr105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekr106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekr107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekr108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekr109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekr110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekr111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekr112.pdf"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Chapter 13",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekr113.pdf"
+          },
+          {
+            "chapterNo": 14,
+            "chapterName": "Chapter 14",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekr114.pdf"
+          },
+          {
+            "chapterNo": 15,
+            "chapterName": "Chapter 15",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekr115.pdf"
+          },
+          {
+            "chapterNo": 16,
+            "chapterName": "Chapter 16",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekr116.pdf"
+          },
+          {
+            "chapterNo": 17,
+            "chapterName": "Chapter 17",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekr117.pdf"
+          },
+          {
+            "chapterNo": 18,
+            "chapterName": "Chapter 18",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekr118.pdf"
+          },
+          {
+            "chapterNo": 19,
+            "chapterName": "Chapter 19",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekr119.pdf"
+          },
+          {
+            "chapterNo": 20,
+            "chapterName": "Chapter 20",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/gekr120.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Hindi",
+        "bookName": "Malhar",
+        "type": "ncert",
+        "chapterCount": 10,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ghml101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ghml102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ghml103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ghml104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ghml105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ghml106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ghml107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ghml108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ghml109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ghml110.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classId": "6a2bb243e06829006d5c431c",
+    "className": "Class 08",
+    "wing": "coaching",
+    "books": [
+      {
+        "subjectName": "Mathematics",
+        "bookName": "GANITA PRAKASH PART-1",
+        "type": "ncert",
+        "chapterCount": 7,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "A SQUARE AND A CUBE",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hegp101.pdf",
+            "_id": "69f9c1cb436e49e9632728fe"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "POWER PLAY",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hegp102.pdf",
+            "_id": "69f9c1cb436e49e9632728ff"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "A STORY OF NUMBERS",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hegp103.pdf",
+            "_id": "69f9c1cb436e49e963272900"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "QUADRILATERALS",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hegp104.pdf",
+            "_id": "69f9c1cb436e49e963272901"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "NUMBER PLAY",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hegp105.pdf",
+            "_id": "69f9c1cb436e49e963272902"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "WE DISTRIBUTE, YET THINGS MULTIPLY",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hegp106.pdf",
+            "_id": "69f9c1cb436e49e963272903"
+          },
+          {
+            "chapterNo": 15,
+            "chapterName": "PROPORTIONAL REASONING-1 ",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hegp107.pdf",
+            "_id": "69f9c1cb436e49e96327290c"
+          }
+        ]
+      },
+      {
+        "subjectName": "Mathematics",
+        "bookName": "Ganita Prakash Part-II",
+        "type": "ncert",
+        "chapterCount": 7,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "FRACTIONS IN DISGUISE",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hegp201.pdf",
+            "_id": "6a0d83ea93fa147b7bfb2ca3"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "THE BAUDHĀYANAPYTHAGORAS THEOREM",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hegp202.pdf",
+            "_id": "6a0d83ea93fa147b7bfb2ca4"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "PROPORTIONAL REASONING–2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hegp203.pdf",
+            "_id": "6a0d83ea93fa147b7bfb2ca5"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "EXPLORING SOME GEOMETRIC THEMES",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hegp204.pdf",
+            "_id": "6a0d83ea93fa147b7bfb2ca6"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "TALES BY DOTS AND LINES",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hegp205.pdf",
+            "_id": "6a0d83ea93fa147b7bfb2ca7"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "ALGEBRA PLAY",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hegp206.pdf",
+            "_id": "6a0d83ea93fa147b7bfb2ca8"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "AREA",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hegp207.pdf",
+            "_id": "6a0d83ea93fa147b7bfb2ca9"
+          }
+        ]
+      },
+      {
+        "subjectName": "Hindi",
+        "bookName": "Malhar",
+        "type": "ncert",
+        "chapterCount": 10,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hhml101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hhml102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hhml103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hhml104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hhml105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hhml106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hhml107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hhml108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hhml109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hhml110.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Physical Education and Well Being",
+        "bookName": "Khel Yatra",
+        "type": "ncert",
+        "chapterCount": 6,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/heky101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/heky102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/heky103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/heky104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/heky105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/heky106.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Arts",
+        "bookName": "Kriti",
+        "type": "ncert",
+        "chapterCount": 19,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekr101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekr102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekr103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekr104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekr105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekr106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekr107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekr108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekr109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekr110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekr111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekr112.pdf"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Chapter 13",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekr113.pdf"
+          },
+          {
+            "chapterNo": 14,
+            "chapterName": "Chapter 14",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekr114.pdf"
+          },
+          {
+            "chapterNo": 15,
+            "chapterName": "Chapter 15",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekr115.pdf"
+          },
+          {
+            "chapterNo": 16,
+            "chapterName": "Chapter 16",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekr116.pdf"
+          },
+          {
+            "chapterNo": 17,
+            "chapterName": "Chapter 17",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekr117.pdf"
+          },
+          {
+            "chapterNo": 18,
+            "chapterName": "Chapter 18",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekr118.pdf"
+          },
+          {
+            "chapterNo": 19,
+            "chapterName": "Chapter 19",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekr119.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Science",
+        "bookName": "Curiosity",
+        "type": "ncert",
+        "chapterCount": 13,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hecu101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hecu102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hecu103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hecu104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hecu105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hecu106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hecu107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hecu108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hecu109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hecu110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hecu111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hecu112.pdf"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Chapter 13",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hecu113.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Social Science",
+        "bookName": "Exploring Society India and Beyond Part-I",
+        "type": "ncert",
+        "chapterCount": 7,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hees101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hees102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hees103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hees104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hees105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hees106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hees107.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Urdu",
+        "bookName": "Khayal",
+        "type": "ncert",
+        "chapterCount": 21,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/huky101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/huky102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/huky103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/huky104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/huky105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/huky106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/huky107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/huky108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/huky109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/huky110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/huky111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/huky112.pdf"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Chapter 13",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/huky113.pdf"
+          },
+          {
+            "chapterNo": 14,
+            "chapterName": "Chapter 14",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/huky114.pdf"
+          },
+          {
+            "chapterNo": 15,
+            "chapterName": "Chapter 15",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/huky115.pdf"
+          },
+          {
+            "chapterNo": 16,
+            "chapterName": "Chapter 16",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/huky116.pdf"
+          },
+          {
+            "chapterNo": 17,
+            "chapterName": "Chapter 17",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/huky117.pdf"
+          },
+          {
+            "chapterNo": 18,
+            "chapterName": "Chapter 18",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/huky118.pdf"
+          },
+          {
+            "chapterNo": 19,
+            "chapterName": "Chapter 19",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/huky119.pdf"
+          },
+          {
+            "chapterNo": 20,
+            "chapterName": "Chapter 20",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/huky120.pdf"
+          },
+          {
+            "chapterNo": 21,
+            "chapterName": "Chapter 21",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/huky121.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Vocational Education",
+        "bookName": "Kaushal Bodh",
+        "type": "ncert",
+        "chapterCount": 8,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekb101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekb102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekb103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekb104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekb105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekb106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekb107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hekb108.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "English",
+        "bookName": "Poorvi",
+        "type": "ncert",
+        "chapterCount": 5,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hepr101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hepr102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hepr103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hepr104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/hepr105.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classId": "6a2bb243e06829006d5c431d",
+    "className": "Class 09",
+    "wing": "coaching",
+    "books": [
+      {
+        "subjectName": "Mathematics",
+        "bookName": "GANITA MANJARI",
+        "type": "ncert",
+        "chapterCount": 8,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Orienting Yourself: The Use of Coordinates",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemh101.pdf",
+            "_id": "69f9c1cb436e49e963272922"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Introduction to Linear Polynomials",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemh102.pdf",
+            "_id": "69f9c1cb436e49e963272923"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "The World of Numbers",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemh103.pdf",
+            "_id": "69f9c1cb436e49e963272924"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Exploring Algebraic Identities",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemh104.pdf",
+            "_id": "69f9c1cb436e49e963272925"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "I’m Up and Down, and Round and Round",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemh105.pdf",
+            "_id": "69f9c1cb436e49e963272926"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Measuring Space: Perimeter and Area",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemh106.pdf",
+            "_id": "69f9c1cb436e49e963272927"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "The Mathematics of Maybe: Introduction to Probability",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemh107.pdf",
+            "_id": "69f9c1cb436e49e963272928"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Predicting What Comes Next: Exploring Sequences and Progressions",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemh108.pdf",
+            "_id": "69f9c1cb436e49e96327292a"
+          }
+        ]
+      },
+      {
+        "subjectName": "Science",
+        "bookName": "Exploration",
+        "type": "ncert",
+        "chapterCount": 13,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Exploration: Entering the World of Secondary Science",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iesc101.pdf",
+            "_id": "69f9c1cb436e49e963272932"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Cell: The Building Block of Life",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iesc102.pdf",
+            "_id": "69f9c1cb436e49e963272933"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Tissues in Action",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iesc103.pdf",
+            "_id": "69f9c1cb436e49e963272934"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Describing Motion Around Us",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iesc104.pdf",
+            "_id": "69f9c1cb436e49e963272935"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Exploring Mixtures and their Separation",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iesc105.pdf",
+            "_id": "69f9c1cb436e49e963272936"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "How Forces Affect Motion",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iesc106.pdf",
+            "_id": "69f9c1cb436e49e963272937"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Work, Energy, and Simple Machines",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iesc107.pdf",
+            "_id": "69f9c1cb436e49e963272938"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Journey Inside the Atom",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iesc108.pdf",
+            "_id": "69f9c1cb436e49e963272939"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Atomic Foundations of Matter",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iesc109.pdf",
+            "_id": "69f9c1cb436e49e96327293a"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Sound Waves: Characteristics and Applications",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iesc110.pdf",
+            "_id": "69f9c1cb436e49e96327293b"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Reproduction: How Life Continues",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iesc111.pdf",
+            "_id": "69f9c1cb436e49e96327293c"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Patterns in Life: Diversity and Classification",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iesc112.pdf",
+            "_id": "69f9c1cb436e49e96327293d"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Earth as a System: Energy, Matter, and Life",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iesc113.pdf",
+            "_id": "69f9c1cb436e49e96327293e"
+          }
+        ]
+      },
+      {
+        "subjectName": "History",
+        "bookName": "History - India and the Contemporary World I",
+        "type": "ncert",
+        "chapterCount": 5,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "The French Revolution",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iess101.pdf",
+            "_id": "69f9c1cb436e49e963272942"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Socialism in Europe and the Russian Revolution",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iess102.pdf",
+            "_id": "69f9c1cb436e49e963272943"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Nazism and the Rise of Hitler",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iess103.pdf",
+            "_id": "69f9c1cb436e49e963272944"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Forest Society and Colonialism",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iess104.pdf",
+            "_id": "69f9c1cb436e49e963272945"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Pastoralists in the Modern World",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iess105.pdf",
+            "_id": "69f9c1cb436e49e963272946"
+          }
+        ]
+      },
+      {
+        "subjectName": "Geography",
+        "bookName": "Geography - Contemporary India I",
+        "type": "ncert",
+        "chapterCount": 6,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "India – Size and Location",
+            "pdfLink": "",
+            "_id": "69f9c1cb436e49e963272948"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Physical Features of India",
+            "pdfLink": "",
+            "_id": "69f9c1cb436e49e963272949"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Drainage",
+            "pdfLink": "",
+            "_id": "69f9c1cb436e49e96327294a"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Climate",
+            "pdfLink": "",
+            "_id": "69f9c1cb436e49e96327294b"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Natural Vegetation and Wildlife",
+            "pdfLink": "",
+            "_id": "69f9c1cb436e49e96327294c"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Population",
+            "pdfLink": "",
+            "_id": "69f9c1cb436e49e96327294d"
+          }
+        ]
+      },
+      {
+        "subjectName": "Political Science",
+        "bookName": "Political Science - Democratic Politics I",
+        "type": "ncert",
+        "chapterCount": 5,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "What is Democracy? Why Democracy?",
+            "pdfLink": "",
+            "_id": "69f9c1cb436e49e96327294f"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Constitutional Design",
+            "pdfLink": "",
+            "_id": "69f9c1cb436e49e963272950"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Electroral Politics",
+            "pdfLink": "",
+            "_id": "69f9c1cb436e49e963272951"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Working of Institutions",
+            "pdfLink": "",
+            "_id": "69f9c1cb436e49e963272952"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Democratic Rights",
+            "pdfLink": "",
+            "_id": "69f9c1cb436e49e963272953"
+          }
+        ]
+      },
+      {
+        "subjectName": "Economic",
+        "bookName": "Economics",
+        "type": "ncert",
+        "chapterCount": 4,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "The Story of Village Palampur",
+            "pdfLink": "",
+            "_id": "69f9c1cb436e49e963272955"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "People as Resource",
+            "pdfLink": "",
+            "_id": "69f9c1cb436e49e963272956"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Poverty as a Challenge",
+            "pdfLink": "",
+            "_id": "69f9c1cb436e49e963272957"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Food Security in India",
+            "pdfLink": "",
+            "_id": "69f9c1cb436e49e963272958"
+          }
+        ]
+      },
+      {
+        "subjectName": "Hindi",
+        "bookName": "Ganga",
+        "type": "ncert",
+        "chapterCount": 12,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "दो बैलों की कथा (प्रेमचंद) ",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihga101.pdf",
+            "_id": "6a0d805e05bdc71f41a7b9ab"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "क्या लिखूँ (पदुमलाल पुन्नालाल बख्शी )",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihga102.pdf",
+            "_id": "6a0d805e05bdc71f41a7b9ac"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "संवादहीन (शेखर जोशी)",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihga103.pdf",
+            "_id": "6a0d805e05bdc71f41a7b9ad"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "ऐसी भी बातें होती है  (यतींद्र मिश्र)",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihga104.pdf",
+            "_id": "6a0d805e05bdc71f41a7b9ae"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "आखिरी चट्टान तक (मोहन राकेश)",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihga105.pdf",
+            "_id": "6a0d805e05bdc71f41a7b9af"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "रीढ़ की हड्डी (जगदीश चंद्र माथुर)",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihga106.pdf",
+            "_id": "6a0d805e05bdc71f41a7b9b0"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "मैं और मेरा देश (कन्हैयालाल मिश्र ‘प्रभाकर’)",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihga107.pdf",
+            "_id": "6a0d805e05bdc71f41a7b9b1"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "पद (रैदास)",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihga108.pdf",
+            "_id": "6a0d805e05bdc71f41a7b9b2"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "राम-लक्ष्मण-परशुराम संवाद (तुलसीदास)",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihga109.pdf",
+            "_id": "6a0d805e05bdc71f41a7b9b3"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "भारति जय, विजय करे! (महाप्राण सूर्यकांत त्रिपाठी ‘निराला’)",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihga110.pdf",
+            "_id": "6a0d805e05bdc71f41a7b9b4"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "झाँसी की रानी (सुभद्रा कुमारी चौहान)",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihga111.pdf",
+            "_id": "6a0d805e05bdc71f41a7b9b5"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "घर की याद (भवानी प्रसाद मिश्र )",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihga112.pdf",
+            "_id": "6a0d805e05bdc71f41a7b9b6"
+          }
+        ]
+      },
+      {
+        "subjectName": "English",
+        "bookName": "Kaveri",
+        "type": "ncert",
+        "chapterCount": 8,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iebe101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iebe102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iebe103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iebe104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iebe105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iebe106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iebe107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iebe108.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Sanskrit",
+        "bookName": "Sharada",
+        "type": "ncert",
+        "chapterCount": 16,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihsh101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihsh102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihsh103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihsh104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihsh105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihsh106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihsh107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihsh108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihsh109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihsh110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihsh111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihsh112.pdf"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Chapter 13",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihsh113.pdf"
+          },
+          {
+            "chapterNo": 14,
+            "chapterName": "Chapter 14",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihsh114.pdf"
+          },
+          {
+            "chapterNo": 15,
+            "chapterName": "Chapter 15",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihsh115.pdf"
+          },
+          {
+            "chapterNo": 16,
+            "chapterName": "Chapter 16",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/ihsh116.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Skill Education",
+        "bookName": "Kaushal Vikas",
+        "type": "ncert",
+        "chapterCount": 12,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iekv101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iekv102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iekv103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iekv104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iekv105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iekv106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iekv107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iekv108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iekv109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iekv110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iekv111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iekv112.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Arts",
+        "bookName": "Madhurima",
+        "type": "ncert",
+        "chapterCount": 17,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemr101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemr102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemr103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemr104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemr105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemr106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemr107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemr108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemr109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemr110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemr111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemr112.pdf"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Chapter 13",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemr113.pdf"
+          },
+          {
+            "chapterNo": 14,
+            "chapterName": "Chapter 14",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemr114.pdf"
+          },
+          {
+            "chapterNo": 15,
+            "chapterName": "Chapter 15",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemr115.pdf"
+          },
+          {
+            "chapterNo": 16,
+            "chapterName": "Chapter 16",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemr116.pdf"
+          },
+          {
+            "chapterNo": 17,
+            "chapterName": "Chapter 17",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iemr117.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Physical Education and Well Being",
+        "bookName": "Khel Praveen",
+        "type": "ncert",
+        "chapterCount": 6,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iehp101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iehp102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iehp103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iehp104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iehp105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iehp106.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Urdu",
+        "bookName": "Jamuna",
+        "type": "ncert",
+        "chapterCount": 15,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iuju101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iuju102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iuju103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iuju104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iuju105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iuju106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iuju107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iuju108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iuju109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iuju110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iuju111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iuju112.pdf"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Chapter 13",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iuju113.pdf"
+          },
+          {
+            "chapterNo": 14,
+            "chapterName": "Chapter 14",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iuju114.pdf"
+          },
+          {
+            "chapterNo": 15,
+            "chapterName": "Chapter 15",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/iuju115.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classId": "6a2bb243e06829006d5c431e",
+    "className": "Class 10",
+    "wing": "coaching",
+    "books": [
+      {
+        "subjectName": "Science",
+        "bookName": "Science",
+        "type": "ncert",
+        "chapterCount": 13,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chemical Reactions and Equations",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc101.pdf",
+            "_id": "69f9c1ca436e49e96327283f"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Acids, Bases and Salts",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc102.pdf",
+            "_id": "69f9c1ca436e49e963272840"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Metals and Non-metals",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc103.pdf",
+            "_id": "69f9c1ca436e49e963272841"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Carbon and its Compounds",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc104.pdf",
+            "_id": "69f9c1ca436e49e963272842"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Life Processes",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc105.pdf",
+            "_id": "69f9c1ca436e49e963272844"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Control and Coordination",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc106.pdf",
+            "_id": "69f9c1ca436e49e963272845"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "How do Organisms Reproduce?",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc107.pdf",
+            "_id": "69f9c1ca436e49e963272846"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Heredity",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc108.pdf",
+            "_id": "69f9c1ca436e49e963272847"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Light – Reflection and Refraction",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc109.pdf",
+            "_id": "69f9c1ca436e49e963272848"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "The Human Eye and the Colourful World",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc110.pdf",
+            "_id": "69f9c1ca436e49e963272849"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Electricity",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc111.pdf",
+            "_id": "69f9c1ca436e49e96327284a"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Magnetic Effects of Electric Current",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc112.pdf",
+            "_id": "69f9c1ca436e49e96327284b"
+          },
+          {
+            "chapterNo": 15,
+            "chapterName": "Our Environment",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc113.pdf",
+            "_id": "69f9c1ca436e49e96327284d"
+          }
+        ]
+      },
+      {
+        "subjectName": "History",
+        "bookName": "History - India and the Contemporary World II",
+        "type": "ncert",
+        "chapterCount": 5,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "The Rise of Nationalism in Europe",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess101.pdf",
+            "_id": "69f9c1ca436e49e963272850"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Nationalism in India",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess102.pdf",
+            "_id": "69f9c1ca436e49e963272851"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "The Making of a Global World",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess103.pdf",
+            "_id": "69f9c1ca436e49e963272852"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "The Age of Industrialisation",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess104.pdf",
+            "_id": "69f9c1ca436e49e963272853"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Print Culture and the Modern World",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess105.pdf",
+            "_id": "69f9c1ca436e49e963272854"
+          }
+        ]
+      },
+      {
+        "subjectName": "Geography",
+        "bookName": "Geography - Contemporary India II",
+        "type": "ncert",
+        "chapterCount": 7,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Resources and Development",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess201.pdf",
+            "_id": "69f9c1ca436e49e963272856"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Forest and Wildlife Resources",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess202.pdf",
+            "_id": "69f9c1ca436e49e963272857"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Water Resources",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess203.pdf",
+            "_id": "69f9c1ca436e49e963272858"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Agriculture",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess204.pdf",
+            "_id": "69f9c1ca436e49e963272859"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Minerals and Energy Resources",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess205.pdf",
+            "_id": "69f9c1ca436e49e96327285a"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Manufacturing Industries",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess206.pdf",
+            "_id": "69f9c1ca436e49e96327285b"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Lifelines of National Economy",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess207.pdf",
+            "_id": "69f9c1ca436e49e96327285c"
+          }
+        ]
+      },
+      {
+        "subjectName": "Political Science",
+        "bookName": "Political Science - Democratic Politics II",
+        "type": "ncert",
+        "chapterCount": 8,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Power Sharing",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess301.pdf",
+            "_id": "69f9c1ca436e49e96327285e"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Federalism",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess302.pdf",
+            "_id": "69f9c1ca436e49e96327285f"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Democracy and Diversity",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess303.pdf",
+            "_id": "69f9c1ca436e49e963272860"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Gender, Religion and Caste",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess304.pdf",
+            "_id": "69f9c1ca436e49e963272861"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Popular Struggles and Movements",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess305.pdf",
+            "_id": "69f9c1ca436e49e963272862"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Political Parties",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess306.pdf",
+            "_id": "69f9c1ca436e49e963272863"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Outcomes of Democracy",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess307.pdf",
+            "_id": "69f9c1ca436e49e963272864"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Challenges to Democracy",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess308.pdf",
+            "_id": "69f9c1ca436e49e963272865"
+          }
+        ]
+      },
+      {
+        "subjectName": "Economic",
+        "bookName": "Economics - Understanding Economic Development",
+        "type": "ncert",
+        "chapterCount": 5,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Development",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess401.pdf",
+            "_id": "69f9c1ca436e49e963272867"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Sectors of the Indian Economy",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess402.pdf",
+            "_id": "69f9c1ca436e49e963272868"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Money and Credit",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess403.pdf",
+            "_id": "69f9c1ca436e49e963272869"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Globalisation and the Indian Economy",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess404.pdf",
+            "_id": "69f9c1ca436e49e96327286a"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Consumer Rights",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess405.pdf",
+            "_id": "69f9c1ca436e49e96327286b"
+          }
+        ]
+      },
+      {
+        "subjectName": "English",
+        "bookName": "First Flight",
+        "type": "ncert",
+        "chapterCount": 9,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "A Letter to God",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jeff101.pdf",
+            "_id": "69f9c1ca436e49e96327286d"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Nelson Mandela: Long Walk to Freedom",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jeff102.pdf",
+            "_id": "69f9c1ca436e49e96327286e"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Two Stories about Flying",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jeff103.pdf",
+            "_id": "69f9c1ca436e49e96327286f"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "From the Diary of Anne Frank",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jeff104.pdf",
+            "_id": "69f9c1ca436e49e963272870"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Glimpses of India",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jeff105.pdf",
+            "_id": "69f9c1ca436e49e963272873"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Mijbil the Otter",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jeff106.pdf",
+            "_id": "69f9c1ca436e49e963272874"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Madam Rides the Bus",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jeff107.pdf",
+            "_id": "69f9c1ca436e49e963272875"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "The Sermon at Benares",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jeff108.pdf",
+            "_id": "69f9c1ca436e49e963272876"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "The Proposal",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jeff109.pdf",
+            "_id": "69f9c1ca436e49e963272877"
+          }
+        ]
+      },
+      {
+        "subjectName": "English",
+        "bookName": "Footprints Without Feet",
+        "type": "ncert",
+        "chapterCount": 9,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "A Triumph of Surgery",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jefp101.pdf",
+            "_id": "69f9c1ca436e49e963272879"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "The Thief's Story",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jefp102.pdf",
+            "_id": "69f9c1ca436e49e96327287a"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "The Midnight Visitor",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jefp103.pdf",
+            "_id": "69f9c1ca436e49e96327287b"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "A Question of Trust",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jefp104.pdf",
+            "_id": "69f9c1ca436e49e96327287c"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Footprints without Feet",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jefp105.pdf",
+            "_id": "69f9c1ca436e49e96327287d"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "The Making of a Scientist",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jefp106.pdf",
+            "_id": "69f9c1ca436e49e96327287e"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "The Necklace",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jefp107.pdf",
+            "_id": "69f9c1ca436e49e96327287f"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Bholi",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jefp108.pdf",
+            "_id": "69f9c1ca436e49e963272881"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "The Book That Saved the Earth",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jefp109.pdf",
+            "_id": "69f9c1ca436e49e963272882"
+          }
+        ]
+      },
+      {
+        "subjectName": "Hindi",
+        "bookName": " Kritika",
+        "type": "ncert",
+        "chapterCount": 4,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "माता का अँचल",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhkr101.pdf",
+            "_id": "6a2b945f5c57deff3597c9a3"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "साना साना हाथ जोड़ि ...",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhkr102.pdf",
+            "_id": "6a2b945f5c57deff3597c9a4"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "मैं क्यों लिखता हूँ?",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhkr103.pdf",
+            "_id": "6a2b945f5c57deff3597c9a5"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "लेखक परिचय",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhkr1lp.pdf",
+            "_id": "6a2b945f5c57deff3597c9a6"
+          }
+        ]
+      },
+      {
+        "subjectName": "Hindi",
+        "bookName": "Kshitij-2",
+        "type": "ncert",
+        "chapterCount": 12,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "ऊधौ, तुम हौ अति बड़भागी",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks101.pdf",
+            "_id": "6a2b9e245ae97a234a365e54"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "राम-लक्ष्मण-परशुराम संवाद",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks102.pdf",
+            "_id": "6a2b9e245ae97a234a365e55"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "आत्मकथ्य",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks103.pdf",
+            "_id": "6a2b9e245ae97a234a365e56"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "उत्साह अट नहीं रही है",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks104.pdf",
+            "_id": "6a2b9e245ae97a234a365e57"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "यह दंतुरित मुस्कान फसल",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks105.pdf",
+            "_id": "6a2b9e245ae97a234a365e58"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "संगतकार",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks106.pdf",
+            "_id": "6a2b9e245ae97a234a365e59"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "नेताजी का चश्मा",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks107.pdf",
+            "_id": "6a2b9e245ae97a234a365e5a"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "बालगोबिन भगत",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks108.pdf",
+            "_id": "6a2b9e245ae97a234a365e5b"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "लखनवी अंदाज़",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks109.pdf",
+            "_id": "6a2b9e245ae97a234a365e5c"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "एक कहानी यह भी",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks110.pdf",
+            "_id": "6a2b9e245ae97a234a365e5d"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "नौबतखाने में इबादत",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks111.pdf",
+            "_id": "6a2b9e245ae97a234a365e5e"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "संस्कृति",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks112.pdf",
+            "_id": "6a2b9e245ae97a234a365e5f"
+          }
+        ]
+      },
+      {
+        "subjectName": "Hindi",
+        "bookName": " Sparsh",
+        "type": "ncert",
+        "chapterCount": 14,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Kavita 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp101.pdf",
+            "_id": "6a2ba25ad9af09898e4d117d"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Kavita 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp102.pdf",
+            "_id": "6a2ba25ad9af09898e4d117e"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Kavita 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp103.pdf",
+            "_id": "6a2ba25ad9af09898e4d117f"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Kavita 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp104.pdf",
+            "_id": "6a2ba25ad9af09898e4d1180"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Kavita 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp105.pdf",
+            "_id": "6a2ba25ad9af09898e4d1181"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Kavita 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp106.pdf",
+            "_id": "6a2ba25ad9af09898e4d1182"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Kavita 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp107.pdf",
+            "_id": "6a2ba25ad9af09898e4d1183"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Kahani 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp108.pdf",
+            "_id": "6a2ba25ad9af09898e4d1184"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Kahani 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp109.pdf",
+            "_id": "6a2ba25ad9af09898e4d1185"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Kahani 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp110.pdf",
+            "_id": "6a2ba25ad9af09898e4d1186"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Kahani 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp111.pdf",
+            "_id": "6a2ba25ad9af09898e4d1187"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Kahani 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp112.pdf",
+            "_id": "6a2ba25ad9af09898e4d1188"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Kahani 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp113.pdf",
+            "_id": "6a2ba25ad9af09898e4d1189"
+          },
+          {
+            "chapterNo": 14,
+            "chapterName": "Kahani 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp114.pdf",
+            "_id": "6a2ba25ad9af09898e4d118a"
+          }
+        ]
+      },
+      {
+        "subjectName": "Hindi",
+        "bookName": "Sanchayan Bhag-2",
+        "type": "ncert",
+        "chapterCount": 4,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "हरिहर काका ",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsy101.pdf",
+            "_id": "6a2ba3e3d9af09898e4d11a1"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "सपनों के-से दिन ",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsy102.pdf",
+            "_id": "6a2ba3e3d9af09898e4d11a2"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "टोपी शुक्ला",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsy103.pdf",
+            "_id": "6a2ba3e3d9af09898e4d11a3"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "लेखक परिचय",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsy1lp.pdf",
+            "_id": "6a2ba3e3d9af09898e4d11a4"
+          }
+        ]
+      },
+      {
+        "subjectName": "English",
+        "bookName": " Words and Expressions -II",
+        "type": "ncert",
+        "chapterCount": 9,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "A Letter to God",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jewe201.pdf",
+            "_id": "6a2ba834bc88cf9b7479989f"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Nelson Mandela: Long Walk to Freedom",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jewe202.pdf",
+            "_id": "6a2ba834bc88cf9b747998a0"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Two Stories about Flying",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jewe203.pdf",
+            "_id": "6a2ba834bc88cf9b747998a1"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "From the Diary of Anne Frank",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jewe204.pdf",
+            "_id": "6a2ba834bc88cf9b747998a2"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Glimpses of India",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jewe205.pdf",
+            "_id": "6a2ba834bc88cf9b747998a3"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Mijbil the Otter",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jewe206.pdf",
+            "_id": "6a2ba834bc88cf9b747998a4"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Madam Rides the Bus",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jewe207.pdf",
+            "_id": "6a2ba834bc88cf9b747998a5"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Madam Rides the Bus",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jewe208.pdf",
+            "_id": "6a2ba834bc88cf9b747998a6"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "The Proposal",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jewe209.pdf",
+            "_id": "6a2ba834bc88cf9b747998a7"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classId": "6a2bb243e06829006d5c431f",
+    "className": "Class 10 NLQ",
+    "wing": "coaching",
+    "books": [
+      {
+        "subjectName": "Science",
+        "bookName": "Science",
+        "type": "ncert",
+        "chapterCount": 13,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chemical Reactions and Equations",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc101.pdf",
+            "_id": "69f9c1ca436e49e96327283f"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Acids, Bases and Salts",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc102.pdf",
+            "_id": "69f9c1ca436e49e963272840"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Metals and Non-metals",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc103.pdf",
+            "_id": "69f9c1ca436e49e963272841"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Carbon and its Compounds",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc104.pdf",
+            "_id": "69f9c1ca436e49e963272842"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Life Processes",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc105.pdf",
+            "_id": "69f9c1ca436e49e963272844"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Control and Coordination",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc106.pdf",
+            "_id": "69f9c1ca436e49e963272845"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "How do Organisms Reproduce?",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc107.pdf",
+            "_id": "69f9c1ca436e49e963272846"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Heredity",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc108.pdf",
+            "_id": "69f9c1ca436e49e963272847"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Light – Reflection and Refraction",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc109.pdf",
+            "_id": "69f9c1ca436e49e963272848"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "The Human Eye and the Colourful World",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc110.pdf",
+            "_id": "69f9c1ca436e49e963272849"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Electricity",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc111.pdf",
+            "_id": "69f9c1ca436e49e96327284a"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Magnetic Effects of Electric Current",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc112.pdf",
+            "_id": "69f9c1ca436e49e96327284b"
+          },
+          {
+            "chapterNo": 15,
+            "chapterName": "Our Environment",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jesc113.pdf",
+            "_id": "69f9c1ca436e49e96327284d"
+          }
+        ]
+      },
+      {
+        "subjectName": "History",
+        "bookName": "History - India and the Contemporary World II",
+        "type": "ncert",
+        "chapterCount": 5,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "The Rise of Nationalism in Europe",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess101.pdf",
+            "_id": "69f9c1ca436e49e963272850"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Nationalism in India",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess102.pdf",
+            "_id": "69f9c1ca436e49e963272851"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "The Making of a Global World",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess103.pdf",
+            "_id": "69f9c1ca436e49e963272852"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "The Age of Industrialisation",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess104.pdf",
+            "_id": "69f9c1ca436e49e963272853"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Print Culture and the Modern World",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess105.pdf",
+            "_id": "69f9c1ca436e49e963272854"
+          }
+        ]
+      },
+      {
+        "subjectName": "Geography",
+        "bookName": "Geography - Contemporary India II",
+        "type": "ncert",
+        "chapterCount": 7,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Resources and Development",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess201.pdf",
+            "_id": "69f9c1ca436e49e963272856"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Forest and Wildlife Resources",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess202.pdf",
+            "_id": "69f9c1ca436e49e963272857"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Water Resources",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess203.pdf",
+            "_id": "69f9c1ca436e49e963272858"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Agriculture",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess204.pdf",
+            "_id": "69f9c1ca436e49e963272859"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Minerals and Energy Resources",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess205.pdf",
+            "_id": "69f9c1ca436e49e96327285a"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Manufacturing Industries",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess206.pdf",
+            "_id": "69f9c1ca436e49e96327285b"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Lifelines of National Economy",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess207.pdf",
+            "_id": "69f9c1ca436e49e96327285c"
+          }
+        ]
+      },
+      {
+        "subjectName": "Political Science",
+        "bookName": "Political Science - Democratic Politics II",
+        "type": "ncert",
+        "chapterCount": 8,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Power Sharing",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess301.pdf",
+            "_id": "69f9c1ca436e49e96327285e"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Federalism",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess302.pdf",
+            "_id": "69f9c1ca436e49e96327285f"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Democracy and Diversity",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess303.pdf",
+            "_id": "69f9c1ca436e49e963272860"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Gender, Religion and Caste",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess304.pdf",
+            "_id": "69f9c1ca436e49e963272861"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Popular Struggles and Movements",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess305.pdf",
+            "_id": "69f9c1ca436e49e963272862"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Political Parties",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess306.pdf",
+            "_id": "69f9c1ca436e49e963272863"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Outcomes of Democracy",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess307.pdf",
+            "_id": "69f9c1ca436e49e963272864"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Challenges to Democracy",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess308.pdf",
+            "_id": "69f9c1ca436e49e963272865"
+          }
+        ]
+      },
+      {
+        "subjectName": "Economic",
+        "bookName": "Economics - Understanding Economic Development",
+        "type": "ncert",
+        "chapterCount": 5,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Development",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess401.pdf",
+            "_id": "69f9c1ca436e49e963272867"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Sectors of the Indian Economy",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess402.pdf",
+            "_id": "69f9c1ca436e49e963272868"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Money and Credit",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess403.pdf",
+            "_id": "69f9c1ca436e49e963272869"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Globalisation and the Indian Economy",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess404.pdf",
+            "_id": "69f9c1ca436e49e96327286a"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Consumer Rights",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jess405.pdf",
+            "_id": "69f9c1ca436e49e96327286b"
+          }
+        ]
+      },
+      {
+        "subjectName": "English",
+        "bookName": "First Flight",
+        "type": "ncert",
+        "chapterCount": 9,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "A Letter to God",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jeff101.pdf",
+            "_id": "69f9c1ca436e49e96327286d"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Nelson Mandela: Long Walk to Freedom",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jeff102.pdf",
+            "_id": "69f9c1ca436e49e96327286e"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Two Stories about Flying",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jeff103.pdf",
+            "_id": "69f9c1ca436e49e96327286f"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "From the Diary of Anne Frank",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jeff104.pdf",
+            "_id": "69f9c1ca436e49e963272870"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Glimpses of India",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jeff105.pdf",
+            "_id": "69f9c1ca436e49e963272873"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Mijbil the Otter",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jeff106.pdf",
+            "_id": "69f9c1ca436e49e963272874"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Madam Rides the Bus",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jeff107.pdf",
+            "_id": "69f9c1ca436e49e963272875"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "The Sermon at Benares",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jeff108.pdf",
+            "_id": "69f9c1ca436e49e963272876"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "The Proposal",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jeff109.pdf",
+            "_id": "69f9c1ca436e49e963272877"
+          }
+        ]
+      },
+      {
+        "subjectName": "English",
+        "bookName": "Footprints Without Feet",
+        "type": "ncert",
+        "chapterCount": 9,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "A Triumph of Surgery",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jefp101.pdf",
+            "_id": "69f9c1ca436e49e963272879"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "The Thief's Story",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jefp102.pdf",
+            "_id": "69f9c1ca436e49e96327287a"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "The Midnight Visitor",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jefp103.pdf",
+            "_id": "69f9c1ca436e49e96327287b"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "A Question of Trust",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jefp104.pdf",
+            "_id": "69f9c1ca436e49e96327287c"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Footprints without Feet",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jefp105.pdf",
+            "_id": "69f9c1ca436e49e96327287d"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "The Making of a Scientist",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jefp106.pdf",
+            "_id": "69f9c1ca436e49e96327287e"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "The Necklace",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jefp107.pdf",
+            "_id": "69f9c1ca436e49e96327287f"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Bholi",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jefp108.pdf",
+            "_id": "69f9c1ca436e49e963272881"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "The Book That Saved the Earth",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jefp109.pdf",
+            "_id": "69f9c1ca436e49e963272882"
+          }
+        ]
+      },
+      {
+        "subjectName": "Hindi",
+        "bookName": " Kritika",
+        "type": "ncert",
+        "chapterCount": 4,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "माता का अँचल",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhkr101.pdf",
+            "_id": "6a2b945f5c57deff3597c9a3"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "साना साना हाथ जोड़ि ...",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhkr102.pdf",
+            "_id": "6a2b945f5c57deff3597c9a4"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "मैं क्यों लिखता हूँ?",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhkr103.pdf",
+            "_id": "6a2b945f5c57deff3597c9a5"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "लेखक परिचय",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhkr1lp.pdf",
+            "_id": "6a2b945f5c57deff3597c9a6"
+          }
+        ]
+      },
+      {
+        "subjectName": "Hindi",
+        "bookName": "Kshitij-2",
+        "type": "ncert",
+        "chapterCount": 12,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "ऊधौ, तुम हौ अति बड़भागी",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks101.pdf",
+            "_id": "6a2b9e245ae97a234a365e54"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "राम-लक्ष्मण-परशुराम संवाद",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks102.pdf",
+            "_id": "6a2b9e245ae97a234a365e55"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "आत्मकथ्य",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks103.pdf",
+            "_id": "6a2b9e245ae97a234a365e56"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "उत्साह अट नहीं रही है",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks104.pdf",
+            "_id": "6a2b9e245ae97a234a365e57"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "यह दंतुरित मुस्कान फसल",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks105.pdf",
+            "_id": "6a2b9e245ae97a234a365e58"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "संगतकार",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks106.pdf",
+            "_id": "6a2b9e245ae97a234a365e59"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "नेताजी का चश्मा",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks107.pdf",
+            "_id": "6a2b9e245ae97a234a365e5a"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "बालगोबिन भगत",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks108.pdf",
+            "_id": "6a2b9e245ae97a234a365e5b"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "लखनवी अंदाज़",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks109.pdf",
+            "_id": "6a2b9e245ae97a234a365e5c"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "एक कहानी यह भी",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks110.pdf",
+            "_id": "6a2b9e245ae97a234a365e5d"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "नौबतखाने में इबादत",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks111.pdf",
+            "_id": "6a2b9e245ae97a234a365e5e"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "संस्कृति",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhks112.pdf",
+            "_id": "6a2b9e245ae97a234a365e5f"
+          }
+        ]
+      },
+      {
+        "subjectName": "Hindi",
+        "bookName": " Sparsh",
+        "type": "ncert",
+        "chapterCount": 14,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Kavita 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp101.pdf",
+            "_id": "6a2ba25ad9af09898e4d117d"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Kavita 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp102.pdf",
+            "_id": "6a2ba25ad9af09898e4d117e"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Kavita 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp103.pdf",
+            "_id": "6a2ba25ad9af09898e4d117f"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Kavita 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp104.pdf",
+            "_id": "6a2ba25ad9af09898e4d1180"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Kavita 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp105.pdf",
+            "_id": "6a2ba25ad9af09898e4d1181"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Kavita 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp106.pdf",
+            "_id": "6a2ba25ad9af09898e4d1182"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Kavita 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp107.pdf",
+            "_id": "6a2ba25ad9af09898e4d1183"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Kahani 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp108.pdf",
+            "_id": "6a2ba25ad9af09898e4d1184"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Kahani 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp109.pdf",
+            "_id": "6a2ba25ad9af09898e4d1185"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Kahani 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp110.pdf",
+            "_id": "6a2ba25ad9af09898e4d1186"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Kahani 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp111.pdf",
+            "_id": "6a2ba25ad9af09898e4d1187"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Kahani 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp112.pdf",
+            "_id": "6a2ba25ad9af09898e4d1188"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Kahani 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp113.pdf",
+            "_id": "6a2ba25ad9af09898e4d1189"
+          },
+          {
+            "chapterNo": 14,
+            "chapterName": "Kahani 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsp114.pdf",
+            "_id": "6a2ba25ad9af09898e4d118a"
+          }
+        ]
+      },
+      {
+        "subjectName": "Hindi",
+        "bookName": "Sanchayan Bhag-2",
+        "type": "ncert",
+        "chapterCount": 4,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "हरिहर काका ",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsy101.pdf",
+            "_id": "6a2ba3e3d9af09898e4d11a1"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "सपनों के-से दिन ",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsy102.pdf",
+            "_id": "6a2ba3e3d9af09898e4d11a2"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "टोपी शुक्ला",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsy103.pdf",
+            "_id": "6a2ba3e3d9af09898e4d11a3"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "लेखक परिचय",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jhsy1lp.pdf",
+            "_id": "6a2ba3e3d9af09898e4d11a4"
+          }
+        ]
+      },
+      {
+        "subjectName": "English",
+        "bookName": " Words and Expressions -II",
+        "type": "ncert",
+        "chapterCount": 9,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "A Letter to God",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jewe201.pdf",
+            "_id": "6a2ba834bc88cf9b7479989f"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Nelson Mandela: Long Walk to Freedom",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jewe202.pdf",
+            "_id": "6a2ba834bc88cf9b747998a0"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Two Stories about Flying",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jewe203.pdf",
+            "_id": "6a2ba834bc88cf9b747998a1"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "From the Diary of Anne Frank",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jewe204.pdf",
+            "_id": "6a2ba834bc88cf9b747998a2"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Glimpses of India",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jewe205.pdf",
+            "_id": "6a2ba834bc88cf9b747998a3"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Mijbil the Otter",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jewe206.pdf",
+            "_id": "6a2ba834bc88cf9b747998a4"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Madam Rides the Bus",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jewe207.pdf",
+            "_id": "6a2ba834bc88cf9b747998a5"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Madam Rides the Bus",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jewe208.pdf",
+            "_id": "6a2ba834bc88cf9b747998a6"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "The Proposal",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/jewe209.pdf",
+            "_id": "6a2ba834bc88cf9b747998a7"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classId": "6a2bb243e06829006d5c4320",
+    "className": "Class 11 NEET",
+    "wing": "coaching",
+    "books": [
+      {
+        "subjectName": "Chemistry",
+        "bookName": "Chemistry Part I",
+        "type": "ncert",
+        "chapterCount": 6,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kech101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kech102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kech103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kech104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kech105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kech106.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Chemistry",
+        "bookName": "Chemistry Part II",
+        "type": "ncert",
+        "chapterCount": 3,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kech201.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kech202.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kech203.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Mathematics",
+        "bookName": "Mathematics",
+        "type": "ncert",
+        "chapterCount": 14,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh112.pdf"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Chapter 13",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh113.pdf"
+          },
+          {
+            "chapterNo": 14,
+            "chapterName": "Chapter 14",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh114.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Biology",
+        "bookName": "Biology",
+        "type": "ncert",
+        "chapterCount": 19,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo112.pdf"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Chapter 13",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo113.pdf"
+          },
+          {
+            "chapterNo": 14,
+            "chapterName": "Chapter 14",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo114.pdf"
+          },
+          {
+            "chapterNo": 15,
+            "chapterName": "Chapter 15",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo115.pdf"
+          },
+          {
+            "chapterNo": 16,
+            "chapterName": "Chapter 16",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo116.pdf"
+          },
+          {
+            "chapterNo": 17,
+            "chapterName": "Chapter 17",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo117.pdf"
+          },
+          {
+            "chapterNo": 18,
+            "chapterName": "Chapter 18",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo118.pdf"
+          },
+          {
+            "chapterNo": 19,
+            "chapterName": "Chapter 19",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo119.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Physics",
+        "bookName": "Physics Part-I",
+        "type": "ncert",
+        "chapterCount": 7,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph107.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Physics",
+        "bookName": "Physics Part-II",
+        "type": "ncert",
+        "chapterCount": 7,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph201.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph202.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph203.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph204.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph205.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph206.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph207.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classId": "6a2bb243e06829006d5c4321",
+    "className": "Class 11 JEE",
+    "wing": "coaching",
+    "books": [
+      {
+        "subjectName": "Chemistry",
+        "bookName": "Chemistry Part I",
+        "type": "ncert",
+        "chapterCount": 6,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kech101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kech102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kech103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kech104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kech105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kech106.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Chemistry",
+        "bookName": "Chemistry Part II",
+        "type": "ncert",
+        "chapterCount": 3,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kech201.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kech202.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kech203.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Mathematics",
+        "bookName": "Mathematics",
+        "type": "ncert",
+        "chapterCount": 14,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh112.pdf"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Chapter 13",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh113.pdf"
+          },
+          {
+            "chapterNo": 14,
+            "chapterName": "Chapter 14",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kemh114.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Biology",
+        "bookName": "Biology",
+        "type": "ncert",
+        "chapterCount": 19,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo112.pdf"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Chapter 13",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo113.pdf"
+          },
+          {
+            "chapterNo": 14,
+            "chapterName": "Chapter 14",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo114.pdf"
+          },
+          {
+            "chapterNo": 15,
+            "chapterName": "Chapter 15",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo115.pdf"
+          },
+          {
+            "chapterNo": 16,
+            "chapterName": "Chapter 16",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo116.pdf"
+          },
+          {
+            "chapterNo": 17,
+            "chapterName": "Chapter 17",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo117.pdf"
+          },
+          {
+            "chapterNo": 18,
+            "chapterName": "Chapter 18",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo118.pdf"
+          },
+          {
+            "chapterNo": 19,
+            "chapterName": "Chapter 19",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/kebo119.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Physics",
+        "bookName": "Physics Part-I",
+        "type": "ncert",
+        "chapterCount": 7,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph107.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Physics",
+        "bookName": "Physics Part-II",
+        "type": "ncert",
+        "chapterCount": 7,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph201.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph202.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph203.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph204.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph205.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph206.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/keph207.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classId": "6a2bb243e06829006d5c4323",
+    "className": "Class 12 JEE",
+    "wing": "coaching",
+    "books": [
+      {
+        "subjectName": "Mathematics",
+        "bookName": "Mathematics Part-I",
+        "type": "ncert",
+        "chapterCount": 6,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh106.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Mathematics",
+        "bookName": "Mathematics Part-II",
+        "type": "ncert",
+        "chapterCount": 7,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh201.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh202.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh203.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh204.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh205.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh206.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh207.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Physics",
+        "bookName": "Physics Part-I",
+        "type": "ncert",
+        "chapterCount": 8,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph108.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Physics",
+        "bookName": "Physics Part-II",
+        "type": "ncert",
+        "chapterCount": 6,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph201.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph202.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph203.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph204.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph205.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph206.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Chemistry",
+        "bookName": "Chemistry Part-I",
+        "type": "ncert",
+        "chapterCount": 5,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lech101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lech102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lech103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lech104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lech105.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Chemistry",
+        "bookName": "Chemistry Part-II",
+        "type": "ncert",
+        "chapterCount": 5,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lech201.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lech202.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lech203.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lech204.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lech205.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Biology",
+        "bookName": "Biology",
+        "type": "ncert",
+        "chapterCount": 13,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo112.pdf"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Chapter 13",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo113.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "classId": "6a2bb243e06829006d5c4322",
+    "className": "Class 12 NEET",
+    "wing": "coaching",
+    "books": [
+      {
+        "subjectName": "Mathematics",
+        "bookName": "Mathematics Part-I",
+        "type": "ncert",
+        "chapterCount": 6,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh106.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Mathematics",
+        "bookName": "Mathematics Part-II",
+        "type": "ncert",
+        "chapterCount": 7,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh201.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh202.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh203.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh204.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh205.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh206.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lemh207.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Physics",
+        "bookName": "Physics Part-I",
+        "type": "ncert",
+        "chapterCount": 8,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph108.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Physics",
+        "bookName": "Physics Part-II",
+        "type": "ncert",
+        "chapterCount": 6,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph201.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph202.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph203.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph204.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph205.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/leph206.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Chemistry",
+        "bookName": "Chemistry Part-I",
+        "type": "ncert",
+        "chapterCount": 5,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lech101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lech102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lech103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lech104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lech105.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Chemistry",
+        "bookName": "Chemistry Part-II",
+        "type": "ncert",
+        "chapterCount": 5,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lech201.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lech202.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lech203.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lech204.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lech205.pdf"
+          }
+        ]
+      },
+      {
+        "subjectName": "Biology",
+        "bookName": "Biology",
+        "type": "ncert",
+        "chapterCount": 13,
+        "chapters": [
+          {
+            "chapterNo": 1,
+            "chapterName": "Chapter 1",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo101.pdf"
+          },
+          {
+            "chapterNo": 2,
+            "chapterName": "Chapter 2",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo102.pdf"
+          },
+          {
+            "chapterNo": 3,
+            "chapterName": "Chapter 3",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo103.pdf"
+          },
+          {
+            "chapterNo": 4,
+            "chapterName": "Chapter 4",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo104.pdf"
+          },
+          {
+            "chapterNo": 5,
+            "chapterName": "Chapter 5",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo105.pdf"
+          },
+          {
+            "chapterNo": 6,
+            "chapterName": "Chapter 6",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo106.pdf"
+          },
+          {
+            "chapterNo": 7,
+            "chapterName": "Chapter 7",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo107.pdf"
+          },
+          {
+            "chapterNo": 8,
+            "chapterName": "Chapter 8",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo108.pdf"
+          },
+          {
+            "chapterNo": 9,
+            "chapterName": "Chapter 9",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo109.pdf"
+          },
+          {
+            "chapterNo": 10,
+            "chapterName": "Chapter 10",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo110.pdf"
+          },
+          {
+            "chapterNo": 11,
+            "chapterName": "Chapter 11",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo111.pdf"
+          },
+          {
+            "chapterNo": 12,
+            "chapterName": "Chapter 12",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo112.pdf"
+          },
+          {
+            "chapterNo": 13,
+            "chapterName": "Chapter 13",
+            "pdfLink": "https://ncert.nic.in/textbook/pdf/lebo113.pdf"
+          }
+        ]
+      }
+    ]
+  }
+]

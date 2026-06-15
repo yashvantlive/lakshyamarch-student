@@ -6,6 +6,7 @@ import '../../theme/app_theme.dart';
 import '../../providers/academic_provider.dart';
 import '../../providers/auth_provider.dart';
 import 'resource_list_screen.dart';
+import 'book_selection_screen.dart';
 import '../../widgets/premium_widgets.dart';
 
 class SubjectSelectionScreen extends StatefulWidget {
@@ -27,6 +28,7 @@ class SubjectSelectionScreen extends StatefulWidget {
 class _SubjectSelectionScreenState extends State<SubjectSelectionScreen> {
   List<Map<String, dynamic>> _subjects = [];
   bool _isLoading = true;
+  String? _selectedWingFilter;
 
   @override
   void initState() {
@@ -39,10 +41,62 @@ class _SubjectSelectionScreenState extends State<SubjectSelectionScreen> {
     
     final academic = context.read<AcademicProvider>();
     final auth = context.read<AuthProvider>();
+    final student = auth.currentStudent;
     
-    // Fetch by classId instead of className string
+    if (_selectedWingFilter == null) {
+      _selectedWingFilter = student?.wing == 'both' ? 'school' : (student?.wing ?? 'school');
+    }
+    
+    final isCoaching = _selectedWingFilter == 'coaching';
+    final targetClassId = isCoaching 
+        ? (student?.coachingClassId?.isNotEmpty == true ? student?.coachingClassId : student?.classId)
+        : student?.classId;
+        
+    final targetClassName = isCoaching 
+        ? (student?.coachingClass?.isNotEmpty == true ? student?.coachingClass : student?.className)
+        : student?.className;
+        
+    if (widget.materialType.toUpperCase() == 'NCERT') {
+      final wing = _selectedWingFilter ?? 'school';
+      final localData = await academic.fetchLocalNcertBooks(wing);
+      final cId = targetClassId ?? widget.classId;
+      final classData = localData.firstWhere(
+        (c) => c['classId'] == cId || c['_id'] == cId,
+        orElse: () => null
+      );
+      
+      if (classData != null && classData['books'] != null) {
+        final Map<String, Map<String, dynamic>> subjectMap = {};
+        final books = classData['books'] as List;
+        for (var book in books) {
+          final subjectName = book['subjectName'] ?? 'Unknown';
+          if (!subjectMap.containsKey(subjectName)) {
+            subjectMap[subjectName] = {
+              'id': subjectName,
+              'name': subjectName,
+              'icon': _getIconForSubject(subjectName),
+              'color': _getColorForSubject(subjectName),
+              'localBooks': [],
+            };
+          }
+          subjectMap[subjectName]!['localBooks'].add(book);
+        }
+        setState(() {
+          _subjects = subjectMap.values.toList();
+          _isLoading = false;
+        });
+        return;
+      } else {
+        setState(() {
+          _subjects = [];
+          _isLoading = false;
+        });
+        return;
+      }
+    }
+
     final materials = await academic.fetchStudyMaterials(
-      widget.classId, 
+      targetClassId ?? widget.classId, 
       widget.materialType, 
       auth.token ?? ''
     );
@@ -112,8 +166,11 @@ class _SubjectSelectionScreenState extends State<SubjectSelectionScreen> {
   @override
   Widget build(BuildContext context) {
     final auth = context.watch<AuthProvider>();
+    final student = auth.currentStudent;
+    final hasBoth = student?.wing == 'both' || (student?.classId?.isNotEmpty == true && student?.coachingClassId?.isNotEmpty == true);
+    
     final screenHeight = MediaQuery.of(context).size.height;
-    const appBarHeight = 120.0;
+    final appBarHeight = hasBoth ? 160.0 : 120.0;
     final gridHeight = screenHeight - appBarHeight - MediaQuery.of(context).padding.top - 40;
 
     return Scaffold(
@@ -121,7 +178,7 @@ class _SubjectSelectionScreenState extends State<SubjectSelectionScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            _buildCenteredAppBar(auth.activeWingMode),
+            _buildCenteredAppBar(auth.activeWingMode, student, hasBoth),
             Expanded(
               child: _isLoading
                   ? const Center(child: CircularProgressIndicator())
@@ -166,19 +223,79 @@ class _SubjectSelectionScreenState extends State<SubjectSelectionScreen> {
     );
   }
 
-  Widget _buildCenteredAppBar(String? wingMode) {
+  Widget _buildCenteredAppBar(String? defaultWingMode, dynamic student, bool hasBoth) {
+    final isCoaching = _selectedWingFilter == 'coaching';
+    final targetClassName = isCoaching 
+        ? (student?.coachingClass?.isNotEmpty == true ? student?.coachingClass : student?.className)
+        : student?.className;
+
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 24),
       width: double.infinity,
       child: Column(
         children: [
-          AnimatedBrandHeader(wingMode: wingMode),
+          AnimatedBrandHeader(wingMode: _selectedWingFilter ?? defaultWingMode),
           const SizedBox(height: 8),
           Text(
-            '${widget.className} - ${widget.materialType}',
+            '${targetClassName ?? widget.className} - ${widget.materialType}',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppTheme.textBase.withOpacity(0.8)),
           ),
+          if (hasBoth) ...[
+            const SizedBox(height: 16),
+            Container(
+              padding: const EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                color: AppTheme.surface,
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(color: AppTheme.border),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  _buildWingTab('school', 'School', LucideIcons.school),
+                  _buildWingTab('coaching', 'Coaching', LucideIcons.bookOpen),
+                ],
+              ),
+            ),
+          ],
         ],
+      ),
+    );
+  }
+
+  Widget _buildWingTab(String wing, String label, IconData icon) {
+    final isSelected = _selectedWingFilter == wing;
+    final color = AppTheme.getWingColor(wing);
+    return GestureDetector(
+      onTap: () {
+        if (!isSelected) {
+          setState(() {
+            _selectedWingFilter = wing;
+          });
+          _loadSubjects();
+        }
+      },
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        decoration: BoxDecoration(
+          color: isSelected ? color.withOpacity(0.1) : Colors.transparent,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Row(
+          children: [
+            Icon(icon, size: 16, color: isSelected ? color : AppTheme.textMuted),
+            const SizedBox(width: 6),
+            Text(
+              label,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 12,
+                color: isSelected ? color : AppTheme.textMuted,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -188,15 +305,35 @@ class _SubjectSelectionScreenState extends State<SubjectSelectionScreen> {
       title: subject['name'],
       icon: subject['icon'],
       color: subject['color'],
-      onTap: () => _navigateTo(
-        context,
-        ResourceListScreen(
-          classId: widget.classId,
-          subjectId: subject['id'],
-          subjectName: subject['name'],
-          materialType: widget.materialType,
-        ),
-      ),
+      onTap: () {
+        final auth = context.read<AuthProvider>();
+        final student = auth.currentStudent;
+        final isCoaching = _selectedWingFilter == 'coaching';
+        final targetClassId = isCoaching 
+            ? (student?.coachingClassId?.isNotEmpty == true ? student?.coachingClassId : student?.classId)
+            : student?.classId;
+
+        if (widget.materialType.toUpperCase() == 'NCERT') {
+          _navigateTo(
+            context,
+            BookSelectionScreen(
+              subjectName: subject['name'],
+              materialType: widget.materialType,
+              books: subject['localBooks'] ?? [],
+            ),
+          );
+        } else {
+          _navigateTo(
+            context,
+            ResourceListScreen(
+              classId: targetClassId ?? widget.classId,
+              subjectId: subject['id'],
+              subjectName: subject['name'],
+              materialType: widget.materialType,
+            ),
+          );
+        }
+      },
     );
   }
 

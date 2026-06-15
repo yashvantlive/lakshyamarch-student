@@ -18,6 +18,7 @@ import 'performance_screen.dart';
 import 'online_test_screen.dart';
 import 'support_screen.dart';
 import 'doubt_room_screen.dart';
+import 'study_hub/video_library_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -109,6 +110,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   _buildHubTile(context, title: 'Notifications', icon: LucideIcons.bellRing, color: Colors.deepOrange, targetScreen: const NotificationsScreen()),
                   _buildHubTile(context, title: 'Attendance', icon: LucideIcons.trendingUp, color: Colors.green, targetScreen: const AttendanceScreen(), badgeText: attBadge, subtitle: attSubtitle),
                   _buildHubTile(context, title: 'Performance', icon: LucideIcons.barChart, color: Colors.pink, targetScreen: const PerformanceScreen(), subtitle: perfSubtitle),
+                  _buildHubTile(context, title: 'Video Library', icon: LucideIcons.youtube, color: Colors.red, targetScreen: const VideoLibraryScreen()),
                   _buildHubTile(context, title: 'Online Test', icon: LucideIcons.monitorPlay, color: Colors.indigo, targetScreen: const OnlineTestScreen()),
                   _buildHubTile(context, title: 'Suggestion & Complain', icon: LucideIcons.helpCircle, color: Colors.indigo, targetScreen: const SupportScreen()),
                   _buildHubTile(context, title: 'My Profile', icon: LucideIcons.user, color: AppTheme.primary, targetScreen: const ProfileScreen()),
