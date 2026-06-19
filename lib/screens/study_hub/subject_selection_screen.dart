@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:lucide_icons/lucide_icons.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:provider/provider.dart';
 import '../../theme/app_theme.dart';
 import '../../providers/academic_provider.dart';
@@ -43,19 +43,12 @@ class _SubjectSelectionScreenState extends State<SubjectSelectionScreen> {
     final auth = context.read<AuthProvider>();
     final student = auth.currentStudent;
     
-    if (_selectedWingFilter == null) {
-      _selectedWingFilter = student?.wing == 'both' ? 'school' : (student?.wing ?? 'school');
-    }
+    _selectedWingFilter ??= student?.wing == 'both' ? 'school' : (student?.wing ?? 'school');
     
     final isCoaching = _selectedWingFilter == 'coaching';
     final targetClassId = isCoaching 
         ? (student?.coachingClassId?.isNotEmpty == true ? student?.coachingClassId : student?.classId)
         : student?.classId;
-        
-    final targetClassName = isCoaching 
-        ? (student?.coachingClass?.isNotEmpty == true ? student?.coachingClass : student?.className)
-        : student?.className;
-        
     if (widget.materialType.toUpperCase() == 'NCERT') {
       final wing = _selectedWingFilter ?? 'school';
       final localData = await academic.fetchLocalNcertBooks(wing);

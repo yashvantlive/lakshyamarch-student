@@ -5,7 +5,7 @@ import '../models/student.dart';
 
 class ApiService {
   // 🌐 Local Testing (Use "http://10.0.2.2:3000" if testing on Android Emulator)
-  static const String baseUrl = "http://192.168.29.25:3000";
+  static const String baseUrl = "http://localhost:3000";
   // static const String baseUrl = "https://erp.lakshyamarch.com";
   static const int _maxRetries = 3;
   static const Duration _timeoutDuration = Duration(seconds: 15);

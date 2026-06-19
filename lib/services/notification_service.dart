@@ -5,10 +5,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
-import '../screens/notice_feed_screen.dart';
 import '../screens/notifications_screen.dart';
-import '../screens/homework_history_screen.dart';
-import '../screens/tests_screen.dart';
 
 class NotificationService {
   static final FlutterLocalNotificationsPlugin _localNotifications = FlutterLocalNotificationsPlugin();

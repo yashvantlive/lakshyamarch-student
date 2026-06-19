@@ -4,10 +4,8 @@ import 'package:provider/provider.dart';
 import 'providers/auth_provider.dart';
 import 'providers/academic_provider.dart';
 import 'providers/schedule_provider.dart';
-import 'screens/login_screen.dart';
 import 'screens/public_screen.dart';
 import 'screens/main_navigator.dart';
-import 'screens/notifications_screen.dart';
 import 'theme/app_theme.dart';
 
 import 'providers/notice_provider.dart';

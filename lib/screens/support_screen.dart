@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lucide_icons/lucide_icons.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 import '../theme/app_theme.dart';
@@ -223,7 +222,7 @@ color: AppTheme.surface,
                 ),
               )
             else
-              ..._tickets.map((t) => _buildTicketCard(t)).toList(),
+              ..._tickets.map((t) => _buildTicketCard(t)),
           ],
         ),
       ),

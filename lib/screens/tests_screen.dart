@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:lucide_icons/lucide_icons.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:provider/provider.dart';
 import 'package:fl_chart/fl_chart.dart';
 import '../providers/academic_provider.dart';
@@ -20,8 +19,8 @@ class TestsScreen extends StatefulWidget {
 }
 
 class _TestsScreenState extends State<TestsScreen> with SingleTickerProviderStateMixin {
-  int _upcomingLimit = 5;
-  int _pastLimit = 5;
+  final int _upcomingLimit = 5;
+  final int _pastLimit = 5;
   late AnimationController _staggerController;
   String? _selectedWingFilter;
 
@@ -72,10 +71,7 @@ class _TestsScreenState extends State<TestsScreen> with SingleTickerProviderStat
   Widget build(BuildContext context) {
     final academic = context.watch<AcademicProvider>();
     final auth = context.watch<AuthProvider>();
-    
-    if (_selectedWingFilter == null) {
-      _selectedWingFilter = widget.initialWingFilter ?? auth.activeWingMode ?? 'school';
-    }
+    _selectedWingFilter ??= widget.initialWingFilter ?? auth.activeWingMode ?? 'school';
 
     final wingColor = AppTheme.getWingColor(_selectedWingFilter);
     final wingGradient = AppTheme.getWingGradient(_selectedWingFilter);

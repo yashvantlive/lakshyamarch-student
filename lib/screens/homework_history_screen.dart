@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lucide_icons/lucide_icons.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
 import '../providers/academic_provider.dart';
@@ -155,7 +155,6 @@ color: AppTheme.surface,
     final schedules = academic.schedules;
     final holidays = academic.holidays;
     final todayStr = DateFormat('yyyy-MM-dd').format(_selectedDate);
-    const sessionStart = "2026-04-16";
 
     // 1. Check Holiday/Week-off
     final isHoliday = holidays.any((h) => h['date'] == todayStr);
@@ -174,12 +173,6 @@ color: AppTheme.surface,
     }
 
     // 2. Cross-reference Schedule with Homework via IDs
-    bool isMatch(String? n1, String? n2) {
-      if (n1 == null || n2 == null) return false;
-      String clean(String s) => s.toLowerCase().replaceAll('class', '').replaceAll('th', '').replaceAll('st', '').replaceAll('nd', '').replaceAll('rd', '').replaceAll(' ', '').replaceFirst(RegExp('^0+'), '');
-      return clean(n1) == clean(n2);
-    }
-
     bool isTeacherMatch(String? n1, String? n2) {
       if (n1 == null || n2 == null) return false;
       String clean(String s) => s.toLowerCase().replaceAll(' ', '').replaceAll('sir', '').replaceAll('kumar', '').replaceAll('miss', '').replaceAll('mrs', '').replaceAll('mr', '');
@@ -244,10 +237,10 @@ color: AppTheme.surface,
           return subjectNameMatch && nameMatch;
         }, orElse: () => Homework(id: '', classId: '', slotId: '', title: '', subject: '', subjectId: '', content: '', teacherUserId: '', teacherName: '', date: ''));
 
-        if (hw.id != null && hw.id != '') {
+        if (hw.id.isNotEmpty) {
           final sub = submissions.firstWhere(
             (s) => s.homeworkId == hw.id,
-            orElse: () => HomeworkSubmission(id: '', homeworkId: hw.id!, studentId: '', status: 'pending'),
+            orElse: () => HomeworkSubmission(id: '', homeworkId: hw.id, studentId: '', status: 'pending'),
           );
           items.add({
             'sortKey': slot['startTime'] ?? '00:00',
@@ -341,6 +334,7 @@ class _HomeworkHistoryItem extends StatelessWidget {
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
     } else {
+      if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Could not open the attachment link.')),
       );
@@ -836,11 +830,11 @@ class _SkippedHomeworkItem extends StatelessWidget {
                   border: Border.all(color: Colors.red.shade200),
                   borderRadius: BorderRadius.zero,
                 ),
-                child: const Row(
+                child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(LucideIcons.lock, size: 10, color: AppTheme.danger),
-                    const SizedBox(width: 4),
+                    SizedBox(width: 4),
                     Text('LOCKED', style: TextStyle(fontSize: 9, fontWeight: FontWeight.w900, color: AppTheme.danger, letterSpacing: 0.5)),
                   ],
                 ),

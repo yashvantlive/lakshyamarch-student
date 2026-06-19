@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:lucide_icons/lucide_icons.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:provider/provider.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../theme/app_theme.dart';
-import '../widgets/premium_widgets.dart';
 import '../providers/auth_provider.dart';
 import '../services/api_service.dart';
 

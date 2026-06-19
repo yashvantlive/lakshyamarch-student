@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:lucide_icons/lucide_icons.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
@@ -376,7 +376,9 @@ class _NotificationCard extends StatelessWidget {
              } else if (url.contains('wing=school') || title.toUpperCase().contains('SCHOOL') || body.toUpperCase().contains('SCHOOL')) {
                 initialWing = 'school';
              }
-          } catch(e) {}
+          } catch (e) {
+            // Ignored
+          }
           Navigator.push(context, MaterialPageRoute(builder: (_) => TestsScreen(initialWingFilter: initialWing)));
         } else if (url.contains('/notices') || type == 'notice') {
           Navigator.push(context, MaterialPageRoute(builder: (_) => NoticeFeedScreen(forceRefresh: true, highlightNoticeId: itemId)));

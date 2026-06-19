@@ -1,12 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:lucide_icons/lucide_icons.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'dashboard_screen.dart';
-import 'tests_screen.dart';
-import 'schedule_screen.dart';
-import 'profile_screen.dart';
-import 'notice_feed_screen.dart';
 import 'study_hub/subject_selection_screen.dart';
 import '../providers/auth_provider.dart';
 import '../providers/academic_provider.dart';

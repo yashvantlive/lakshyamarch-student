@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:lucide_icons/lucide_icons.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import '../providers/auth_provider.dart';
 import '../providers/academic_provider.dart';
 import '../models/student.dart';
@@ -75,7 +75,7 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                   auth.switchStudent(s);
                   Navigator.pop(context);
                 },
-              )).toList(),
+              )),
               const Divider(height: 24),
             ],
 
@@ -102,7 +102,7 @@ class _ProfileScreenState extends State<ProfileScreen> with SingleTickerProvider
                   }
                 },
               );
-            }).toList(),
+            }),
             
             const SizedBox(height: 16),
             
@@ -361,6 +361,7 @@ color: AppTheme.surface,
       onPressed: () async {
         HapticFeedback.heavyImpact();
         await auth.logout();
+        if (!mounted) return;
         if (auth.isAuthenticated) {
           // It just logged out of one account but switched to another
           Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (_) => MainNavigator()), (route) => false);
@@ -432,8 +433,10 @@ class _FeeDueCard extends StatelessWidget {
   const _FeeDueCard({required this.academic, required this.wingColor});
   @override
   Widget build(BuildContext context) {
-    if (academic.isLoading) return Container(height: 120, decoration: BoxDecoration(
+    if (academic.isLoading) {
+      return Container(height: 120, decoration: BoxDecoration(
 color: AppTheme.surface, borderRadius: BorderRadius.circular(28), border: Border.all(color: AppTheme.border)), child: const Center(child: CircularProgressIndicator()));
+    }
     
     final auth = context.watch<AuthProvider>();
     final student = auth.currentStudent;
