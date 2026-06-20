@@ -10,6 +10,7 @@ import '../providers/auth_provider.dart';
 import '../theme/app_theme.dart';
 import '../widgets/premium_widgets.dart';
 import '../services/app_cache.dart';
+import '../services/api_service.dart';
 
 class OnlineTestScreen extends StatefulWidget {
   const OnlineTestScreen({super.key});
@@ -57,7 +58,7 @@ class _OnlineTestScreenState extends State<OnlineTestScreen> {
   String _resultLanguage = 'english';
 
   // Base URL for fetching papers manifest & questions
-  static const String _remoteBaseUrl = 'https://raw.githubusercontent.com/yashvantlive/lakshyamarch-test/main/public';
+  static const String _remoteBaseUrl = 'https://lakshyamarch-lm-test.netlify.app';
 
   @override
   void initState() {
@@ -127,42 +128,101 @@ class _OnlineTestScreenState extends State<OnlineTestScreen> {
   }
 
   Future<void> _loadExamHistory() async {
+    final auth = context.read<AuthProvider>();
+    final student = auth.currentStudent;
+    final token = auth.token;
+    
+    if (student == null || token == null) return;
+    
+    // 1. Try reading cached stats first for immediate load
     final prefs = await SharedPreferences.getInstance();
-    final historyStr = prefs.getString('online_exam_history');
-    if (historyStr != null && historyStr.isNotEmpty) {
+    final cachedHistory = prefs.getString('online_exam_history_${student.id}');
+    if (cachedHistory != null) {
       try {
-        final List historyList = jsonDecode(historyStr);
-        setState(() {
-          _examHistory = historyList;
-          _totalAttempts = historyList.length;
-          
-          if (_totalAttempts > 0) {
-            int totalScore = 0;
-            int maxScore = -9999;
-            for (var item in historyList) {
-              final score = (item['score'] ?? 0) as int;
-              totalScore += score;
-              if (score > maxScore) {
-                maxScore = score;
-              }
-            }
-            _avgScore = totalScore / _totalAttempts;
-            _highestScore = maxScore;
-          } else {
-            _avgScore = 0.0;
-            _highestScore = 0;
-          }
-        });
+        final List historyList = jsonDecode(cachedHistory);
+        _parseAndSetHistory(historyList);
       } catch (e) {
-        debugPrint('Error loading exam history: $e');
+        debugPrint('Failed to parse cached history: $e');
       }
+    }
+
+    // 2. Fetch fresh stats from backend DB
+    try {
+      final ApiService apiService = ApiService();
+      final data = await apiService.getPracticeTestAttempts(student.id, token);
+      final List historyList = data['attempts'] as List? ?? [];
+      
+      if (mounted) {
+        _parseAndSetHistory(historyList);
+        // Save to cache
+        await prefs.setString('online_exam_history_${student.id}', jsonEncode(historyList));
+      }
+    } catch (e) {
+      debugPrint('Failed to load fresh practice history from DB: $e');
     }
   }
 
+  void _parseAndSetHistory(List historyList) {
+    setState(() {
+      _examHistory = historyList;
+      _totalAttempts = historyList.length;
+      
+      if (_totalAttempts > 0) {
+        int totalScore = 0;
+        int maxScore = -9999;
+        for (var item in historyList) {
+          final score = (item['score'] ?? 0) as int;
+          totalScore += score;
+          if (score > maxScore) {
+            maxScore = score;
+          }
+        }
+        _avgScore = totalScore / _totalAttempts;
+        _highestScore = maxScore;
+      } else {
+        _avgScore = 0.0;
+        _highestScore = 0;
+      }
+    });
+  }
+
   Future<void> _saveExamToHistory(Map<String, dynamic> historyItem) async {
+    final auth = context.read<AuthProvider>();
+    final student = auth.currentStudent;
+    final token = auth.token;
+
+    // Save locally to cache first
     final prefs = await SharedPreferences.getInstance();
+    final cacheKey = 'online_exam_history_${student?.id ?? "unknown"}';
     final historyList = List<dynamic>.from(_examHistory)..add(historyItem);
-    await prefs.setString('online_exam_history', jsonEncode(historyList));
+    await prefs.setString(cacheKey, jsonEncode(historyList));
+
+    // Submit to remote database
+    if (student != null && token != null) {
+      try {
+        final ApiService apiService = ApiService();
+        final body = {
+          'paperId': historyItem['paperId'],
+          'title': historyItem['title'],
+          'category': historyItem['category'],
+          'grade': historyItem['grade'],
+          'subject': historyItem['subject'],
+          'score': historyItem['score'],
+          'totalQuestions': historyItem['totalQuestions'],
+          'correct': historyItem['correct'],
+          'wrong': historyItem['wrong'],
+          'unattempted': historyItem['unattempted'],
+          'totalTimeUsed': historyItem['totalTimeUsed'],
+          'duration': historyItem['duration'],
+          'selectedAnswers': historyItem['selectedAnswers'],
+        };
+        await apiService.submitPracticeTestResult(body, token);
+      } catch (e) {
+        debugPrint('Failed to submit practice test to backend: $e');
+      }
+    }
+
+    // Refresh history
     _loadExamHistory();
   }
 
@@ -485,15 +545,22 @@ class _OnlineTestScreenState extends State<OnlineTestScreen> {
     return '${h.toString().padLeft(2, '0')}:${m.toString().padLeft(2, '0')}:${s.toString().padLeft(2, '0')}';
   }
 
-  String _getLanguageImagePath(String basePath, String activeLanguage) {
-    // Resolve prefix folder name
-    final subjectFolder = _activePaperDetail!.subject.replaceAll('_', ' ');
-    final cat = _activePaperDetail!.category;
-    final grade = _activePaperDetail!.grade;
+  String _getLanguageImagePath(
+    String basePath, 
+    String activeLanguage, {
+    String? category,
+    String? grade,
+    String? subject,
+  }) {
+    final cat = category ?? _activePaperDetail?.category ?? '';
+    final grd = grade ?? _activePaperDetail?.grade ?? '';
+    final sub = subject ?? _activePaperDetail?.subject ?? '';
+    
+    final subjectFolder = sub.replaceAll('_', ' ');
 
     String dirPrefix = '';
     if (cat == 'BOARD') {
-      dirPrefix = '/BOARD/$grade/quiz/$subjectFolder/Quiz/';
+      dirPrefix = '/BOARD/$grd/quiz/$subjectFolder/Quiz/';
     } else if (cat == 'NCERT') {
       dirPrefix = '/NCERT/quiz/$subjectFolder/Quiz/';
     } else if (cat == 'PYQ') {
@@ -511,6 +578,114 @@ class _OnlineTestScreenState extends State<OnlineTestScreen> {
       fullPath = fullPath.replaceAll('English', 'Hindi').replaceAll('english', 'hindi');
     }
     return '$_remoteBaseUrl$fullPath';
+  }
+
+  Future<void> _viewPastAttemptDetails(dynamic historyItem, BuildContext ctx) async {
+    final Map<String, dynamic> itemMap = Map<String, dynamic>.from(historyItem as Map);
+    
+    // Close history list modal
+    Navigator.pop(ctx);
+
+    // Show loading overlay
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => Center(
+        child: Container(
+          padding: const EdgeInsets.all(24),
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(16)),
+          ),
+          child: const Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              PremiumActivityIndicator(),
+              SizedBox(height: 12),
+              Text(
+                'Reconstructing Review...',
+                style: TextStyle(
+                  fontSize: 12, 
+                  fontWeight: FontWeight.bold, 
+                  color: Colors.black87, 
+                  decoration: TextDecoration.none,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+
+    try {
+      final paperId = itemMap['paperId'];
+      
+      // Find paper in manifest to get jsonPath
+      final paper = _allPapers.firstWhere(
+        (p) => p.paperId == paperId,
+        orElse: () => throw Exception('Paper not found in manifest'),
+      );
+
+      final cleanJsonPath = paper.jsonPath.startsWith('/') ? paper.jsonPath.substring(1) : paper.jsonPath;
+      final url = '$_remoteBaseUrl/$cleanJsonPath';
+      final response = await http.get(Uri.parse(url)).timeout(const Duration(seconds: 10));
+
+      if (mounted) Navigator.pop(context); // Dismiss loader
+
+      if (response.statusCode == 200) {
+        final decoded = jsonDecode(response.body);
+        final paperDetail = OnlinePaperDetail.fromJson(decoded);
+
+        // Reconstruct questions review list
+        final Map<String, dynamic> selectedAnswersMap = Map<String, dynamic>.from(itemMap['selectedAnswers'] ?? {});
+        final List<Map<String, dynamic>> questionsReview = [];
+
+        for (var q in paperDetail.questions) {
+          final selected = selectedAnswersMap[q.id];
+          final isAttempted = selected != null && selected.isNotEmpty && selected != '---';
+
+          bool isCorrect = false;
+          if (isAttempted) {
+            if (q.type == 'MCQ') {
+              isCorrect = int.tryParse(selected) == q.correctAnswer;
+            } else {
+              isCorrect = double.tryParse(selected) == double.tryParse(q.correctAnswer.toString());
+            }
+          }
+
+          String reviewStatus = 'Unattempted';
+          if (isAttempted) {
+            reviewStatus = isCorrect ? 'Correct' : 'Wrong';
+          }
+
+          questionsReview.add({
+            'questionId': q.questionId,
+            'id': q.id,
+            'type': q.type,
+            'imagePath': q.imagePath,
+            'selectedAnswer': selected ?? '---',
+            'correctAnswer': q.correctAnswer.toString(),
+            'status': reviewStatus,
+          });
+        }
+
+        setState(() {
+          _activePaperDetail = paperDetail;
+          _selectedHistoryItem = Map<String, dynamic>.from(itemMap)..['questions'] = questionsReview;
+          _resultLanguage = 'english';
+          _view = 'detailed_result';
+        });
+      } else {
+        throw Exception('HTTP ${response.statusCode}');
+      }
+    } catch (e) {
+      if (mounted) {
+        Navigator.pop(context); // Dismiss loader if error before response
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Failed to load past attempt details: $e')),
+        );
+      }
+    }
   }
 
   // =========================================================================
@@ -634,30 +809,67 @@ class _OnlineTestScreenState extends State<OnlineTestScreen> {
   Widget _buildAppBar() {
     final auth = context.read<AuthProvider>();
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
-      color: AppTheme.surface,
-      border: Border(bottom: BorderSide(color: AppTheme.border, width: 1)),
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+      decoration: BoxDecoration(
+        color: AppTheme.surface,
+        border: Border(bottom: BorderSide(color: AppTheme.border, width: 1)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.02),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             children: [
               if (_view != 'dashboard')
-                IconButton(
-                  onPressed: _navigateBack,
-                  icon: Icon(LucideIcons.arrowLeft, color: AppTheme.textBase),
+                Padding(
+                  padding: const EdgeInsets.only(right: 12.0),
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: _navigateBack,
+                      borderRadius: BorderRadius.circular(12),
+                      child: Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: AppTheme.background,
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: AppTheme.border),
+                        ),
+                        child: Icon(Icons.arrow_back_ios_new, size: 14, color: AppTheme.textBase),
+                      ),
+                    ),
+                  ),
                 ),
-              const SizedBox(width: 8),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AnimatedBrandHeader(wingMode: auth.activeWingMode),
+                  if (_view == 'dashboard')
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 2.0),
+                      child: AnimatedBrandHeader(wingMode: auth.activeWingMode),
+                    ),
                   Text(
-                    'Practice Hub Portal',
+                    _getAppBarTitle(),
                     style: TextStyle(
                       fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w800,
                       color: AppTheme.textBase,
+                      letterSpacing: -0.4,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    _getAppBarSubtitle(),
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w500,
+                      color: AppTheme.textMuted,
                     ),
                   ),
                 ],
@@ -668,10 +880,11 @@ class _OnlineTestScreenState extends State<OnlineTestScreen> {
             ElevatedButton.icon(
               onPressed: _showPerformanceHistoryModal,
               icon: const Icon(LucideIcons.barChart2, size: 14),
-              label: const Text('Performance'),
+              label: const Text('Analytics'),
               style: ElevatedButton.styleFrom(
-                minimumSize: const Size(120, 36),
+                minimumSize: const Size(100, 36),
                 padding: const EdgeInsets.symmetric(horizontal: 12),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
               ),
             )
         ],
@@ -679,23 +892,114 @@ class _OnlineTestScreenState extends State<OnlineTestScreen> {
     );
   }
 
+  String _getAppBarTitle() {
+    switch (_view) {
+      case 'subcategories':
+        return '${_selectedCategory ?? "Mock"} Tests';
+      case 'subjects':
+        return _selectedSubcategory == 'jee_main' 
+            ? 'JEE Main' 
+            : _selectedSubcategory == 'jee_advance' 
+                ? 'JEE Advanced' 
+                : _selectedSubcategory == 'neet' 
+                    ? 'NEET UG' 
+                    : 'Select Subject';
+      case 'papers':
+        return '${_selectedSubject?.toUpperCase() ?? "Mock"} Papers';
+      case 'instructions':
+        return 'Instructions';
+      case 'detailed_result':
+        return 'Attempt Scorecard';
+      case 'dashboard':
+      default:
+        return 'Practice Center';
+    }
+  }
+
+  String _getAppBarSubtitle() {
+    switch (_view) {
+      case 'subcategories':
+        return 'Choose Target Stream';
+      case 'subjects':
+        return 'Choose Assessment Subject';
+      case 'papers':
+        return 'Available CBT Mocks';
+      case 'instructions':
+        return 'General Rules & Pattern';
+      case 'detailed_result':
+        return 'Attempt Review & History';
+      case 'dashboard':
+      default:
+        return 'National Mock Test Hub';
+    }
+  }
+
   Widget _buildMainContent() {
+    Widget child;
     switch (_view) {
       case 'dashboard':
-        return _buildDashboardView();
+        child = KeyedSubtree(
+          key: const ValueKey('dashboard'),
+          child: _buildDashboardView(),
+        );
+        break;
       case 'subcategories':
-        return _buildSubcategorySelectionView();
+        child = KeyedSubtree(
+          key: const ValueKey('subcategories'),
+          child: _buildSubcategorySelectionView(),
+        );
+        break;
       case 'subjects':
-        return _buildSubjectSelectionView();
+        child = KeyedSubtree(
+          key: const ValueKey('subjects'),
+          child: _buildSubjectSelectionView(),
+        );
+        break;
       case 'papers':
-        return _buildPapersListView();
+        child = KeyedSubtree(
+          key: const ValueKey('papers'),
+          child: _buildPapersListView(),
+        );
+        break;
       case 'instructions':
-        return _buildInstructionsView();
+        child = KeyedSubtree(
+          key: const ValueKey('instructions'),
+          child: _buildInstructionsView(),
+        );
+        break;
       case 'detailed_result':
-        return _buildDetailedResultView();
+        child = KeyedSubtree(
+          key: const ValueKey('detailed_result'),
+          child: _buildDetailedResultView(),
+        );
+        break;
       default:
-        return const Center(child: Text('View not found.'));
+        child = const Center(
+          key: ValueKey('error'),
+          child: Text('View not found.'),
+        );
     }
+
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 250),
+      switchInCurve: Curves.easeOutCubic,
+      switchOutCurve: Curves.easeInCubic,
+      transitionBuilder: (Widget child, Animation<double> animation) {
+        final slideAnimation = Tween<Offset>(
+          begin: const Offset(0.08, 0.0),
+          end: Offset.zero,
+        ).animate(animation);
+        
+        return FadeTransition(
+          opacity: animation,
+          child: SlideTransition(
+            position: slideAnimation,
+            child: child,
+          ),
+        );
+      },
+      child: child,
+    );
   }
 
   // --- VIEW 1: DASHBOARD ---
@@ -756,7 +1060,7 @@ class _OnlineTestScreenState extends State<OnlineTestScreen> {
             // Category Picker Headers
             const Text(
               'Choose Assessment Type',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.extrabold, letterSpacing: -0.5),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800, letterSpacing: -0.5),
             ),
             const SizedBox(height: 12),
 
@@ -775,7 +1079,7 @@ class _OnlineTestScreenState extends State<OnlineTestScreen> {
             // AITS Dedicated Row
             const Text(
               'All India Test Series (AITS)',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.extrabold, letterSpacing: -0.5),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800, letterSpacing: -0.5),
             ),
             const SizedBox(height: 12),
             _buildAitsBannerCard(),
@@ -784,7 +1088,7 @@ class _OnlineTestScreenState extends State<OnlineTestScreen> {
             // Informative Alerts & Guides Section
             const Text(
               'Exam Alerts & Prep Guides',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.extrabold, letterSpacing: -0.5),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800, letterSpacing: -0.5),
             ),
             const SizedBox(height: 12),
             Row(
@@ -938,7 +1242,7 @@ class _OnlineTestScreenState extends State<OnlineTestScreen> {
                   const SizedBox(height: 8),
                   const Text(
                     'All India Test Series',
-                    style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.extrabold),
+                    style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w800),
                   ),
                   const SizedBox(height: 6),
                   const Text(
@@ -984,7 +1288,7 @@ class _OnlineTestScreenState extends State<OnlineTestScreen> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(badge, style: TextStyle(fontSize: 8, fontWeight: FontWeight.extrabold, color: AppTheme.primary)),
+                Text(badge, style: TextStyle(fontSize: 8, fontWeight: FontWeight.w800, color: AppTheme.primary)),
                 const SizedBox(height: 6),
                 Text(title, style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: AppTheme.textBase), maxLines: 1),
                 const SizedBox(height: 4),
@@ -1057,31 +1361,93 @@ class _OnlineTestScreenState extends State<OnlineTestScreen> {
   }
 
   Widget _buildSelectionRowItem(String title, String desc, VoidCallback onTap) {
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(16),
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: AppTheme.surface,
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: AppTheme.border, width: 1.2),
-        ),
-        child: Row(
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppTheme.textBase)),
-                  const SizedBox(height: 4),
-                  Text(desc, style: TextStyle(fontSize: 12, color: AppTheme.textMuted)),
-                ],
+    Color badgeColor;
+    String badgeText;
+    
+    if (title.contains('Main')) {
+      badgeColor = Colors.blue;
+      badgeText = 'JEE';
+    } else if (title.contains('Advanced')) {
+      badgeColor = Colors.orange;
+      badgeText = 'ADV';
+    } else if (title.contains('NEET')) {
+      badgeColor = AppTheme.success;
+      badgeText = 'NEET';
+    } else if (title.contains('11')) {
+      badgeColor = Colors.purple;
+      badgeText = 'XI';
+    } else if (title.contains('12')) {
+      badgeColor = Colors.indigo;
+      badgeText = 'XII';
+    } else {
+      badgeColor = AppTheme.primary;
+      badgeText = 'TEST';
+    }
+
+    return Card(
+      elevation: 0,
+      margin: EdgeInsets.zero,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: AppTheme.border, width: 1),
+      ),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(16),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            children: [
+              Container(
+                width: 46,
+                height: 46,
+                decoration: BoxDecoration(
+                  color: badgeColor.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Center(
+                  child: Text(
+                    badgeText,
+                    style: TextStyle(
+                      color: badgeColor,
+                      fontSize: 11,
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                ),
               ),
-            ),
-            Icon(LucideIcons.chevronRight, color: AppTheme.textMuted),
-          ],
+              const SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: AppTheme.textBase,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      desc,
+                      style: TextStyle(
+                        fontSize: 11,
+                        color: AppTheme.textMuted,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 8),
+              Icon(
+                Icons.arrow_forward_ios,
+                size: 14,
+                color: AppTheme.textMuted.withOpacity(0.5),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -1104,29 +1470,88 @@ class _OnlineTestScreenState extends State<OnlineTestScreen> {
   }
 
   Widget _buildSubjectGridCard(String id, String emoji, String title, String sub) {
-    return InkWell(
-      onTap: () {
-        setState(() {
-          _selectedSubject = id;
-          _view = 'papers';
-        });
-      },
-      borderRadius: BorderRadius.circular(16),
-      child: Container(
-        decoration: BoxDecoration(
-          color: AppTheme.surface,
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: AppTheme.border, width: 1),
-        ),
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+    Color cardColor;
+    if (id == 'physics') {
+      cardColor = Colors.orange;
+    } else if (id == 'chemistry') {
+      cardColor = Colors.teal;
+    } else if (id == 'maths') {
+      cardColor = Colors.blue;
+    } else {
+      cardColor = Colors.green;
+    }
+
+    return Card(
+      elevation: 0,
+      margin: EdgeInsets.zero,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+        side: BorderSide(color: AppTheme.border, width: 1),
+      ),
+      child: InkWell(
+        onTap: () {
+          setState(() {
+            _selectedSubject = id;
+            _view = 'papers';
+          });
+        },
+        borderRadius: BorderRadius.circular(20),
+        child: Stack(
           children: [
-            Text(emoji, style: const TextStyle(fontSize: 32)),
-            const SizedBox(height: 8),
-            Text(title, style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: AppTheme.textBase)),
-            const SizedBox(height: 4),
-            Text(sub, style: TextStyle(fontSize: 10, color: AppTheme.textMuted), textAlign: TextAlign.center),
+            Positioned(
+              right: -10,
+              bottom: -10,
+              child: Text(
+                emoji,
+                style: TextStyle(
+                  fontSize: 72,
+                  color: Colors.grey.withOpacity(0.06),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: cardColor.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Text(
+                      emoji,
+                      style: const TextStyle(fontSize: 20),
+                    ),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: AppTheme.textBase,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        sub,
+                        style: TextStyle(
+                          fontSize: 10,
+                          color: AppTheme.textMuted,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -1174,53 +1599,100 @@ class _OnlineTestScreenState extends State<OnlineTestScreen> {
   }
 
   Widget _buildPaperListItemCard(OnlinePaper paper) {
-    return Container(
+    return Card(
       margin: const EdgeInsets.only(bottom: 12),
-      decoration: BoxDecoration(
-        color: AppTheme.surface,
+      elevation: 0,
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppTheme.border),
+        side: BorderSide(color: AppTheme.border, width: 1),
       ),
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(paper.category.toUpperCase(), style: TextStyle(fontSize: 9, fontWeight: FontWeight.w900, color: AppTheme.primary, letterSpacing: 0.5)),
-              Row(
-                children: [
-                  Icon(LucideIcons.clock, size: 10, color: AppTheme.textMuted),
-                  const SizedBox(width: 4),
-                  Text('${paper.duration} Mins', style: TextStyle(fontSize: 10, color: AppTheme.textMuted, fontWeight: FontWeight.bold)),
-                ],
-              )
-            ],
-          ),
-          const SizedBox(height: 8),
-          Text(paper.title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppTheme.textBase)),
-          const SizedBox(height: 12),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('${paper.totalQuestions} Questions', style: TextStyle(fontSize: 11, color: AppTheme.textMuted, fontWeight: FontWeight.bold)),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    _selectedPaper = paper;
-                    _view = 'instructions';
-                  });
-                },
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(100, 36),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: AppTheme.primary.withOpacity(0.08),
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  child: Text(
+                    paper.category.toUpperCase(),
+                    style: TextStyle(
+                      fontSize: 9,
+                      fontWeight: FontWeight.w900,
+                      color: AppTheme.primary,
+                      letterSpacing: 0.5,
+                    ),
+                  ),
                 ),
-                child: const Text('Launch', style: TextStyle(fontSize: 12)),
-              )
-            ],
-          )
-        ],
+                Row(
+                  children: [
+                    Icon(LucideIcons.clock, size: 12, color: AppTheme.textMuted),
+                    const SizedBox(width: 4),
+                    Text(
+                      '${paper.duration} Mins',
+                      style: TextStyle(
+                        fontSize: 11,
+                        color: AppTheme.textMuted,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+            const SizedBox(height: 12),
+            Text(
+              paper.title,
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+                color: AppTheme.textBase,
+                height: 1.3,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  '${paper.totalQuestions} Questions',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: AppTheme.textMuted,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      _selectedPaper = paper;
+                      _view = 'instructions';
+                    });
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(90, 34),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  ),
+                  child: const Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text('Start', style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                      SizedBox(width: 4),
+                      Icon(Icons.play_arrow_rounded, size: 14),
+                    ],
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
@@ -1436,7 +1908,7 @@ class _OnlineTestScreenState extends State<OnlineTestScreen> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const Icon(LucideIcons.imageCrash, color: Colors.grey, size: 36),
+                              const Icon(Icons.broken_image, color: Colors.grey, size: 36),
                               const SizedBox(height: 8),
                               Text('Failed to load question image.', style: TextStyle(color: AppTheme.textMuted, fontSize: 12)),
                             ],
@@ -1499,8 +1971,10 @@ class _OnlineTestScreenState extends State<OnlineTestScreen> {
             // Bottom Action Controls
             Container(
               padding: const EdgeInsets.all(12),
-              color: AppTheme.surface,
-              border: Border(top: BorderSide(color: AppTheme.border)),
+              decoration: BoxDecoration(
+                color: AppTheme.surface,
+                border: Border(top: BorderSide(color: AppTheme.border)),
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -1678,7 +2152,7 @@ class _OnlineTestScreenState extends State<OnlineTestScreen> {
                 _buildKeypadKey('2'),
                 _buildKeypadKey('3'),
                 _buildKeypadKey('-'),
-                _buildKeypadIconKey(LucideIcons.backspace, 'backspace'),
+                _buildKeypadIconKey(Icons.backspace, 'backspace'),
                 
                 _buildKeypadKey('4'),
                 _buildKeypadKey('5'),
@@ -1946,71 +2420,95 @@ class _OnlineTestScreenState extends State<OnlineTestScreen> {
 
         // Scrollable Questions list
         Expanded(
-          child: ListView.builder(
-            padding: const EdgeInsets.all(12),
-            itemCount: questions.length,
-            itemBuilder: (context, idx) {
-              final q = questions[idx];
-              final reviewStatus = q['status'] ?? 'Unattempted';
-              final selected = q['selectedAnswer'] ?? '---';
-              final correctVal = q['correctAnswer'] ?? '---';
-
-              Color cardBorderCol = AppTheme.border;
-              Color badgeCol = Colors.grey;
-              IconData badgeIcon = LucideIcons.ban;
-
-              if (reviewStatus == 'Correct') {
-                cardBorderCol = Colors.green.shade300;
-                badgeCol = Colors.green;
-                badgeIcon = LucideIcons.check;
-              } else if (reviewStatus == 'Wrong') {
-                cardBorderCol = Colors.red.shade300;
-                badgeCol = Colors.red;
-                badgeIcon = LucideIcons.x;
-              }
-
-              return Container(
-                margin: const EdgeInsets.only(bottom: 16),
-                decoration: BoxDecoration(
-                  color: AppTheme.surface,
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: cardBorderCol, width: 1.5),
-                ),
-                padding: const EdgeInsets.all(12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Question Header
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: questions.isEmpty
+              ? Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(24.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Question ${idx + 1} (${q['type']})', style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                          decoration: BoxDecoration(color: badgeCol.withOpacity(0.1), borderRadius: BorderRadius.circular(6)),
-                          child: Row(
-                            children: [
-                              Icon(badgeIcon, color: badgeCol, size: 10),
-                              const SizedBox(width: 4),
-                              Text(reviewStatus.toUpperCase(), style: TextStyle(color: badgeCol, fontSize: 8.5, fontWeight: FontWeight.bold)),
-                            ],
-                          ),
-                        )
+                        Icon(Icons.assignment_turned_in_rounded, size: 48, color: AppTheme.textMuted.withOpacity(0.5)),
+                        const SizedBox(height: 12),
+                        Text(
+                          'Detailed review is not available for this session.',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: AppTheme.textMuted, fontSize: 13),
+                        ),
                       ],
                     ),
-                    const SizedBox(height: 12),
-                    
-                    // Question Image
-                    Container(
-                      color: Colors.white,
-                      height: 120,
-                      width: double.infinity,
-                      child: Image.network(
-                        _getLanguageImagePath(q['imagePath'], _resultLanguage),
-                        fit: BoxFit.contain,
-                        errorBuilder: (context, error, stackTrace) => const Center(child: Icon(LucideIcons.image, color: Colors.grey)),
+                  ),
+                )
+              : ListView.builder(
+                  padding: const EdgeInsets.all(12),
+                  itemCount: questions.length,
+                  itemBuilder: (context, idx) {
+                    final q = questions[idx];
+                    final reviewStatus = q['status'] ?? 'Unattempted';
+                    final selected = q['selectedAnswer'] ?? '---';
+                    final correctVal = q['correctAnswer'] ?? '---';
+
+                    Color cardBorderCol = AppTheme.border;
+                    Color badgeCol = Colors.grey;
+                    IconData badgeIcon = LucideIcons.ban;
+
+                    if (reviewStatus == 'Correct') {
+                      cardBorderCol = Colors.green.shade300;
+                      badgeCol = Colors.green;
+                      badgeIcon = LucideIcons.check;
+                    } else if (reviewStatus == 'Wrong') {
+                      cardBorderCol = Colors.red.shade300;
+                      badgeCol = Colors.red;
+                      badgeIcon = LucideIcons.x;
+                    }
+
+                    return Container(
+                      margin: const EdgeInsets.only(bottom: 16),
+                      decoration: BoxDecoration(
+                        color: AppTheme.surface,
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: cardBorderCol, width: 1.5),
                       ),
-                    ),
+                      padding: const EdgeInsets.all(12),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Question Header
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('Question ${idx + 1} (${q['type']})', style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                              Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                decoration: BoxDecoration(color: badgeCol.withOpacity(0.1), borderRadius: BorderRadius.circular(6)),
+                                child: Row(
+                                  children: [
+                                    Icon(badgeIcon, color: badgeCol, size: 10),
+                                    const SizedBox(width: 4),
+                                    Text(reviewStatus.toUpperCase(), style: TextStyle(color: badgeCol, fontSize: 8.5, fontWeight: FontWeight.bold)),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                          
+                          // Question Image
+                          Container(
+                            color: Colors.white,
+                            height: 120,
+                            width: double.infinity,
+                            child: Image.network(
+                              _getLanguageImagePath(
+                                q['imagePath'] ?? '',
+                                _resultLanguage,
+                                category: item['category'],
+                                grade: item['grade'],
+                                subject: item['subject'],
+                              ),
+                              fit: BoxFit.contain,
+                              errorBuilder: (context, error, stackTrace) => const Center(child: Icon(Icons.image, color: Colors.grey)),
+                            ),
+                          ),
                     const SizedBox(height: 12),
                     
                     // Answers comparison
@@ -2277,14 +2775,7 @@ class _OnlineTestScreenState extends State<OnlineTestScreen> {
                                   ),
                                   const SizedBox(width: 8),
                                   TextButton(
-                                    onPressed: () {
-                                      Navigator.pop(ctx);
-                                      setState(() {
-                                        _selectedHistoryItem = item;
-                                        _resultLanguage = 'english';
-                                        _view = 'detailed_result';
-                                      });
-                                    },
+                                    onPressed: () => _viewPastAttemptDetails(item, ctx),
                                     child: const Text('Details', style: TextStyle(fontSize: 12)),
                                   )
                                 ],

@@ -4,9 +4,9 @@ import 'package:http/http.dart' as http;
 import '../models/student.dart';
 
 class ApiService {
-  // 🌐 Local Testing (Use "http://10.0.2.2:3000" if testing on Android Emulator)
-  static const String baseUrl = "https://erp-lakshyamarch.netlify.app";
-  // static const String baseUrl = "https://erp.lakshyamarch.com";
+  // 🌐 Local Dev Backend (Physical Phone over Wi-Fi)
+  static const String baseUrl = "http://192.168.29.25:3000";
+  // static const String baseUrl = "https://erp-lakshyamarch.netlify.app"; // Production
   static const int _maxRetries = 3;
   static const Duration _timeoutDuration = Duration(seconds: 15);
 
@@ -282,5 +282,14 @@ class ApiService {
     final resp = await getRequest(uri.toString(), token);
     if (resp is List) return resp;
     throw Exception('Unexpected response format for videos');
+  }
+
+  Future<dynamic> submitPracticeTestResult(Map<String, dynamic> body, String token) async {
+    return await postRequest('/api/students/practice-tests', body, token);
+  }
+
+  Future<Map<String, dynamic>> getPracticeTestAttempts(String studentId, String token) async {
+    final resp = await getRequest('/api/students/practice-tests?studentId=$studentId', token);
+    return Map<String, dynamic>.from(resp as Map);
   }
 }
