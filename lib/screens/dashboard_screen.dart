@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:lucide_icons_flutter/lucide_icons.dart';
+import 'package:lucide_icons/lucide_icons.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 import '../providers/academic_provider.dart';
@@ -15,7 +15,6 @@ import 'attendance_screen.dart';
 import 'syllabus_screen.dart';
 import 'homework_history_screen.dart';
 import 'performance_screen.dart';
-import 'online_test_screen.dart';
 import 'support_screen.dart';
 import 'doubt_room_screen.dart';
 import 'study_hub/video_library_screen.dart';
@@ -66,6 +65,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget _buildHubTab(BuildContext context, String studentName) {
     final auth = context.watch<AuthProvider>();
     final academic = context.watch<AcademicProvider>();
+    final screenHeight = MediaQuery.of(context).size.height;
+    const appBarHeight = 120.0;
+    final gridHeight = screenHeight - appBarHeight - MediaQuery.of(context).padding.top - 100;
+
     // Badges & Subtitles logic
     final pendingHW = academic.pendingHomeworksCount;
     final hwBadge = pendingHW > 0 ? '$pendingHW' : null;
@@ -107,7 +110,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   _buildHubTile(context, title: 'Attendance', icon: LucideIcons.trendingUp, color: Colors.green, targetScreen: const AttendanceScreen(), badgeText: attBadge, subtitle: attSubtitle),
                   _buildHubTile(context, title: 'Performance', icon: LucideIcons.barChart, color: Colors.pink, targetScreen: const PerformanceScreen(), subtitle: perfSubtitle),
                   _buildHubTile(context, title: 'Video Library', icon: LucideIcons.playCircle, color: Colors.red, targetScreen: const VideoLibraryScreen()),
-                  _buildHubTile(context, title: 'Online Test', icon: LucideIcons.monitorPlay, color: Colors.indigo, targetScreen: const OnlineTestScreen()),
                   _buildHubTile(context, title: 'Suggestion & Complain', icon: LucideIcons.helpCircle, color: Colors.indigo, targetScreen: const SupportScreen()),
                   _buildHubTile(context, title: 'My Profile', icon: LucideIcons.user, color: AppTheme.primary, targetScreen: const ProfileScreen()),
                 ],

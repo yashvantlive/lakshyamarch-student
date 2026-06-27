@@ -49,7 +49,6 @@ lib/
 │   ├── schedule_screen.dart         # Weekly timetable
 │   ├── notice_feed_screen.dart      # School/coaching notices
 │   ├── profile_screen.dart          # Student profile + leaderboard
-│   ├── online_test_screen.dart      # Online tests module (Coming Soon)
 │   ├── support_screen.dart          # Help & support
 │   └── study_hub/                   # Study material hub (PDFs, notes)
 ├── services/
@@ -169,7 +168,6 @@ The Student App uses **Hive** with binary serialization for offline-first render
 - [ ] **Consistent Zero-Fillet Design** — Some screens still use `BorderRadius.circular(20+)`. Needs audit for uniform sharp-edge style.
 - [ ] **Homework Submission Upload** — File/image upload from student side not implemented (only text submission tracking exists)
 - [ ] **Study Material Downloads** — PDFs linked but offline download/save not implemented
-- [ ] **Online Tests Module** — Currently shows a "Coming Soon" placeholder screen.
 - [ ] **Dark Mode** — Not implemented
 - [ ] **Biometric Login** — No fingerprint/face unlock
 - [ ] **Parent View** — No parent-facing portal (only student login)
