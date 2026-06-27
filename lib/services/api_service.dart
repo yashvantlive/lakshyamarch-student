@@ -283,13 +283,4 @@ class ApiService {
     if (resp is List) return resp;
     throw Exception('Unexpected response format for videos');
   }
-
-  Future<dynamic> submitPracticeTestResult(Map<String, dynamic> body, String token) async {
-    return await postRequest('/api/students/practice-tests', body, token);
-  }
-
-  Future<Map<String, dynamic>> getPracticeTestAttempts(String studentId, String token) async {
-    final resp = await getRequest('/api/students/practice-tests?studentId=$studentId', token);
-    return Map<String, dynamic>.from(resp as Map);
-  }
 }
